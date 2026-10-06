@@ -1,0 +1,500 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Câmara 2026</title><meta name="robots" content="noindex"><meta name="description" content="Resultado oficial do TSE: PL 121, PT/PCdoB/PV 88, União/PP 87. Cláusula de barreira, quociente eleitoral e votos por estado, cidade, partido e candidato."><meta property="og:type" content="website"><meta property="og:title" content="Eleições 2026 · Câmara dos Deputados"><meta property="og:description" content="Resultado oficial do TSE: PL 121, PT/PCdoB/PV 88, União/PP 87. Cláusula de barreira, quociente eleitoral e votos por estado, cidade, partido e candidato."><meta property="og:url" content="https://antoniohertz-n8n.github.io/resultado-camara-2026/"><meta property="og:image" content="https://antoniohertz-n8n.github.io/resultado-camara-2026/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap"><style>/* Boletim nacional: uma coluna de leitura, números primeiro, filtros em cima */
+:root{
+ --bg:#f4f6f8; --card:#ffffff; --ink:#0c1a29; --ink2:#46566a; --ink3:#6b7a8d; --line:#dfe4ea; --soft:#eef2f6;
+ --brand:#0e3a6b; --bar:#2a78d6; --bar2:#a9c8ef; --mark:#0c1a29;
+ --ok:#1d7a4c; --ok-bg:#e6f4ec; --no:#b3261e; --no-bg:#fbe9e7; --neutro:#5b6878;
+ --wa:#1d7a4c;
+ --font:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+ --bg:#0d1218; --card:#151c24; --ink:#edf1f5; --ink2:#b4bfcb; --ink3:#8f9cab; --line:#29323d; --soft:#1b232d;
+ --brand:#a9c8ef; --bar:#5aa0ef; --bar2:#2f4c70; --mark:#edf1f5;
+ --ok:#5cc58f; --ok-bg:#16301f; --no:#f28b82; --no-bg:#3a1c1a; --neutro:#a3afbd;
+ --wa:#23905a; color-scheme:dark}}
+:root[data-theme="dark"]{
+ --bg:#0d1218; --card:#151c24; --ink:#edf1f5; --ink2:#b4bfcb; --ink3:#8f9cab; --line:#29323d; --soft:#1b232d;
+ --brand:#a9c8ef; --bar:#5aa0ef; --bar2:#2f4c70; --mark:#edf1f5;
+ --ok:#5cc58f; --ok-bg:#16301f; --no:#f28b82; --no-bg:#3a1c1a; --neutro:#a3afbd;
+ --wa:#23905a; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.5}
+.pag{max-width:1040px;margin:0 auto;padding-left:16px;padding-right:16px;padding-block:18px 48px}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:1.15rem;font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.25rem;font-weight:750;letter-spacing:-.01em}
+h3{font-size:1rem;font-weight:700}
+a{color:var(--brand)}
+.topo{padding-bottom:14px;border-bottom:1px solid var(--line)}
+.topo small{display:block;color:var(--ink2);font-size:.9rem}
+.fonte{margin:4px 0 0;color:var(--ink3);font-size:.8rem}
+section{padding-block:24px;border-bottom:1px solid var(--line);min-width:0}
+section:last-child{border-bottom:0}
+.sec-h{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
+.sec-h p{margin:0;color:var(--ink2);font-size:.92rem}
+.eyebrow{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand)}
+.big{font-size:clamp(2.8rem,12vw,4.4rem);font-weight:800;letter-spacing:-.03em;line-height:1;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.big small{font-size:.3em;font-weight:600;letter-spacing:0;color:var(--ink2);margin-left:6px}
+.sit{font-size:1.02rem;font-weight:600;margin:8px 0 0}
+.sub{margin:6px 0 0;color:var(--ink2)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+@media (min-width:720px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.t-r{font-size:.78rem;color:var(--ink2)}.t-v{font-size:1.3rem;font-weight:750;letter-spacing:-.01em;font-variant-numeric:tabular-nums}.t-d{font-size:.8rem;color:var(--ink3)}
+.indice{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0;padding:0;list-style:none}
+.indice a{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:6px;color:var(--ink);text-decoration:none;font-size:.85rem;background:var(--card)}
+.indice a:hover{border-color:var(--brand)}
+.wa{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:11px 16px;border-radius:6px;background:var(--wa);color:#fff;font-weight:700;text-decoration:none;font-size:.95rem}
+.wa:hover{filter:brightness(1.08)}
+.wa svg{width:18px;height:18px;flex:none}
+/* filtros */
+.filtros{display:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;margin:14px 0 4px;gap:10px}
+.js .filtros{display:grid}
+.f-linha{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:760px){.f-linha{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.campo{position:relative;display:flex;flex-direction:column;gap:4px;min-width:0}
+.campo>label{font-size:.76rem;font-weight:650;color:var(--ink2)}
+.filtros input,.filtros select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%;min-width:0;height:42px}
+.filtros input:focus,.filtros select:focus{border-color:var(--brand);outline:none}
+.filtros select.on,.filtros input.on{border-color:var(--brand);background:var(--card);font-weight:650}
+.f-pe{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.f-res{font-size:.88rem;color:var(--ink2);min-width:0}
+.f-res b{color:var(--ink)}
+.limpa,.mais-btn{font:inherit;font-size:.88rem;font-weight:650;padding:9px 14px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.limpa[disabled]{opacity:.45;cursor:default}
+.mais-btn{display:block;width:100%;margin-top:10px;padding:12px}
+.sugestoes{position:absolute;left:0;right:0;top:100%;z-index:20;list-style:none;margin:4px 0 0;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 28px rgba(12,26,41,.18);max-height:60vh;overflow:auto;min-width:260px}
+.sugestoes li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px;border-radius:6px;cursor:pointer}
+.sugestoes li b{font-weight:650;min-width:0;overflow-wrap:anywhere}
+.sugestoes li.on,.sugestoes li:hover{background:var(--soft)}
+.sugestoes small{color:var(--ink3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sugestoes li.vazio{color:var(--ink3);cursor:default}
+/* status: ícone + palavra, nunca só cor */
+.st{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:650;white-space:nowrap}
+.st.ok{color:var(--ok)}.st.no{color:var(--no)}.st.neu{color:var(--neutro)}
+.st i{font-style:normal}
+.selo{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:6px;font-size:.85rem;font-weight:700}
+.selo.ok{background:var(--ok-bg);color:var(--ok)}.selo.no{background:var(--no-bg);color:var(--no)}
+/* achados */
+.achados{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+@media (min-width:820px){.achados{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.achados li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;min-width:0}
+.achados b{display:block;margin-bottom:4px;font-size:1rem}
+.achados span{color:var(--ink2);font-size:.92rem}
+.regra{background:var(--soft);border-radius:8px;padding:12px 14px;color:var(--ink2);font-size:.9rem;margin:0 0 14px}
+.regra b{color:var(--ink)}
+/* listas com barra */
+.linhas{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.linha{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:8px;color:inherit;text-decoration:none;min-width:0}
+a.linha:hover{border-color:var(--brand)}
+.l-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.l-nome{font-weight:700;min-width:0;overflow-wrap:anywhere}
+.l-nome small{font-weight:500;color:var(--ink3);font-size:.8rem;margin-left:6px}
+.l-num{font-weight:750;font-variant-numeric:tabular-nums;white-space:nowrap}
+.l-sub{color:var(--ink2);font-size:.82rem;margin-top:2px}
+.barra{position:relative;height:8px;background:var(--soft);border-radius:4px;margin-top:7px}
+.barra i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--bar);min-width:2px}
+.barra .marca{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--mark);border-radius:1px}
+.leg{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 10px;color:var(--ink2);font-size:.8rem}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{display:inline-block;width:2px;height:12px;background:var(--mark)}
+.leg em{display:inline-block;width:14px;height:8px;border-radius:3px;background:var(--bar);font-style:normal}
+/* candidatos */
+.cands{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.cand{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:2px 10px;align-items:baseline;padding:9px 12px;background:var(--card);border:1px solid var(--line);border-radius:8px;color:inherit;text-decoration:none}
+a.cand:hover{border-color:var(--brand)}
+.c-k{color:var(--ink3);font-weight:700;font-variant-numeric:tabular-nums;font-size:.85rem}
+.c-n{min-width:0}.c-n small+small{display:block;margin-top:2px;color:var(--ink2)}.c-n b{display:block;font-weight:700;overflow-wrap:anywhere}.c-n small{color:var(--ink3);font-size:.78rem}
+.c-v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.c-v b{display:block;font-weight:750}
+.c-v small{color:var(--ink3);font-size:.78rem}
+.duas{display:grid;gap:22px}
+@media (min-width:820px){.duas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* tabelas */
+.tab{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--card);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.85rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td,tr:last-child th{border-bottom:0}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-size:.72rem;color:var(--ink3);font-weight:650;vertical-align:bottom;white-space:normal}
+tbody th{font-weight:650}
+tbody th small,td small{display:block;font-weight:400;color:var(--ink3);font-size:.74rem;white-space:normal}
+td a,th a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink3)}
+.vazio-msg{color:var(--ink3);font-size:.92rem;padding:12px 0}
+.carrega{color:var(--ink3);padding:24px 0}
+.metodo summary{cursor:pointer;font-weight:700}
+.metodo ul{color:var(--ink2);font-size:.88rem;padding-left:18px}
+.metodo li{margin:4px 0}
+.so-js{display:none}.js .so-js{display:initial}
+.sem-js{margin:14px 0 0}.js .sem-js{display:none}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* caixas do filtro, abas e seletores */
+.caixa{border:0;margin:0;padding:0;min-width:0;display:grid;gap:6px}
+.caixa legend{padding:0;margin-bottom:6px;font-size:.76rem;font-weight:750;text-transform:uppercase;letter-spacing:.06em;color:var(--brand)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.abas{display:flex;gap:4px;margin:18px 0 0;border-bottom:1px solid var(--line);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.abas button{font:inherit;font-size:.92rem;font-weight:650;padding:10px 12px;border:0;border-bottom:3px solid transparent;background:none;color:var(--ink2);cursor:pointer;white-space:nowrap;margin-bottom:-1px}
+.abas button b{font-weight:700;color:var(--ink3);font-variant-numeric:tabular-nums;margin-left:2px}
+.abas button.on{color:var(--ink);border-bottom-color:var(--brand)}
+.abas button.on b{color:var(--brand)}
+.aba-p>section:first-child{padding-top:16px}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.seg button{font:inherit;font-size:.86rem;font-weight:650;padding:8px 12px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.seg button b{font-variant-numeric:tabular-nums;color:var(--ink3);margin-left:4px}
+.seg button.on{background:var(--brand);border-color:var(--brand);color:var(--card)}
+.seg button.on b{color:inherit}
+.ordem{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:.85rem;color:var(--ink2)}
+.ordem select{font:inherit;font-size:16px;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+.qe-nota{background:var(--soft);border-radius:8px;padding:10px 12px;margin:14px 0 0;font-size:.88rem;color:var(--ink2)}
+.qe-nota b{color:var(--ink)}
+.selo{white-space:nowrap;flex:none}
+.l-top .selo{margin-left:auto}
+</style><script>document.documentElement.classList.add('js')</script></head><body><div class="pag">
+<header class="topo"><h1>Eleições 2026 · Câmara dos Deputados</h1><small>Deputado federal · resultado oficial do TSE, Brasil inteiro</small>
+<p class="fonte">1º turno, 4/10/2026 · 100% das seções apuradas · dados do TSE gerados até 05/10/2026 11:48</p></header>
+<form class="filtros" id="filtros" role="search" onsubmit="return false">
+<fieldset class="caixa"><legend>Partido ou federação</legend>
+<div class="campo"><label for="f-grupo" class="vh">Partido ou federação</label><select id="f-grupo"><option value="">Todos os partidos e federações</option>
+<optgroup label="Federações"><option value="f103">PRD/Solidariedade · Renovação Solidária</option><option value="f100">PSDB/Cidadania · PSDB Cidadania</option><option value="f102">PSOL/Rede · PSOL Rede</option><option value="f101">PT/PCdoB/PV · Brasil da Esperança</option><option value="f104">União/PP · União Progressista</option></optgroup><optgroup label="Partidos"><option value="p36">Agir</option><option value="p70">Avante</option><option value="p23">Cidadania · na federação PSDB/Cidadania</option><option value="p27">DC</option><option value="p35">Democrata</option><option value="p15">MDB</option><option value="p14">Missão</option><option value="p33">Mobiliza</option><option value="p30">Novo</option><option value="p65">PCdoB · na federação PT/PCdoB/PV</option><option value="p29">PCO</option><option value="p12">PDT</option><option value="p22">PL</option><option value="p20">Podemos</option><option value="p11">PP · na federação União/PP</option><option value="p25">PRD · na federação PRD/Solidariedade</option><option value="p40">PSB</option><option value="p55">PSD</option><option value="p45">PSDB · na federação PSDB/Cidadania</option><option value="p50">PSOL · na federação PSOL/Rede</option><option value="p16">PSTU</option><option value="p13">PT · na federação PT/PCdoB/PV</option><option value="p43">PV · na federação PT/PCdoB/PV</option><option value="p18">Rede · na federação PSOL/Rede</option><option value="p10">Republicanos</option><option value="p77">Solidariedade · na federação PRD/Solidariedade</option><option value="p44">União · na federação União/PP</option><option value="p80">UP</option></optgroup></select></div></fieldset>
+<fieldset class="caixa"><legend>Onde</legend><div class="f-linha">
+<div class="campo"><label for="f-uf">Estado</label><select id="f-uf"><option value="">Brasil (todos)</option><option value="ac">Acre</option><option value="al">Alagoas</option><option value="ap">Amapá</option><option value="am">Amazonas</option><option value="ba">Bahia</option><option value="ce">Ceará</option><option value="df">Distrito Federal</option><option value="es">Espírito Santo</option><option value="go">Goiás</option><option value="ma">Maranhão</option><option value="mt">Mato Grosso</option><option value="ms">Mato Grosso do Sul</option><option value="mg">Minas Gerais</option><option value="pr">Paraná</option><option value="pb">Paraíba</option><option value="pa">Pará</option><option value="pe">Pernambuco</option><option value="pi">Piauí</option><option value="rj">Rio de Janeiro</option><option value="rn">Rio Grande do Norte</option><option value="rs">Rio Grande do Sul</option><option value="ro">Rondônia</option><option value="rr">Roraima</option><option value="sc">Santa Catarina</option><option value="se">Sergipe</option><option value="sp">São Paulo</option><option value="to">Tocantins</option></select></div>
+<div class="campo"><label for="f-cid">Cidade</label><input id="f-cid" type="search" placeholder="Digite a cidade" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="s-cid" aria-autocomplete="list"><ul id="s-cid" class="sugestoes" role="listbox" hidden></ul></div>
+</div></fieldset>
+<div class="campo"><label for="f-cand">Candidato</label><input id="f-cand" type="search" placeholder="Busque pelo nome de urna ou pelo número" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="s-cand" aria-autocomplete="list"><ul id="s-cand" class="sugestoes" role="listbox" hidden></ul></div>
+<div class="f-pe"><span class="f-res" id="f-res">Mostrando o <b>Brasil inteiro</b></span><button type="button" class="limpa" id="limpar" disabled>Limpar filtros</button></div>
+</form>
+<p class="sem-js regra">Os filtros por estado, cidade, partido e candidato precisam de JavaScript. O painel do Brasil está abaixo.</p>
+<main>
+<div id="geral">
+<section id="painel"><span class="eyebrow">Painel geral · Brasil</span>
+<p class="big">513<small>deputados federais eleitos</small></p>
+<p class="sit">113.678.019 votos válidos em 27 estados e 5.571 cidades</p>
+<div class="tiles"><div class="tile"><span class="t-r">Votos válidos</span><span class="t-v">113.678.019</span><span class="t-d">3,0% de legenda</span></div><div class="tile"><span class="t-r">Comparecimento</span><span class="t-v">79,1%</span><span class="t-d">124,8 milhões de 157,6 milhões de eleitores</span></div><div class="tile"><span class="t-r">Brancos e nulos</span><span class="t-v">10.709.384</span><span class="t-d">brancos 6.445.372 · nulos 4.264.012</span></div><div class="tile"><span class="t-r">Candidatos</span><span class="t-v">7.263</span><span class="t-d">28 partidos, 5 federações</span></div><div class="tile"><span class="t-r">Passaram na cláusula</span><span class="t-v">14 de 28</span><span class="t-d">partidos (10 contando cada federação como uma)</span></div><div class="tile"><span class="t-r">Eleitos por quociente</span><span class="t-v">385</span><span class="t-d">e 128 pelas maiores médias (sobras)</span></div></div>
+<ul class="indice"><li><a href="#achados">O que chama atenção</a></li><li><a href="#clausula">Cláusula de barreira</a></li><li><a href="#bancadas">Bancadas</a></li>
+<li><a href="#federacoes">Federações</a></li><li><a href="#estados">Estados e quociente</a></li><li><a href="#mais-votados">Mais votados</a></li><li><a href="#curva">Fora da curva</a></li></ul>
+<a class="wa" href="https://wa.me/?text=Elei%C3%A7%C3%B5es%202026%20%C2%B7%20C%C3%A2mara%20dos%20Deputados%3A%20PL%20elegeu%20121%2C%20PT/PCdoB/PV%2088%2C%20Uni%C3%A3o/PP%2087.%2014%20de%2028%20partidos%20passaram%20na%20cl%C3%A1usula%2C%20pela%20conta%20com%20os%20votos%20de%20hoje.%20Resultado%20por%20estado%2C%20cidade%2C%20partido%2C%20federa%C3%A7%C3%A3o%20e%20candidato%3A%20https%3A//antoniohertz-n8n.github.io/resultado-camara-2026/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Enviar pelo WhatsApp</a>
+</section>
+<section id="achados"><div class="sec-h"><h2>O que chama atenção</h2></div><ul class="achados"><li><b>PL elegeu 121 deputados, a maior bancada</b><span>São 23,6% das 513 cadeiras com 22,72% dos votos válidos. A segunda força é a federação PT/PCdoB/PV, com 88.</span></li><li><b>PSOL-Rede ficou fora da cláusula com 4,89% dos votos do país</b><span>Teve quase o dobro dos 2,5% exigidos, mas chegou a 1,5% em 8 estados e precisava de 9. No ES faltaram 186 votos. Pelos eleitos, fez 15 em 6 estados (precisava de 13 em 9).</span></li><li><b>O Novo passou com o 9º estado no limite</b><span>Teve 2,56% no país e 1,5% em exatamente 9 estados. No DF, o 9º, a folga foi de 976 votos.</span></li><li><b>34 eleitos podem mudar de partido sem perder o mandato</b><span>Quem se elegeu por partido que não passou na cláusula pode ir para um que passou (Constituição, art. 17, § 5º): PSOL 14, PDT 6, Avante 5, PRD 5, Solidariedade 2, Rede 1, Missão 1.</span></li><li><b>Nikolas Ferreira (PL-MG) foi o mais votado do país</b><span>3.119.318 votos, 14,5 vezes o quociente eleitoral do estado (214.720). 34 candidatos tiveram, sozinhos, votos acima do quociente.</span></li><li><b>212 candidatos estão com votos sub judice</b><span>São 376.347 votos de candidatos (e mais 4.735 de legenda) fora da conta até o julgamento. Nenhum deles está entre os eleitos hoje; o maior caso é Ricardo Abrão (PSDB-RJ), com 63.730. Se a Justiça validar, quociente e cadeiras do estado podem mudar.</span></li></ul></section>
+<section id="clausula"><div class="sec-h"><h2>Cláusula de barreira</h2><p>14 dos 28 partidos passaram. Todos aparecem abaixo, com o que faltou para quem não alcançou. Toque para ver o partido ou a federação.</p></div><p class="regra"><b>A regra de 2026</b> (Emenda Constitucional 97/2017): para ter fundo partidário e tempo de rádio e TV a partir de 2027, o partido precisa de <b>2,5% dos votos válidos do país, com pelo menos 1,5% em 9 estados</b>, <b>ou</b> de <b>13 deputados eleitos em pelo menos 9 estados</b>. A federação conta como um partido só, somando votos e eleitos dos partidos que a formam (Resolução TSE 23.670/2021, art. 4º, § 2º).</p><div class="leg"><span><em></em>votos no país</span><span><i></i>linha dos 2,5%</span></div><ol class="linhas"><li><a class="linha" href="#p=22"><div class="l-top"><span class="l-nome">PL</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">22,72% no país · 1,5% em 27 estados · 121 eleitos em 24 estados</div><div class="barra"><i style="width:100.00%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 22,72% no país e 1,5% em 27 estados; pelos eleitos, elegeu 121 em 24 estados.</div></a></li><li><a class="linha" href="#f=101"><div class="l-top"><span class="l-nome">PT/PCdoB/PV<small>PT 70 · PCdoB 11 · PV 7</small></span><span class="selo ok">✓ Passou</span></div><div class="l-sub">15,32% no país · 1,5% em 27 estados · 88 eleitos em 22 estados</div><div class="barra"><i style="width:67.45%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 15,32% no país e 1,5% em 27 estados; pelos eleitos, elegeu 88 em 22 estados.</div></a></li><li><a class="linha" href="#f=104"><div class="l-top"><span class="l-nome">União/PP<small>União 46 · PP 41</small></span><span class="selo ok">✓ Passou</span></div><div class="l-sub">13,61% no país · 1,5% em 27 estados · 87 eleitos em 26 estados</div><div class="barra"><i style="width:59.90%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 13,61% no país e 1,5% em 27 estados; pelos eleitos, elegeu 87 em 26 estados.</div></a></li><li><a class="linha" href="#p=55"><div class="l-top"><span class="l-nome">PSD</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">8,26% no país · 1,5% em 20 estados · 43 eleitos em 17 estados</div><div class="barra"><i style="width:36.37%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 8,26% no país e 1,5% em 20 estados; pelos eleitos, elegeu 43 em 17 estados.</div></a></li><li><a class="linha" href="#p=10"><div class="l-top"><span class="l-nome">Republicanos</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">6,96% no país · 1,5% em 24 estados · 41 eleitos em 22 estados</div><div class="barra"><i style="width:30.64%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 6,96% no país e 1,5% em 24 estados; pelos eleitos, elegeu 41 em 22 estados.</div></a></li><li><a class="linha" href="#p=15"><div class="l-top"><span class="l-nome">MDB</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">6,94% no país · 1,5% em 20 estados · 36 eleitos em 17 estados</div><div class="barra"><i style="width:30.55%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 6,94% no país e 1,5% em 20 estados; pelos eleitos, elegeu 36 em 17 estados.</div></a></li><li><a class="linha" href="#p=20"><div class="l-top"><span class="l-nome">Podemos</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">5,18% no país · 1,5% em 16 estados · 27 eleitos em 15 estados</div><div class="barra"><i style="width:22.80%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos dois caminhos. Pelos votos, teve 5,18% no país e 1,5% em 16 estados; pelos eleitos, elegeu 27 em 15 estados.</div></a></li><li><a class="linha" href="#f=102"><div class="l-top"><span class="l-nome">PSOL/Rede<small>PSOL 14 · Rede 1</small></span><span class="selo no">✕ Não passou</span></div><div class="l-sub">4,89% no país · 1,5% em 8 estados · 15 eleitos em 6 estados</div><div class="barra"><i style="width:21.53%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 4,89% no país, acima dos 2,5%, mas chegou a 1,5% em 8 estados e precisava de 9 (mais perto: ES, a 186 votos). Pelos eleitos: elegeu 15, acima dos 13, mas em 6 estados e precisava de 9.</div></a></li><li><a class="linha" href="#p=40"><div class="l-top"><span class="l-nome">PSB</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">4,41% no país · 1,5% em 13 estados · 15 eleitos em 8 estados</div><div class="barra"><i style="width:19.39%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos votos: teve 4,41% no país e 1,5% em 13 estados. Pelos eleitos não passaria: elegeu 15, acima dos 13, mas em 8 estados e precisava de 9.</div></a></li><li><a class="linha" href="#f=100"><div class="l-top"><span class="l-nome">PSDB/Cidadania<small>PSDB 11 · Cidadania 0</small></span><span class="selo ok">✓ Passou</span></div><div class="l-sub">2,75% no país · 1,5% em 14 estados · 11 eleitos em 7 estados</div><div class="barra"><i style="width:12.12%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos votos: teve 2,75% no país e 1,5% em 14 estados. Pelos eleitos não passaria: elegeu 11 em 7 estados (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=30"><div class="l-top"><span class="l-nome">Novo</span><span class="selo ok">✓ Passou</span></div><div class="l-sub">2,56% no país · 1,5% em 9 estados · 10 eleitos em 6 estados</div><div class="barra"><i style="width:11.29%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Passou pelos votos: teve 2,56% no país e 1,5% em 9 estados. Pelos eleitos não passaria: elegeu 10 em 6 estados (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#f=103"><div class="l-top"><span class="l-nome">PRD/Solidariedade<small>PRD 5 · Solidariedade 2</small></span><span class="selo no">✕ Não passou</span></div><div class="l-sub">1,86% no país · 1,5% em 7 estados · 7 eleitos em 6 estados</div><div class="barra"><i style="width:8.21%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 1,86% no país (precisava de 2,5%; faltaram 722.067 votos) e chegou a 1,5% em 7 estados (precisava de 9). Pelos eleitos: elegeu 7 em 6 estados (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=12"><div class="l-top"><span class="l-nome">PDT</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">1,64% no país · 1,5% em 8 estados · 6 eleitos em 5 estados</div><div class="barra"><i style="width:7.24%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 1,64% no país (precisava de 2,5%; faltaram 973.527 votos) e chegou a 1,5% em 8 estados (precisava de 9). Pelos eleitos: elegeu 6 em 5 estados (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=70"><div class="l-top"><span class="l-nome">Avante</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">1,59% no país · 1,5% em 6 estados · 5 eleitos em 3 estados</div><div class="barra"><i style="width:7.00%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 1,59% no país (precisava de 2,5%; faltaram 1.034.009 votos) e chegou a 1,5% em 6 estados (precisava de 9). Pelos eleitos: elegeu 5 em 3 estados (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=14"><div class="l-top"><span class="l-nome">Missão</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">1,08% no país · 1,5% em 1 estado · 1 eleito em 1 estado</div><div class="barra"><i style="width:4.74%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 1,08% no país (precisava de 2,5%; faltaram 1.618.382 votos) e chegou a 1,5% em 1 estado (precisava de 9). Pelos eleitos: elegeu 1 em 1 estado (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=27"><div class="l-top"><span class="l-nome">DC</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,10% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.44%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,10% no país (precisava de 2,5%; faltaram 2.727.549 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=80"><div class="l-top"><span class="l-nome">UP</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,04% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.18%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,04% no país (precisava de 2,5%; faltaram 2.796.520 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=33"><div class="l-top"><span class="l-nome">Mobiliza</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,03% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.13%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,03% no país (precisava de 2,5%; faltaram 2.807.679 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=35"><div class="l-top"><span class="l-nome">Democrata</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,02% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.11%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,02% no país (precisava de 2,5%; faltaram 2.814.756 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=16"><div class="l-top"><span class="l-nome">PSTU</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,02% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.07%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,02% no país (precisava de 2,5%; faltaram 2.823.255 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=36"><div class="l-top"><span class="l-nome">Agir</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,01% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.03%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,01% no país (precisava de 2,5%; faltaram 2.834.796 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li><li><a class="linha" href="#p=29"><div class="l-top"><span class="l-nome">PCO</span><span class="selo no">✕ Não passou</span></div><div class="l-sub">0,003% no país · 1,5% em 0 estados · 0 eleitos em 0 estados</div><div class="barra"><i style="width:0.01%"></i><span class="marca" style="left:11.00%"></span></div><div class="l-sub">Não alcançou. Pelos votos: teve 0,003% no país (precisava de 2,5%; faltaram 2.838.910 votos) e não chegou a 1,5% em nenhum estado (precisava de 9). Pelos eleitos: não elegeu ninguém (precisava de 13 em 9 estados).</div></a></li></ol></section>
+<section id="bancadas"><div class="sec-h"><h2>Bancadas eleitas</h2><p>Deputados eleitos por partido, dos 28 que tiveram candidato.</p></div><ol class="linhas"><li><a class="linha" href="#p=22"><div class="l-top"><span class="l-nome">PL<small>Partido Liberal</small></span><span class="l-num">121</span></div><div class="barra"><i style="width:100.00%"></i></div><div class="l-sub">25.824.755 votos (22,72%) · 525 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=13"><div class="l-top"><span class="l-nome">PT<small>Partido dos Trabalhadores · PT/PCdoB/PV</small></span><span class="l-num">70</span></div><div class="barra"><i style="width:57.85%"></i></div><div class="l-sub">14.788.038 votos (13,01%) · 350 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=44"><div class="l-top"><span class="l-nome">União<small>União Brasil · União/PP</small></span><span class="l-num">46</span></div><div class="barra"><i style="width:38.02%"></i></div><div class="l-sub">7.858.039 votos (6,91%) · 280 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=55"><div class="l-top"><span class="l-nome">PSD<small>Partido Social Democrático</small></span><span class="l-num">43</span></div><div class="barra"><i style="width:35.54%"></i></div><div class="l-sub">9.391.321 votos (8,26%) · 420 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=10"><div class="l-top"><span class="l-nome">Republicanos<small>Republicanos</small></span><span class="l-num">41</span></div><div class="barra"><i style="width:33.88%"></i></div><div class="l-sub">7.911.780 votos (6,96%) · 448 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=11"><div class="l-top"><span class="l-nome">PP<small>Progressistas · União/PP</small></span><span class="l-num">41</span></div><div class="barra"><i style="width:33.88%"></i></div><div class="l-sub">7.611.922 votos (6,70%) · 227 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=15"><div class="l-top"><span class="l-nome">MDB<small>Movimento Democrático Brasileiro</small></span><span class="l-num">36</span></div><div class="barra"><i style="width:29.75%"></i></div><div class="l-sub">7.890.384 votos (6,94%) · 446 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=20"><div class="l-top"><span class="l-nome">Podemos<small>Podemos</small></span><span class="l-num">27</span></div><div class="barra"><i style="width:22.31%"></i></div><div class="l-sub">5.887.427 votos (5,18%) · 442 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=40"><div class="l-top"><span class="l-nome">PSB<small>Partido Socialista Brasileiro</small></span><span class="l-num">15</span></div><div class="barra"><i style="width:12.40%"></i></div><div class="l-sub">5.007.692 votos (4,41%) · 402 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=50"><div class="l-top"><span class="l-nome">PSOL<small>Partido Socialismo e Liberdade · PSOL/Rede</small></span><span class="l-num">14</span></div><div class="barra"><i style="width:11.57%"></i></div><div class="l-sub">5.295.721 votos (4,66%) · 301 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=45"><div class="l-top"><span class="l-nome">PSDB<small>Partido da Social Democracia Brasileira · PSDB/Cidadania</small></span><span class="l-num">11</span></div><div class="barra"><i style="width:9.09%"></i></div><div class="l-sub">2.839.853 votos (2,50%) · 349 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=65"><div class="l-top"><span class="l-nome">PCdoB<small>Partido Comunista do Brasil · PT/PCdoB/PV</small></span><span class="l-num">11</span></div><div class="barra"><i style="width:9.09%"></i></div><div class="l-sub">1.306.368 votos (1,15%) · 50 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=30"><div class="l-top"><span class="l-nome">Novo<small>Partido Novo</small></span><span class="l-num">10</span></div><div class="barra"><i style="width:8.26%"></i></div><div class="l-sub">2.914.364 votos (2,56%) · 495 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=43"><div class="l-top"><span class="l-nome">PV<small>Partido Verde · PT/PCdoB/PV</small></span><span class="l-num">7</span></div><div class="barra"><i style="width:5.79%"></i></div><div class="l-sub">1.325.500 votos (1,17%) · 77 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=12"><div class="l-top"><span class="l-nome">PDT<small>Partido Democrático Trabalhista</small></span><span class="l-num">6</span></div><div class="barra"><i style="width:4.96%"></i></div><div class="l-sub">1.868.424 votos (1,64%) · 462 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=70"><div class="l-top"><span class="l-nome">Avante<small>Avante</small></span><span class="l-num">5</span></div><div class="barra"><i style="width:4.13%"></i></div><div class="l-sub">1.807.942 votos (1,59%) · 379 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=25"><div class="l-top"><span class="l-nome">PRD<small>Partido Renovação Democrática · PRD/Solidariedade</small></span><span class="l-num">5</span></div><div class="barra"><i style="width:4.13%"></i></div><div class="l-sub">1.189.831 votos (1,05%) · 193 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=77"><div class="l-top"><span class="l-nome">Solidariedade<small>Solidariedade · PRD/Solidariedade</small></span><span class="l-num">2</span></div><div class="barra"><i style="width:1.65%"></i></div><div class="l-sub">930.053 votos (0,82%) · 241 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=14"><div class="l-top"><span class="l-nome">Missão<small>Partido Missão</small></span><span class="l-num">1</span></div><div class="barra"><i style="width:0.83%"></i></div><div class="l-sub">1.223.569 votos (1,08%) · 319 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=18"><div class="l-top"><span class="l-nome">Rede<small>Rede Sustentabilidade · PSOL/Rede</small></span><span class="l-num">1</span></div><div class="barra"><i style="width:0.83%"></i></div><div class="l-sub">263.520 votos (0,23%) · 104 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=23"><div class="l-top"><span class="l-nome">Cidadania<small>Cidadania · PSDB/Cidadania</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">291.324 votos (0,26%) · 66 candidatos · passou na cláusula</div></a></li><li><a class="linha" href="#p=27"><div class="l-top"><span class="l-nome">DC<small>Democracia Cristã</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">114.402 votos (0,10%) · 290 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=80"><div class="l-top"><span class="l-nome">UP<small>Unidade Popular</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">45.431 votos (0,04%) · 44 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=33"><div class="l-top"><span class="l-nome">Mobiliza<small>Mobilização Nacional</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">34.272 votos (0,03%) · 114 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=35"><div class="l-top"><span class="l-nome">Democrata<small>Democrata</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">27.195 votos (0,02%) · 112 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=16"><div class="l-top"><span class="l-nome">PSTU<small>Partido Socialista dos Trabalhadores Unificado</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">18.696 votos (0,02%) · 19 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=36"><div class="l-top"><span class="l-nome">Agir<small>Agir</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">7.155 votos (0,01%) · 79 candidatos · não passou na cláusula</div></a></li><li><a class="linha" href="#p=29"><div class="l-top"><span class="l-nome">PCO<small>Partido da Causa Operária</small></span><span class="l-num">0</span></div><div class="barra"><i style="width:0.00%"></i></div><div class="l-sub">3.041 votos (0,003%) · 29 candidatos · não passou na cláusula</div></a></li></ol></section>
+<section id="federacoes"><div class="sec-h"><h2>Federações</h2><p>Na eleição, a federação funciona como um partido só: soma os votos para o quociente e para a cláusula.</p></div><ol class="linhas"><li><a class="linha" href="#f=101"><div class="l-top"><span class="l-nome">PT/PCdoB/PV<small>Federação Brasil da Esperança</small></span><span class="l-num">88 eleitos</span></div><div class="l-sub">17.419.906 votos (15,32%) · <span class="selo ok">✓ Passou</span></div><div class="l-sub">PT: 70 eleitos, 14.788.038 votos · PCdoB: 11 eleitos, 1.306.368 votos · PV: 7 eleitos, 1.325.500 votos</div></a></li><li><a class="linha" href="#f=104"><div class="l-top"><span class="l-nome">União/PP<small>Federação União Progressista</small></span><span class="l-num">87 eleitos</span></div><div class="l-sub">15.469.961 votos (13,61%) · <span class="selo ok">✓ Passou</span></div><div class="l-sub">União: 46 eleitos, 7.858.039 votos · PP: 41 eleitos, 7.611.922 votos</div></a></li><li><a class="linha" href="#f=102"><div class="l-top"><span class="l-nome">PSOL/Rede<small>Federação PSOL Rede</small></span><span class="l-num">15 eleitos</span></div><div class="l-sub">5.559.241 votos (4,89%) · <span class="selo no">✕ Não passou</span></div><div class="l-sub">PSOL: 14 eleitos, 5.295.721 votos · Rede: 1 eleito, 263.520 votos</div></a></li><li><a class="linha" href="#f=100"><div class="l-top"><span class="l-nome">PSDB/Cidadania<small>Federação PSDB Cidadania</small></span><span class="l-num">11 eleitos</span></div><div class="l-sub">3.131.177 votos (2,75%) · <span class="selo ok">✓ Passou</span></div><div class="l-sub">PSDB: 11 eleitos, 2.839.853 votos · Cidadania: 0 eleitos, 291.324 votos</div></a></li><li><a class="linha" href="#f=103"><div class="l-top"><span class="l-nome">PRD/Solidariedade<small>Federação Renovação Solidária</small></span><span class="l-num">7 eleitos</span></div><div class="l-sub">2.119.884 votos (1,86%) · <span class="selo no">✕ Não passou</span></div><div class="l-sub">PRD: 5 eleitos, 1.189.831 votos · Solidariedade: 2 eleitos, 930.053 votos</div></a></li></ol></section>
+<section id="estados"><div class="sec-h"><h2>Estados e quociente eleitoral</h2><p>Quociente eleitoral = votos válidos do estado ÷ cadeiras. É quanto custa uma cadeira em votos. Toque no estado para ver como as cadeiras foram divididas.</p></div><div class="tab"><table><thead><tr><th>Estado</th><th>Cadeiras</th><th>Quociente eleitoral</th><th>Votos válidos</th><th>Compareci&shy;mento</th><th>Mais votado</th></tr></thead><tbody><tr><th><a href="#uf=sp">São Paulo</a></th><td>70</td><td>338.203</td><td>23.674.188</td><td>77,4%</td><td><a href="#c=sp-2211">LUCAS PAVANATO</a><small>PL · 3.038.438</small></td></tr><tr><th><a href="#uf=mg">Minas Gerais</a></th><td>53</td><td>214.720</td><td>11.380.151</td><td>77,2%</td><td><a href="#c=mg-2222">NIKOLAS FERREIRA</a><small>PL · 3.119.318</small></td></tr><tr><th><a href="#uf=rj">Rio de Janeiro</a></th><td>46</td><td>190.082</td><td>8.743.753</td><td>76,7%</td><td><a href="#c=rj-1177">DR. LUIZINHO</a><small>PP · 213.904</small></td></tr><tr><th><a href="#uf=ba">Bahia</a></th><td>39</td><td>212.354</td><td>8.281.816</td><td>80,0%</td><td><a href="#c=ba-7000">PASTOR SARGENTO ISIDÓRIO</a><small>Avante · 248.147</small></td></tr><tr><th><a href="#uf=rs">Rio Grande do Sul</a></th><td>31</td><td>196.170</td><td>6.081.271</td><td>78,6%</td><td><a href="#c=rs-2277">MAURÍCIO MARCON</a><small>PL · 379.834</small></td></tr><tr><th><a href="#uf=pr">Paraná</a></th><td>30</td><td>207.241</td><td>6.217.229</td><td>79,4%</td><td><a href="#c=pr-3000">JEFFREY CHIQUINI</a><small>Novo · 425.399</small></td></tr><tr><th><a href="#uf=pe">Pernambuco</a></th><td>25</td><td>210.580</td><td>5.264.503</td><td>81,8%</td><td><a href="#c=pe-4040">PEDRO CAMPOS</a><small>PSB · 261.555</small></td></tr><tr><th><a href="#uf=ce">Ceará</a></th><td>22</td><td>250.984</td><td>5.521.642</td><td>84,5%</td><td><a href="#c=ce-2222">ANDRÉ FERNANDES</a><small>PL · 684.372</small></td></tr><tr><th><a href="#uf=ma">Maranhão</a></th><td>18</td><td>220.609</td><td>3.970.967</td><td>80,3%</td><td><a href="#c=ma-4444">PEDRO LUCAS FERNANDES</a><small>União · 188.853</small></td></tr><tr><th><a href="#uf=go">Goiás</a></th><td>17</td><td>212.220</td><td>3.607.744</td><td>78,2%</td><td><a href="#c=go-4455">BRUNO PEIXOTO</a><small>União · 207.899</small></td></tr><tr><th><a href="#uf=pa">Pará</a></th><td>17</td><td>284.249</td><td>4.832.237</td><td>80,9%</td><td><a href="#c=pa-2200">DELEGADO CAVEIRA</a><small>PL · 414.927</small></td></tr><tr><th><a href="#uf=sc">Santa Catarina</a></th><td>16</td><td>264.469</td><td>4.231.498</td><td>81,0%</td><td><a href="#c=sc-2233">JULIA ZANATTA</a><small>PL · 560.223</small></td></tr><tr><th><a href="#uf=pb">Paraíba</a></th><td>12</td><td>199.996</td><td>2.399.949</td><td>82,6%</td><td><a href="#c=pb-2222">CABO GILBERTO SILVA</a><small>PL · 267.142</small></td></tr><tr><th><a href="#uf=es">Espírito Santo</a></th><td>10</td><td>213.498</td><td>2.134.985</td><td>78,6%</td><td><a href="#c=es-2212">LUCAS POLESE</a><small>PL · 419.735</small></td></tr><tr><th><a href="#uf=pi">Piauí</a></th><td>10</td><td>210.906</td><td>2.109.063</td><td>82,8%</td><td><a href="#c=pi-5555">GEORGIANO</a><small>PSD · 234.254</small></td></tr><tr><th><a href="#uf=al">Alagoas</a></th><td>9</td><td>199.816</td><td>1.798.341</td><td>79,4%</td><td><a href="#c=al-1111">ALVINHO LIRA</a><small>PP · 172.628</small></td></tr><tr><th><a href="#uf=ac">Acre</a></th><td>8</td><td>57.811</td><td>462.485</td><td>79,6%</td><td><a href="#c=ac-1101">SOCORRO NERI</a><small>PP · 39.587</small></td></tr><tr><th><a href="#uf=ap">Amapá</a></th><td>8</td><td>57.460</td><td>459.680</td><td>82,6%</td><td><a href="#c=ap-4480">FELIPE SHOW</a><small>União · 34.587</small></td></tr><tr><th><a href="#uf=am">Amazonas</a></th><td>8</td><td>264.906</td><td>2.119.252</td><td>79,8%</td><td><a href="#c=am-2211">SARGENTO SALAZAR</a><small>PL · 212.948</small></td></tr><tr><th><a href="#uf=df">Distrito Federal</a></th><td>8</td><td>207.382</td><td>1.659.057</td><td>81,0%</td><td><a href="#c=df-5050">FÁBIO FELIX</a><small>PSOL · 224.224</small></td></tr><tr><th><a href="#uf=mt">Mato Grosso</a></th><td>8</td><td>237.715</td><td>1.901.719</td><td>77,8%</td><td><a href="#c=mt-2222">CORONEL FERNANDA</a><small>PL · 205.064</small></td></tr><tr><th><a href="#uf=ms">Mato Grosso do Sul</a></th><td>8</td><td>177.595</td><td>1.420.762</td><td>76,1%</td><td><a href="#c=ms-1367">CAMILA JARA</a><small>PT · 154.157</small></td></tr><tr><th><a href="#uf=rn">Rio Grande do Norte</a></th><td>8</td><td>245.962</td><td>1.967.700</td><td>81,6%</td><td><a href="#c=rn-1311">NATÁLIA BONAVIDES</a><small>PT · 215.509</small></td></tr><tr><th><a href="#uf=ro">Rondônia</a></th><td>8</td><td>116.617</td><td>932.939</td><td>78,3%</td><td><a href="#c=ro-2222">LUCIO MOSQUINI</a><small>PL · 158.421</small></td></tr><tr><th><a href="#uf=rr">Roraima</a></th><td>8</td><td>39.853</td><td>318.821</td><td>82,9%</td><td><a href="#c=rr-1011">MARCOS JORGE</a><small>Republicanos · 22.027</small></td></tr><tr><th><a href="#uf=se">Sergipe</a></th><td>8</td><td>160.462</td><td>1.283.700</td><td>82,7%</td><td><a href="#c=se-4444">YANDRA MOURA</a><small>União · 115.903</small></td></tr><tr><th><a href="#uf=to">Tocantins</a></th><td>8</td><td>112.821</td><td>902.567</td><td>81,6%</td><td><a href="#c=to-1111">PROFESSORA JANAD VALCARI</a><small>PP · 99.026</small></td></tr></tbody></table></div></section>
+<section id="mais-votados"><div class="sec-h"><h2>Os 20 mais votados do Brasil</h2></div><ol class="cands"><li><a class="cand" href="#c=mg-2222"><span class="c-k">1º</span><span class="c-n"><b>NIKOLAS FERREIRA</b><small>PL · MG · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>3.119.318</b><small>27,19% no estado</small></span></a></li><li><a class="cand" href="#c=sp-2211"><span class="c-k">2º</span><span class="c-n"><b>LUCAS PAVANATO</b><small>PL · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>3.038.438</b><small>12,82% no estado</small></span></a></li><li><a class="cand" href="#c=sp-5070"><span class="c-k">3º</span><span class="c-n"><b>ERIKA HILTON</b><small>PSOL · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>1.596.472</b><small>6,73% no estado</small></span></a></li><li><a class="cand" href="#c=ce-2222"><span class="c-k">4º</span><span class="c-n"><b>ANDRÉ FERNANDES</b><small>PL · CE · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>684.372</b><small>12,39% no estado</small></span></a></li><li><a class="cand" href="#c=sp-5000"><span class="c-k">5º</span><span class="c-n"><b>SÂMIA BOMFIM</b><small>PSOL · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>583.107</b><small>2,46% no estado</small></span></a></li><li><a class="cand" href="#c=sc-2233"><span class="c-k">6º</span><span class="c-n"><b>JULIA ZANATTA</b><small>PL · SC · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>560.223</b><small>13,15% no estado</small></span></a></li><li><a class="cand" href="#c=mg-1331"><span class="c-k">7º</span><span class="c-n"><b>ANA ELISA</b><small>PT · MG · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>524.219</b><small>4,57% no estado</small></span></a></li><li><a class="cand" href="#c=sp-1414"><span class="c-k">8º</span><span class="c-n"><b>KIM KATAGUIRI</b><small>Missão · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>520.071</b><small>2,19% no estado</small></span></a></li><li><a class="cand" href="#c=sp-4040"><span class="c-k">9º</span><span class="c-n"><b>TABATA AMARAL</b><small>PSB · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>476.383</b><small>2,01% no estado</small></span></a></li><li><a class="cand" href="#c=pr-3000"><span class="c-k">10º</span><span class="c-n"><b>JEFFREY CHIQUINI</b><small>Novo · PR · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>425.399</b><small>6,81% no estado</small></span></a></li><li><a class="cand" href="#c=es-2212"><span class="c-k">11º</span><span class="c-n"><b>LUCAS POLESE</b><small>PL · ES · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>419.735</b><small>19,66% no estado</small></span></a></li><li><a class="cand" href="#c=pa-2200"><span class="c-k">12º</span><span class="c-n"><b>DELEGADO CAVEIRA</b><small>PL · PA · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>414.927</b><small>8,58% no estado</small></span></a></li><li><a class="cand" href="#c=rs-2277"><span class="c-k">13º</span><span class="c-n"><b>MAURÍCIO MARCON</b><small>PL · RS · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>379.834</b><small>6,22% no estado</small></span></a></li><li><a class="cand" href="#c=sp-2222"><span class="c-k">14º</span><span class="c-n"><b>RENATO BOLSONARO</b><small>PL · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>379.312</b><small>1,60% no estado</small></span></a></li><li><a class="cand" href="#c=sp-1110"><span class="c-k">15º</span><span class="c-n"><b>SARGENTO NANTES</b><small>PP · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>333.401</b><small>1,41% no estado</small></span></a></li><li><a class="cand" href="#c=pa-1515"><span class="c-k">16º</span><span class="c-n"><b>JADER FILHO</b><small>MDB · PA · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>326.617</b><small>6,76% no estado</small></span></a></li><li><a class="cand" href="#c=sp-2000"><span class="c-k">17º</span><span class="c-n"><b>DELEGADO PALUMBO</b><small>Podemos · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>303.271</b><small>1,28% no estado</small></span></a></li><li><a class="cand" href="#c=rs-5050"><span class="c-k">18º</span><span class="c-n"><b>FERNANDA MELCHIONNA</b><small>PSOL · RS · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>280.262</b><small>4,59% no estado</small></span></a></li><li><a class="cand" href="#c=sp-5005"><span class="c-k">19º</span><span class="c-n"><b>GUILHERME CORTEZ</b><small>PSOL · SP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>275.450</b><small>1,16% no estado</small></span></a></li><li><a class="cand" href="#c=pa-2020"><span class="c-k">20º</span><span class="c-n"><b>DRA. ALESSANDRA HABER</b><small>Podemos · PA · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>272.856</b><small>5,65% no estado</small></span></a></li></ol></section>
+<section id="curva"><div class="sec-h"><h2>Fora da curva</h2><p>O voto conta para a legenda: muito voto não garante vaga, e pouco voto pode bastar. Para disputar as sobras, o partido precisa de 80% do quociente eleitoral.</p></div>
+<div class="duas"><div><h3>Mais votados que ficaram fora</h3><ol class="cands" style="margin-top:10px"><li><a class="cand" href="#c=ma-7070"><span class="c-k">140º</span><span class="c-n"><b>DUARTE JR</b><small>Avante · MA · <span class="st neu">Não eleito</span></small><small>Avante teve 77,1% do quociente e precisava de 80% para disputar as sobras</small></span><span class="c-v"><b>140.961</b><small>3,55% no estado</small></span></a></li><li><a class="cand" href="#c=go-4040"><span class="c-k">188º</span><span class="c-n"><b>AAVA SANTIAGO</b><small>PSB · GO · <span class="st neu">Não eleito</span></small><small>PSB teve 75,4% do quociente e precisava de 80% para disputar as sobras</small></span><span class="c-v"><b>123.311</b><small>3,42% no estado</small></span></a></li><li><a class="cand" href="#c=rn-1155"><span class="c-k">191º</span><span class="c-n"><b>ROBINSON FARIA</b><small>PP · RN · <span class="st neu">Suplente</span></small><small>União/PP fez 2 cadeiras; 3º lugar na lista</small></span><span class="c-v"><b>123.008</b><small>6,25% no estado</small></span></a></li><li><a class="cand" href="#c=am-5525"><span class="c-k">207º</span><span class="c-n"><b>ATILA LINS</b><small>PSD · AM · <span class="st neu">Suplente</span></small><small>PSD fez 1 cadeira; 2º lugar na lista</small></span><span class="c-v"><b>118.182</b><small>5,58% no estado</small></span></a></li><li><a class="cand" href="#c=ce-5050"><span class="c-k">213º</span><span class="c-n"><b>RENATO ROSENO</b><small>PSOL · CE · <span class="st neu">Não eleito</span></small><small>PSOL/Rede teve 76,3% do quociente e precisava de 80% para disputar as sobras</small></span><span class="c-v"><b>116.905</b><small>2,12% no estado</small></span></a></li></ol></div>
+<div><h3>Eleitos com menos votos</h3><ol class="cands" style="margin-top:10px"><li><a class="cand" href="#c=ac-2244"><span class="c-k">1276º</span><span class="c-n"><b>JÚNIOR BETÃO</b><small>PL · AC · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>13.732</b><small>2,93% no estado</small></span></a></li><li><a class="cand" href="#c=rr-4477"><span class="c-k">1230º</span><span class="c-n"><b>DEFENSOR STÉLIO DENER</b><small>União · RR · <span class="st ok"><i>✓</i> Eleito (média)</span></small></span><span class="c-v"><b>14.972</b><small>4,70% no estado</small></span></a></li><li><a class="cand" href="#c=ap-2000"><span class="c-k">1207º</span><span class="c-n"><b>DRA. ERICA</b><small>Podemos · AP · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>15.358</b><small>3,33% no estado</small></span></a></li><li><a class="cand" href="#c=rr-1022"><span class="c-k">1195º</span><span class="c-n"><b>JONER CHAGAS</b><small>Republicanos · RR · <span class="st ok"><i>✓</i> Eleito (média)</span></small></span><span class="c-v"><b>15.713</b><small>4,93% no estado</small></span></a></li><li><a class="cand" href="#c=rr-4455"><span class="c-k">1194º</span><span class="c-n"><b>ZÉ HAROLDO CATHEDRAL</b><small>União · RR · <span class="st ok"><i>✓</i> Eleito (QP)</span></small></span><span class="c-v"><b>15.796</b><small>4,95% no estado</small></span></a></li></ol></div></div></section>
+</div>
+<div id="vista" hidden></div>
+</main>
+<section class="metodo" id="metodo"><details><summary>Fontes e como ler</summary><ul>
+<li>Fonte: TSE, resultados.tse.jus.br, eleição 6259 (Eleições Gerais 2026, 1º turno), cargo Deputado Federal: arquivos dos 27 estados e das 5.571 cidades, 100% das seções, baixados em 2026-10-06. A soma das cidades confere com o total de cada estado, candidato a candidato.</li>
+<li>Votos válidos = votos nos candidatos + votos de legenda (no número do partido). Brancos e nulos não entram. É a base do quociente e da cláusula.</li>
+<li>Quociente eleitoral (Código Eleitoral, art. 106) = válidos ÷ cadeiras do estado, desprezada a fração igual ou menor que meio. O valor calculado confere com o publicado pelo TSE nos 27 estados. Quociente partidário (art. 107) = votos do partido ou federação ÷ quociente eleitoral, sem a fração: é o número de cadeiras a que tem direito na primeira etapa, desde que tenha candidatos com pelo menos 10% do quociente (art. 108). As cadeiras que sobram vão para as maiores médias, entre os partidos que fizeram pelo menos 80% do quociente, com candidatos de pelo menos 20% dele (art. 109).</li>
+<li>Cláusula de barreira de 2026: Emenda Constitucional 97/2017, art. 3º, parágrafo único, III. Federação soma votos e eleitos dos partidos (Resolução TSE 23.670/2021, art. 4º, § 2º). Conta feita aqui com os votos válidos de hoje; a apuração oficial da cláusula é do TSE.</li>
+<li>Percentual do candidato: votos ÷ (válidos + anulados sub judice), o mesmo critério que o TSE usa no resultado. Percentual de partido e federação: votos ÷ válidos.</li>
+<li>Sub judice: candidato ou lista com registro ainda em julgamento. Os votos ficam fora da conta até a decisão: 381.082 no país, sendo 376.347 de 212 candidatos e 4.735 de legenda de listas inteiras sub judice.</li><li>Nomes das cidades como no TSE (alguns diferem do IBGE).</li>
+<li>Os 28 partidos que tiveram candidato a deputado federal estão aqui, com todos os candidatos, passando ou não na cláusula.</li>
+</ul></details></section>
+</div><script>window.URL_PUBLICA="https://antoniohertz-n8n.github.io/resultado-camara-2026/";</script><script>(function(){'use strict';try{
+var d=document,$=function(s){return d.querySelector(s)};
+var vista=$('#vista'),geral=$('#geral'),form=$('#filtros');
+var URL_BASE=window.URL_PUBLICA||(location.origin+location.pathname);
+var WA_SVG=($('.wa svg')||{outerHTML:''}).outerHTML;
+
+/* ---------- formatos (sem depender do idioma do aparelho) */
+function fmt(x){return String(x).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+function pc(v,den,casas){if(casas==null)casas=2;if(!den)return '0';var m=Math.pow(10,casas),r=Math.floor(v*100*m/den+0.5);if(!r&&v>0&&casas<4)return pc(v,den,casas+1);
+ return (r/m).toFixed(casas).replace('.',',')}
+function razao(a,b,casas){var m=Math.pow(10,casas);return (Math.floor((2*a*m+b)/(2*b))/m).toFixed(casas).replace('.',',')}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function semAc(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+function nomeProprio(s){var mi={de:1,da:1,do:1,das:1,dos:1,e:1};return s.toLowerCase().split(' ').map(function(w,i){if(i&&mi[w])return w;
+ if(w.length<=4&&!/[aeiouáéíóúâêôãõà]/.test(w)&&!/\.$/.test(w))return w.toUpperCase();return (w.charAt(0).toUpperCase()+w.slice(1)).replace(/([-'])([a-zà-öø-ÿ])/g,function(_,a,b){return a+b.toUpperCase()})}).join(' ')}
+function plural(n,um,varios){return n===1?um:varios}
+function precisa(v,den,mil){return Math.max(0,Math.ceil(mil*den/1000)-v)}
+
+/* ---------- dados sob demanda */
+var cache={};
+function get(p){if(!cache[p]){cache[p]=fetch('d/'+p).then(function(r){if(!r.ok)throw new Error(p+' '+r.status);return r.json()})
+ .catch(function(err){delete cache[p];throw err})}return cache[p]}
+var B=null;
+function br(){return get('brasil.json').then(function(b){if(!b.U){b.U={};b.uf.forEach(function(r){b.U[r[0]]={uf:r[0],nome:r[1],vagas:r[2],qe:r[3],vv:r[4],vvc:r[5],
+ te:r[6],c:r[7],a:r[8],vb:r[9],tvn:r[10],ncand:r[11],ncid:r[12]}})}B=b;return b})}
+function sg(p){p=String(p);return B.par[p]?B.par[p].sg:p}
+function fedDe(p){p=String(p);return B.par[p]&&B.par[p].fed}
+
+/* ---------- estado e endereço: #uf=go&cid=93734&f=101&p=22&c=go-4455&aba=cand */
+var CH=['uf','cid','f','p','c','aba'],S={};CH.forEach(function(k){S[k]=''});
+function lerHash(){var q=new URLSearchParams(location.hash.slice(1));CH.forEach(function(k){S[k]=(q.get(k)||'').trim().toLowerCase()})}
+function hashDe(s){return CH.filter(function(k){return s[k]}).map(function(k){return k+'='+encodeURIComponent(s[k])}).join('&')}
+function linkAtual(){var h=hashDe(S);return URL_BASE+(h?'#'+h:'')}
+function ir(novo){var h=hashDe(novo);if(h===location.hash.slice(1)){rota();return}
+ if(h){location.hash=h}else{history.pushState(null,'',location.pathname+location.search);rota()}}
+function vazio(){return !S.uf&&!S.cid&&!S.f&&!S.p&&!S.c}
+function grupo(){var g;if(S.f&&B.fed[S.f]){g=B.fed[S.f];return {tipo:'fed',id:S.f,g:g,membros:g.par,ent:'F'+S.f,rot:'Federação'}}
+ if(S.p&&B.par[S.p]){g=B.par[S.p];return {tipo:'par',id:S.p,g:g,membros:[S.p],ent:g.fed?'F'+g.fed:'P'+S.p,rot:'Partido'}}return null}
+function doGrupo(G,p){return !G||G.membros.indexOf(String(p))>=0}
+function filtroGrupo(G){return G?(G.tipo==='fed'?'&f=':'&p=')+G.id:''}
+
+/* ---------- peças de tela */
+function selo(ok){return ok?'<span class="selo ok">✓ Passou</span>':'<span class="selo no">✕ Não passou</span>'}
+function stH(st,sj){if(sj)return '<span class="st no"><i>!</i> Votos sub judice</span>';
+ return st==='Q'?'<span class="st ok"><i>✓</i> Eleito (QP)</span>':st==='M'?'<span class="st ok"><i>✓</i> Eleito (média)</span>':
+ st==='S'?'<span class="st neu">Suplente</span>':'<span class="st neu">Não eleito</span>'}
+function tile(r,v,dd){return '<div class="tile"><span class="t-r">'+esc(r)+'</span><span class="t-v">'+v+'</span>'+(dd?'<span class="t-d">'+dd+'</span>':'')+'</div>'}
+function waHref(txt){return 'https://wa.me/?text='+encodeURIComponent(txt+'\n'+linkAtual())}
+function waBtn(txt){return '<a class="wa" data-wa="'+esc(txt)+'" href="'+esc(waHref(txt))+'" target="_blank" rel="noopener">'+WA_SVG+'Enviar pelo WhatsApp</a>'}
+d.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a.wa[data-wa]');if(a)a.href=waHref(a.getAttribute('data-wa'))},true);
+function cab(eyebrow,titulo,sub){return '<span class="eyebrow">'+esc(eyebrow)+'</span><h2 style="margin-top:4px">'+esc(titulo)+'</h2>'+(sub?'<p class="sub">'+sub+'</p>':'')}
+function sec(titulo,sub,corpo){return '<section><div class="sec-h"><h2>'+esc(titulo)+'</h2>'+(sub?'<p>'+sub+'</p>':'')+'</div>'+corpo+'</section>'}
+function barra(v,max){return '<div class="barra"><i style="width:'+(max?(100*v/max).toFixed(2):0)+'%"></i></div>'}
+function barraQE(v,max,qe){var s=(100*qe/Math.max(v,1)).toFixed(3);return '<div class="barra"><i style="width:'+(max?(100*v/max).toFixed(2):0)+'%;'+
+ (v>=qe?'background-image:repeating-linear-gradient(to right,var(--bar) 0,var(--bar) calc('+s+'% - 2px),var(--card) calc('+s+'% - 2px),var(--card) '+s+'%)':'')+'"></i></div>'}
+function naoAchou(){return '<section><p class="vazio-msg">Não encontrei esse filtro. <a href="#" data-volta="1">Voltar ao painel do Brasil</a></p></section>'}
+
+/* listas paginadas (20 por vez) */
+var LST={},seq=0;
+function lista(itens,vz){var id='l'+(++seq);LST[id]=itens;if(!itens.length)return '<p class="vazio-msg">'+(vz||'Nada para mostrar.')+'</p>';
+ return '<ol class="cands" id="'+id+'">'+itens.slice(0,20).join('')+'</ol>'+maisBtn(id,20)}
+function maisBtn(id,m){var r=LST[id].length-m;return r>0?'<button type="button" class="mais-btn" data-l="'+id+'" data-m="'+m+'">Mostrar mais '+Math.min(20,r)+' (faltam '+fmt(r)+')</button>':''}
+
+/* candidatos com filtro Todos / Eleitos / Não eleitos */
+var COMP={},CIDC={};
+function eleito(o){return o.st==='Q'||o.st==='M'}
+function rowCand(o,k){return '<li><a class="cand" href="#c='+o.uf+'-'+o.n+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(o.nome)+'</b><small>'+
+ esc(sg(o.p))+' · '+o.uf.toUpperCase()+' · nº '+o.n+' · '+stH(o.st,o.sj)+'</small></span><span class="c-v"><b>'+fmt(o.v)+'</b><small>'+o.sub+'</small></span></a></li>'}
+function compCand(objs,vz){var id='cc'+(++seq),nE=0;objs.forEach(function(o){if(eleito(o))nE++});COMP[id]={objs:objs,modo:'todos',vz:vz};
+ function bt(m,rot,n){var on=m==='todos';return '<button type="button" data-cc="'+id+'" data-m="'+m+'" class="'+(on?'on':'')+'" aria-pressed="'+on+'">'+rot+' <b>'+fmt(n)+'</b></button>'}
+ return '<div class="seg" role="group" aria-label="Filtrar candidatos">'+bt('todos','Todos',objs.length)+bt('eleitos','Eleitos',nE)+bt('nao','Não eleitos',objs.length-nE)+'</div>'+
+  '<div id="'+id+'">'+listaComp(id)+'</div>'}
+function listaComp(id){var c=COMP[id],k=0;var arr=c.objs.filter(function(o){return c.modo==='todos'||(c.modo==='eleitos')===eleito(o)});
+ return lista(arr.map(function(o){return rowCand(o,++k)}),c.modo==='eleitos'?'Nenhum eleito neste recorte.':c.vz)}
+
+/* cidades com ordenação */
+function compCid(objs,rotG){var id='ci'+(++seq);CIDC[id]={objs:objs,ordem:rotG?'gv':'te',rot:rotG};
+ var op=(rotG?'<option value="gv">Mais votos de '+esc(rotG)+'</option><option value="gp">Maior % de '+esc(rotG)+'</option>':'')+
+  '<option value="te">Mais eleitores</option><option value="vv">Mais votos válidos</option><option value="nome">Nome</option>';
+ return '<label class="ordem">Ordenar por <select data-ci="'+id+'">'+op+'</select></label><div id="'+id+'">'+listaCid(id)+'</div>'}
+var ORD={gv:function(a,b){return b.gv-a.gv||b.te-a.te},gp:function(a,b){return b.gp-a.gp||b.gv-a.gv},te:function(a,b){return b.te-a.te},
+ vv:function(a,b){return b.vv-a.vv},nome:function(a,b){return a.nome.localeCompare(b.nome,'pt')}};
+function listaCid(id){var c=CIDC[id],arr=c.objs.slice().sort(ORD[c.ordem]),k=0;return lista(arr.map(function(o){return rowCid(o,++k,c.rot)}),'Nenhuma cidade.')}
+function rowCid(o,k,rotG){var href='#uf='+o.uf+'&cid='+o.cd+(S.f?'&f='+S.f:'')+(S.p?'&p='+S.p:'');
+ var dir=rotG?'<b>'+fmt(o.gv)+'</b><small>'+pc(o.gv,o.vv)+'% dos válidos</small>':'<b>'+fmt(o.te)+'</b><small>eleitores</small>';
+ var sub=rotG?fmt(o.te)+' eleitores · '+fmt(o.vv)+' válidos':'comparecimento '+pc(o.c,o.te,1)+'% · '+fmt(o.vv)+' válidos'+(o.ln?(o.emp?' · empate no 1º: '+esc(o.ln)+' ('+esc(o.lp)+'), '+fmt(o.lv)+' cada':' · mais votado: '+esc(o.ln)+' ('+esc(o.lp)+'), '+fmt(o.lv)):'');
+ return '<li><a class="cand" href="'+href+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(o.nome)+'</b><small>'+sub+'</small></span><span class="c-v">'+dir+'</span></a></li>'}
+
+/* abas */
+function abas(defs){var at=defs.some(function(x){return x.id===S.aba})?S.aba:defs[0].id;
+ return '<div class="abas" role="tablist">'+defs.map(function(x){var on=x.id===at;return '<button type="button" role="tab" data-aba="'+x.id+'" aria-selected="'+on+'" class="'+(on?'on':'')+'">'+
+  x.rot+(x.n!=null?' <b>'+fmt(x.n)+'</b>':'')+'</button>'}).join('')+'</div>'+
+  defs.map(function(x){return '<div class="aba-p" data-aba="'+x.id+'"'+(x.id===at?'':' hidden')+'>'+x.html+'</div>'}).join('')}
+
+vista.addEventListener('click',function(ev){var t=ev.target;
+ var b=t.closest('.mais-btn');if(b){var id=b.dataset.l,m=+b.dataset.m;d.getElementById(id).insertAdjacentHTML('beforeend',LST[id].slice(m,m+20).join(''));
+  var nv=maisBtn(id,m+20);if(nv){b.outerHTML=nv}else{b.remove()}return}
+ var s=t.closest('.seg button[data-cc]');if(s){var c=COMP[s.dataset.cc];c.modo=s.dataset.m;
+  [].forEach.call(s.parentNode.children,function(x){var on=x===s;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
+  d.getElementById(s.dataset.cc).innerHTML=listaComp(s.dataset.cc);return}
+ var a=t.closest('.abas button[data-aba]');if(a){var id2=a.dataset.aba;S.aba=a===a.parentNode.firstElementChild?'':id2;
+  history.replaceState(null,'',location.pathname+location.search+(hashDe(S)?'#'+hashDe(S):''));
+  [].forEach.call(a.parentNode.children,function(x){var on=x===a;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
+  [].forEach.call(vista.querySelectorAll('.aba-p'),function(p){p.hidden=p.dataset.aba!==id2});return}
+ if(t.closest('[data-volta]')){ev.preventDefault();ir({})}});
+vista.addEventListener('change',function(ev){var s=ev.target.closest('select[data-ci]');if(!s)return;CIDC[s.dataset.ci].ordem=s.value;d.getElementById(s.dataset.ci).innerHTML=listaCid(s.dataset.ci)});
+
+/* cláusula */
+function caixaClausula(G){var cl=B.cl[G.ent],h='<div class="regra">'+selo(cl.passa)+' '+esc(cl.txt);
+ if(G.tipo==='par'&&G.g.fed){var f=B.fed[G.g.fed],own=G.g.own;
+  h+='<br><b>'+esc(G.g.sg)+'</b> disputou dentro da federação '+esc(f.sg)+', e a cláusula vale para a federação inteira. Sozinho, teria '+pc(G.g.v,B.br.vv)+'% no país, 1,5% em '+
+   own.ufs15.length+' '+plural(own.ufs15.length,'estado','estados')+' e '+G.g.el+' '+plural(G.g.el,'eleito','eleitos')+' em '+own.ufsEl.length+' '+plural(own.ufsEl.length,'estado','estados')+
+   ' ('+(own.passa?'passaria':'não passaria')+' por conta própria).'}
+ return h+'</div>'}
+function tabelaEstados(G){var so=G.tipo==='par'&&G.g.fed;
+ var rows=B.uf.map(function(r){var uf=r[0],U=B.U[uf],x=G.g.uf[uf]||[0,0,0];return {uf:uf,U:U,v:x[0],el:x[1],cand:x[2],need:precisa(x[0],U.vv,15)}})
+  .sort(function(a,b){return b.v/b.U.vv-a.v/a.U.vv||b.v-a.v});
+ var tr=rows.map(function(r){var cel=!r.need?'<span class="st ok"><i>✓</i> alcançou</span>':(r.cand||r.v?'<span class="st no"><i>✕</i> faltaram '+fmt(r.need)+'</span>':'<span class="st neu">sem candidato</span>');
+  return '<tr><th><a href="#uf='+r.uf+filtroGrupo(G)+'">'+esc(r.U.nome)+'</a></th><td>'+fmt(r.v)+'</td><td>'+pc(r.v,r.U.vv)+'%</td><td>'+fmt(r.U.qe)+'</td><td>'+razao(r.v,r.U.qe,2)+
+   '</td><td>'+r.el+'</td><td>'+cel+'</td><td>'+r.cand+'</td></tr>'}).join('');
+ return '<div class="tab"><table><thead><tr><th>Estado</th><th>Votos</th><th>% dos válidos</th><th>Quociente eleitoral</th><th>Votos ÷ quociente</th><th>Eleitos</th><th>1,5% para a cláusula'+(so?' (só o partido)':'')+
+  '</th><th>Candidatos</th></tr></thead><tbody>'+tr+'</tbody></table></div>'}
+function topCidades(top,rotG){if(!top.length)return '<p class="vazio-msg">Sem votos.</p>';var k=0;
+ return '<ol class="cands">'+top.map(function(c){return '<li><a class="cand" href="#uf='+c[0]+'&cid='+c[1]+(S.f?'&f='+S.f:'')+(S.p?'&p='+S.p:'')+'"><span class="c-k">'+(++k)+'º</span><span class="c-n"><b>'+esc(c[2])+
+  '</b><small>'+c[0].toUpperCase()+' · '+fmt(c[4])+' eleitores</small></span><span class="c-v"><b>'+fmt(c[3])+'</b><small>votos de '+esc(rotG)+'</small></span></a></li>'}).join('')+'</ol>'}
+
+/* ---------- visão: partido ou federação no Brasil */
+function vGrupoBR(){return Promise.all([br(),get('cand.json')]).then(function(r){var cs=r[1],G=grupo();if(!G)return naoAchou();var g=G.g,cl=B.cl[G.ent],so=G.tipo==='par'&&g.fed;
+ var nE=g.st.Q+g.st.M,u15=so?g.own.ufs15.length:cl.ufs15.length,uel=so?g.own.ufsEl.length:cl.ufsEl.length,sx=so?' (só o partido)':'';
+ var h='<section>'+cab(G.rot+' · Brasil',g.sg,esc(g.nome)+(so?' · na '+esc(B.fed[g.fed].nome)+' ('+esc(B.fed[g.fed].sg)+')':''));
+ h+='<p class="big">'+g.el+'<small>'+plural(g.el,'deputado eleito','deputados eleitos')+'</small></p>';
+ h+='<p class="sit">'+fmt(g.v)+' votos · '+pc(g.v,B.br.vv)+'% dos válidos do país · '+fmt(g.cand)+' candidatos em '+Object.keys(g.uf).length+' estados</p>';
+ h+='<div class="tiles">'+tile('Eleitos',String(nE),g.st.Q+' pelo quociente, '+g.st.M+' pela média')+tile('Não eleitos',fmt(g.cand-nE),fmt(g.st.S)+' suplentes'+(g.st.J?' · '+g.st.J+' sub judice':''))+
+  tile('Estados com 1,5%'+sx,u15+' de 27','a cláusula pede 9')+tile('Estados com eleito'+sx,uel+' de 27','a cláusula pede 13 eleitos em 9')+
+  (G.tipo==='par'?tile('Votos de legenda',fmt(g.leg),pc(g.leg,g.v,1)+'% dos votos do partido'):tile('Partidos da federação',esc(g.par.map(sg).join(', ')),''))+
+  tile('Cláusula de barreira',cl.passa?'✓ passou':'✕ não passou',so?'conta feita pela federação':'')+'</div>';
+ h+=caixaClausula(G)+waBtn((G.tipo==='fed'?'Federação ':'')+g.sg+' na Câmara (eleição 2026): '+g.el+' '+plural(g.el,'eleito','eleitos')+', '+fmt(g.v)+' votos ('+pc(g.v,B.br.vv)+'% do país). Cláusula de barreira: '+(cl.passa?'passou':'não passou')+'.')+'</section>';
+ var geralH='';
+ if(G.tipo==='fed'){var mx=Math.max.apply(null,g.par.map(function(p){return B.par[p].v}));
+  geralH+=sec('Partidos da federação','',
+   '<ol class="linhas">'+g.par.map(function(p){var x=B.par[p];return '<li><a class="linha" href="#p='+p+'"><div class="l-top"><span class="l-nome">'+esc(x.sg)+'<small>'+esc(x.nome)+'</small></span><span class="l-num">'+x.el+' '+plural(x.el,'eleito','eleitos')+'</span></div>'+
+   barra(x.v,mx)+'<div class="l-sub">'+fmt(x.v)+' votos ('+pc(x.v,B.br.vv)+'% do país) · '+fmt(x.cand)+' candidatos</div></a></li>'}).join('')+'</ol>')}
+ geralH+=sec('Estado por estado','Votos, quociente eleitoral de cada estado, eleitos e onde alcançou ou não os 1,5% da cláusula. Toque no estado para ver tudo de lá.',tabelaEstados(G));
+ geralH+=sec('Cidades onde teve mais votos','As 10 do país, com o número de eleitores. Escolha um estado para ver todas as cidades.',topCidades(g.top,g.sg));
+ var objs=cs.filter(function(c){return doGrupo(G,c[3])}).map(function(c){return {uf:c[0],n:c[1],nome:c[2],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],B.U[c[0]].vvc)+'% no estado'}});
+ h+=abas([{id:'geral',rot:'Visão geral',html:geralH},{id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos '+(G.tipo==='fed'?'da federação':'do partido')+' no Brasil','Do mais ao menos votado, 20 por vez.',compCand(objs))}]);
+ return h})}
+
+/* ---------- visão: estado */
+function vEstado(){return Promise.all([br(),get('uf/'+S.uf+'.json')]).then(function(r){var u=r[1],U=B.U[S.uf];if(!U)return naoAchou();var G=grupo();
+ if(G)return get('pm/'+S.uf+'.json').then(function(pm){return vGrupoUF(u,U,G,pm)});
+ var nQ=0,nM=0,info={};u.cand.forEach(function(c){info[c[0]]=c;if(c[5]==='Q')nQ++;else if(c[5]==='M')nM++});var mv=u.cand[0];
+ var h='<section>'+cab('Estado · deputado federal',U.nome,fmt(U.te)+' eleitores · '+fmt(U.ncid)+' '+plural(U.ncid,'cidade','cidades')+' · '+fmt(U.ncand)+' candidatos');
+ h+='<p class="big">'+U.vagas+'<small>cadeiras</small></p><p class="sit">Quociente eleitoral: '+fmt(U.qe)+' votos ('+fmt(U.vv)+' válidos ÷ '+U.vagas+' cadeiras)</p>';
+ h+='<div class="tiles">'+tile('Comparecimento',pc(U.c,U.te,1)+'%',fmt(U.c)+' de '+fmt(U.te)+' eleitores')+tile('Brancos e nulos',fmt(U.vb+U.tvn),'brancos '+fmt(U.vb)+' · nulos '+fmt(U.tvn))+
+  tile('Eleitos',String(nQ+nM),nQ+' pelo quociente, '+nM+' pela média')+tile('Votação mínima para ser eleito',fmt(Math.ceil(U.qe/10)),'10% do quociente, na vaga do quociente (art. 108); nas sobras, '+fmt(Math.ceil(U.qe/5))+' (20%, art. 109)')+
+  tile('Mais votado',esc(mv[1]),esc(sg(mv[3]))+' · '+fmt(mv[4])+' votos')+(U.vvc>U.vv?tile('Votos sub judice',fmt(U.vvc-U.vv),'fora da conta até o julgamento'):tile('Votos válidos',fmt(U.vv),''))+'</div>';
+ h+=waBtn(U.nome+' · deputado federal 2026: '+U.vagas+' cadeiras, quociente eleitoral de '+fmt(U.qe)+' votos. Mais votado: '+nomeProprio(mv[1])+' ('+sg(mv[3])+'), '+fmt(mv[4])+' votos.')+'</section>';
+ var mx=Math.max.apply(null,u.agr.map(function(a){return a[3]})),lim=Math.ceil(15*U.vv/1000);
+ var ag=u.agr.map(function(a){var fed=a[1]==='fed',n=a[0].slice(1),nome=fed?B.fed[n].sg:sg(n),sub=fed?B.fed[n].nome:B.par[n].nome,cad=a[8];
+  return '<li><a class="linha" href="#uf='+S.uf+(fed?'&f=':'&p=')+n+'"><div class="l-top"><span class="l-nome">'+esc(nome)+'<small>'+esc(sub)+'</small></span><span class="l-num">'+cad+' '+plural(cad,'cadeira','cadeiras')+'</span></div>'+
+   barraQE(a[3],mx,U.qe)+'<div class="l-sub">'+fmt(a[3])+' votos ('+pc(a[3],U.vv)+'%) · '+razao(a[3],U.qe,2)+' quocientes · '+a[9]+' pelo quociente'+(a[10]?' + '+a[10]+' pela média':'')+
+   (a[9]<a[7]?' (quociente partidário '+a[7]+', mas só '+a[9]+' com 10% do quociente)':'')+'</div>'+
+   '<div class="l-sub">1,5% para a cláusula: '+(a[3]>=lim?'<span class="st ok"><i>✓</i> alcançou</span>':'<span class="st no"><i>✕</i> faltaram '+fmt(lim-a[3])+' votos</span>')+'</div></a></li>'}).join('');
+ var geralH=sec('Como as '+U.vagas+' cadeiras foram divididas','Cada traço na barra é um quociente eleitoral ('+fmt(U.qe)+' votos). Cada quociente completo dá direito a uma cadeira, se o partido tiver candidato com 10% do quociente. As que sobram vão para as maiores médias, entre partidos com 80% do quociente e candidatos com 20%. Partidos de federação contam juntos.','<ol class="linhas">'+ag+'</ol>');
+ var objs=u.cand.map(function(c){return {uf:S.uf,n:c[0],nome:c[1],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],U.vvc)+'%'}});
+ var cids=u.cid.map(function(c){var l=info[c[7]],l2=c[9]?info[c[9]]:null;return {uf:S.uf,cd:c[0],nome:c[1],te:c[2],vv:c[3],c:c[6],
+  ln:l?l[1]+(l2?' e '+l2[1]:''):'',lp:l?sg(l[3])+(l2?', '+sg(l2[3]):''):'',lv:c[8],emp:!!l2}});
+ h+=abas([{id:'geral',rot:'Visão geral',html:geralH},
+  {id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos de '+U.nome,nQ+nM+' eleitos e '+(objs.length-nQ-nM)+' não eleitos. Use Partido ou federação, lá em cima, para ver só um grupo.',compCand(objs))},
+  {id:'cid',rot:'Cidades',n:cids.length,html:sec('Cidades de '+U.nome,'Eleitores, comparecimento, votos válidos e o mais votado de cada cidade. Toque para ver a cidade.',compCid(cids,''))}]);
+ return h})}
+
+/* ---------- visão: partido ou federação dentro de um estado */
+function vGrupoUF(u,U,G,pm){var g=G.g,x=g.uf[S.uf]||[0,0,0],agr=null;u.agr.forEach(function(a){if(a[0]===G.ent)agr=a});
+ var lim=Math.ceil(15*U.vv/1000),entV=agr?agr[3]:0,daFed=agr&&agr[1]==='fed'&&G.tipo==='par',fedSg=daFed?B.fed[agr[0].slice(1)].sg:'';
+ var objs=u.cand.filter(function(c){return doGrupo(G,c[3])}).map(function(c){return {uf:S.uf,n:c[0],nome:c[1],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],U.vvc)+'% · '+c[8]+'º no estado'}});
+ var nE=0;objs.forEach(function(o){if(eleito(o))nE++});
+ var h='<section>'+cab(G.rot+' · '+U.nome,g.sg,esc(g.nome));
+ h+='<p class="big">'+x[1]+'<small>'+plural(x[1],'eleito','eleitos')+' de '+U.vagas+' cadeiras</small></p>';
+ h+='<p class="sit">'+fmt(x[0])+' votos · '+pc(x[0],U.vv)+'% dos válidos de '+esc(U.nome)+' · '+objs.length+' '+plural(objs.length,'candidato','candidatos')+'</p>';
+ var t=tile('Quociente eleitoral',fmt(U.qe),'votos por cadeira em '+esc(U.nome));
+ if(agr){t+=tile('Quocientes alcançados'+(daFed?' (federação)':''),razao(agr[3],U.qe,2),'quociente partidário: '+agr[7]+(daFed?' · '+esc(fedSg):''))+
+  tile('Cadeiras'+(daFed?' da federação':''),String(agr[8]),agr[9]+' pelo quociente, '+agr[10]+' pela média')+
+  tile('1,5% para a cláusula',entV>=lim?'✓ alcançou':'✕ não alcançou',(entV>=lim?pc(entV,U.vv)+'% em ':'faltaram '+fmt(lim-entV)+' votos em ')+esc(U.nome)+(daFed?' (conta da federação)':''))}
+ else t+=tile('Neste estado','sem candidato','não disputou deputado federal em '+esc(U.nome));
+ t+=tile('Eleitos',String(nE),'de '+objs.length+' '+plural(objs.length,'candidato','candidatos'))+tile('Eleitores no estado',fmt(U.te),fmt(U.ncid)+' '+plural(U.ncid,'cidade','cidades'));
+ h+='<div class="tiles">'+t+'</div>'+caixaClausula(G)+waBtn(g.sg+' em '+U.nome+' (deputado federal 2026): '+x[1]+' '+plural(x[1],'eleito','eleitos')+', '+fmt(x[0])+' votos ('+pc(x[0],U.vv)+'%). Quociente eleitoral do estado: '+fmt(U.qe)+'.')+'</section>';
+ var idx=[];G.membros.forEach(function(m){var i=pm.p.indexOf(+m);if(i>=0)idx.push(i)});
+ var cids=u.cid.map(function(c){var row=pm.v[c[0]]||[],gv=0;idx.forEach(function(i){gv+=row[i]||0});return {uf:S.uf,cd:c[0],nome:c[1],te:c[2],vv:c[3],c:c[6],gv:gv,gp:c[3]?gv/c[3]:0}});
+ var geralH='';
+ if(G.tipo==='fed'){geralH+=sec('Partidos da federação em '+U.nome,'','<ol class="linhas">'+g.par.map(function(p){var y=B.par[p].uf[S.uf]||[0,0,0];
+  return '<li><a class="linha" href="#uf='+S.uf+'&p='+p+'"><div class="l-top"><span class="l-nome">'+esc(sg(p))+'</span><span class="l-num">'+y[1]+' '+plural(y[1],'eleito','eleitos')+'</span></div>'+
+  barra(y[0],x[0])+'<div class="l-sub">'+fmt(y[0])+' votos ('+pc(y[0],U.vv)+'%) · '+y[2]+' '+plural(y[2],'candidato','candidatos')+'</div></a></li>'}).join('')+'</ol>')}
+ var top=cids.slice().sort(ORD.gv).slice(0,10).filter(function(c){return c.gv>0}).map(function(c){return [S.uf,c.cd,c.nome,c.gv,c.te]});
+ geralH+=sec('Cidades onde teve mais votos em '+U.nome,'As 10 primeiras. A aba Cidades tem todas.',topCidades(top,g.sg));
+ h+=abas([{id:'geral',rot:'Visão geral',html:geralH},
+  {id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos '+(G.tipo==='fed'?'da federação':'do partido')+' em '+U.nome,'Do mais ao menos votado.',compCand(objs,'Nenhum candidato neste estado.'))},
+  {id:'cid',rot:'Cidades',n:cids.length,html:sec('Votos de '+g.sg+' em cada cidade','Votos do grupo, parte dos válidos e eleitores de cada cidade.',compCid(cids,g.sg))}]);
+ return h}
+
+/* ---------- visão: cidade */
+function vCidade(){return Promise.all([br(),get('uf/'+S.uf+'.json'),get('m/'+S.uf+'/'+S.cid+'.json')]).then(function(r){var u=r[1],m=r[2],U=B.U[S.uf];
+ var ci=null;u.cid.forEach(function(c){if(c[0]===S.cid)ci=c});if(!U||!ci)return naoAchou();inCid.value=ci[1];inCid.classList.add('on');
+ var t=m.t,info={};u.cand.forEach(function(c){info[c[0]]=c});var G=grupo();
+ var gv=0;m.p.forEach(function(p){if(doGrupo(G,p[0]))gv+=p[1]});
+ var emp=m.c.length>1&&m.c[1][1]===m.c[0][1],nm1=function(i){var x=info[m.c[i][0]];return x[1]+' ('+sg(x[3])+')'},lid=m.c[0]?nm1(0)+(emp?' e '+nm1(1):''):'',
+  nmW=function(i){var x=info[m.c[i][0]];return nomeProprio(x[1])+' ('+sg(x[3])+')'},lidW=m.c[0]?nmW(0)+(emp?' e '+nmW(1):''):'';
+ var objs=m.c.filter(function(c){return doGrupo(G,info[c[0]][3])}).map(function(c){var x=info[c[0]];return {uf:S.uf,n:c[0],nome:x[1],p:x[3],v:c[1],st:x[5],sj:x[6],sub:pc(c[1],t[4])+'% na cidade'}});
+ var h='<section>'+cab('Cidade · '+U.nome,ci[1]+(G?' · '+G.g.sg:''),fmt(t[1])+' votaram ('+pc(t[1],t[0],1)+'% de comparecimento) · '+fmt(t[3])+' votos válidos para deputado federal');
+ if(G)h+='<p class="big">'+fmt(gv)+'<small>votos de '+esc(G.g.sg)+'</small></p><p class="sit">'+pc(gv,t[3])+'% dos votos válidos da cidade · '+fmt(t[0])+' eleitores</p>';
+ else h+='<p class="big">'+fmt(t[0])+'<small>eleitores</small></p>'+(m.c[0]?'<p class="sit">'+(emp?'Empate no 1º lugar: ':'Mais votado: ')+esc(lid)+', '+fmt(m.c[0][1])+' votos'+(emp?' cada':'')+'</p>':'');
+ h+='<p class="qe-nota">O quociente eleitoral é do estado: <b>'+fmt(U.qe)+' votos por cadeira</b> em '+esc(U.nome)+'. Os '+fmt(t[3])+' votos válidos de '+esc(ci[1])+' equivalem a <b>'+(t[3]>=U.qe?razao(t[3],U.qe,2)+' '+(t[3]<2*U.qe?'quociente':'quocientes'):pc(t[3],U.qe,1)+'% de um quociente')+'</b>.</p>';
+ h+='<div class="tiles">'+tile('Comparecimento',pc(t[1],t[0],1)+'%',fmt(t[2])+' não votaram')+tile('Brancos',fmt(t[5]),pc(t[5],t[1],1)+'% de quem votou')+tile('Nulos',fmt(t[6]),pc(t[6],t[1],1)+'% de quem votou')+
+  tile('Votos de legenda',fmt(t[7]),'votos só no número do partido')+tile('Candidatos com voto',fmt(m.c.length),'de '+fmt(U.ncand)+' do estado')+
+  tile('Eleitos com voto aqui',String(m.c.filter(function(c){var s=info[c[0]][5];return s==='Q'||s==='M'}).length),'de '+U.vagas+' eleitos do estado')+'</div>';
+ h+=waBtn(ci[1]+' ('+S.uf.toUpperCase()+') · deputado federal 2026'+(G?': '+G.g.sg+' teve '+fmt(gv)+' votos ('+pc(gv,t[3])+'%).':(m.c[0]?(emp?': empate no 1º lugar entre ':': mais votado ')+lidW+', '+fmt(m.c[0][1])+' votos'+(emp?' cada.':'.'):'.')))+'</section>';
+ var mx=m.p.length?m.p[0][1]:0;
+ var lp=m.p.filter(function(p){return doGrupo(G,p[0])}).map(function(p){var x=B.par[String(p[0])],f=fedDe(p[0]);
+  return '<li><a class="linha" href="#uf='+S.uf+'&cid='+S.cid+'&p='+p[0]+'"><div class="l-top"><span class="l-nome">'+esc(x?x.sg:p[0])+(f?'<small>'+esc(B.fed[f].sg)+'</small>':'')+'</span><span class="l-num">'+fmt(p[1])+'</span></div>'+
+  barra(p[1],mx)+'<div class="l-sub">'+pc(p[1],t[3])+'% dos válidos · legenda '+fmt(p[2])+'</div></a></li>'}).join('');
+ var geralH=sec('Votos por partido em '+ci[1],'Votos nos candidatos mais os de legenda. Toque para ver os candidatos do partido na cidade.','<ol class="linhas">'+(lp||'<li class="vazio-msg">Sem votos.</li>')+'</ol>');
+ h+=abas([{id:'geral',rot:'Visão geral',html:geralH},{id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos votados em '+ci[1]+(G?' · '+G.g.sg:''),'Votos nesta cidade. Eleito ou não eleito é o resultado do estado.',compCand(objs,'Nenhum voto para este grupo na cidade.'))}]);
+ return h})}
+
+/* ---------- visão: candidato */
+function vCand(){var pr=S.c.split('-'),uf=pr[0],num=pr[1];
+ return Promise.all([br(),get('uf/'+uf+'.json')]).then(function(r){var u=r[1],U=B.U[uf],k=null;if(U)u.cand.forEach(function(c){if(String(c[0])===num)k=c});if(!k)return naoAchou();
+  return get('cc/'+uf+'/'+k[3]+'.json').catch(function(){return {}}).then(function(cc){var cid={};u.cid.forEach(function(c){cid[c[0]]=c});var lst=cc[String(k[0])]||[];
+   inCand.value=k[1];inCand.classList.add('on');var f=fedDe(k[3]);
+   var h='<section>'+cab('Candidato · deputado federal · '+U.nome,k[1],esc(nomeProprio(k[2]))+' · '+esc(B.par[String(k[3])].nome)+' ('+esc(sg(k[3]))+')'+(f?' · '+esc(B.fed[f].sg):'')+' · nº '+k[0]);
+   h+='<p class="big">'+fmt(k[4])+'<small>votos</small></p><p class="sit">'+stH(k[5],k[6])+' · '+k[8]+'º de '+fmt(U.ncand)+' no estado · '+k[9]+'º de '+fmt(B.br.candidatos)+' no Brasil</p>';
+   var topo=lst[0];
+   h+='<div class="tiles">'+tile('Parte dos votos do estado',pc(k[4],U.vvc)+'%','critério do TSE (válidos + sub judice)')+tile('Do quociente eleitoral',pc(k[4],U.qe,1)+'%','quociente de '+fmt(U.qe)+' votos')+
+    tile('Cidades com voto',fmt(k[7])+' de '+fmt(U.ncid),'')+(topo?tile('Onde mais votou',esc(cid[topo[0]][1]),fmt(topo[1])+' votos · '+pc(topo[1],k[4],1)+'% do total dele'):'')+'</div>';
+   if(k[6])h+='<p class="regra">O registro deste candidato está em julgamento (sub judice). Os votos dele aparecem aqui, mas ficam fora dos válidos até a decisão.</p>';
+   h+=waBtn(nomeProprio(k[1])+' ('+sg(k[3])+'-'+uf.toUpperCase()+'), deputado federal 2026: '+fmt(k[4])+' votos, '+k[8]+'º no estado. '+({Q:'Eleito pelo quociente.',M:'Eleito pela média.',S:'Suplente.',N:'Não eleito.'}[k[5]]))+
+    '<ul class="indice"><li><a href="#uf='+uf+'&p='+k[3]+'">Candidatos do '+esc(sg(k[3]))+' em '+esc(U.nome)+'</a></li><li><a href="#uf='+uf+'">'+esc(U.nome)+'</a></li><li><a href="#p='+k[3]+'">'+esc(sg(k[3]))+' no Brasil</a></li></ul></section>';
+   var i=0,itens=lst.map(function(c){var ci=cid[c[0]];i++;
+    return '<li><a class="cand" href="#uf='+uf+'&cid='+c[0]+'"><span class="c-k">'+i+'º</span><span class="c-n"><b>'+esc(ci[1])+'</b><small>'+fmt(ci[2])+' eleitores · '+pc(c[1],ci[4])+'% dos votos da cidade</small></span><span class="c-v"><b>'+fmt(c[1])+'</b><small>'+pc(c[1],k[4],1)+'% do total</small></span></a></li>'});
+   h+=sec('Votos em cada cidade',fmt(itens.length)+' '+plural(itens.length,'cidade','cidades')+', da que mais votou para a que menos votou.',lista(itens,'Sem votos.'));
+   return h})})}
+
+/* ---------- desenhar */
+var token=0;
+function rotulo(){if(!B)return '';var p=[];if(S.c)p.push('candidato');else{var G=grupo();if(G)p.push(G.g.sg);if(S.uf&&B.U[S.uf])p.push(B.U[S.uf].nome);if(S.cid&&inCid.value)p.push(inCid.value)}
+ return p.length?'Mostrando: <b>'+esc(p.join(' · '))+'</b>':'Mostrando o <b>Brasil inteiro</b>'}
+function sincroniza(){selUF.value=S.uf;selG.value=S.f?'f'+S.f:S.p?'p'+S.p:'';[selUF,selG].forEach(function(s){s.classList.toggle('on',!!s.value)});
+ if(!S.cid){inCid.value='';inCid.classList.remove('on')}if(!S.c){inCand.value='';inCand.classList.remove('on')}
+ btLimpar.disabled=vazio();fRes.innerHTML=rotulo()}
+function rota(){lerHash();render()}
+function render(){var my=++token;LST={};COMP={};CIDC={};sincroniza();
+ if(vazio()){geral.hidden=false;vista.hidden=true;vista.innerHTML='';return}
+ geral.hidden=true;vista.hidden=false;vista.innerHTML='<p class="carrega">Carregando…</p>';
+ var p=br().then(function(){return S.c?vCand():S.cid&&S.uf?vCidade():S.uf?vEstado():(S.p||S.f)?vGrupoBR():naoAchou()});
+ p.then(function(html){if(my!==token)return;vista.innerHTML=html;sincroniza();if(S.cid&&!inCid.value)inCid.value='';
+  if(form.getBoundingClientRect().top<-40)form.scrollIntoView({block:'start'})})
+ .catch(function(err){if(my!==token)return;if(window.console)console.error(err);vista.innerHTML='<section><p class="vazio-msg">Não consegui carregar os dados. Confira a conexão e toque no filtro de novo.</p></section>'})}
+
+/* ---------- filtros */
+var selG=$('#f-grupo'),selUF=$('#f-uf'),inCid=$('#f-cid'),inCand=$('#f-cand'),sCid=$('#s-cid'),sCand=$('#s-cand'),btLimpar=$('#limpar'),fRes=$('#f-res');
+selG.addEventListener('change',function(){var v=selG.value,t=v.charAt(0),n=v.slice(1);ir({uf:S.uf,cid:S.cid,f:t==='f'?n:'',p:t==='p'?n:''})});
+selUF.addEventListener('change',function(){ir({uf:selUF.value,f:S.f,p:S.p})});
+btLimpar.addEventListener('click',function(){ir({})});
+
+function autocompleta(inp,box,fonte,escolhe){var ativo=-1,itens=[];
+ function fecha(){box.hidden=true;inp.setAttribute('aria-expanded','false');ativo=-1}
+ function mostra(){var q=semAc(inp.value.trim());if(q.length<2&&!/^\d+$/.test(q)){fecha();return}
+  fonte(q).then(function(r){if(semAc(inp.value.trim())!==q)return;itens=r;
+   box.innerHTML=r.length?r.map(function(x,i){return '<li role="option" data-i="'+i+'"><b>'+esc(x.t)+'</b><small>'+esc(x.s)+'</small></li>'}).join(''):'<li class="vazio">Nada encontrado</li>';
+   box.hidden=false;inp.setAttribute('aria-expanded','true');ativo=-1}).catch(function(){})}
+ inp.addEventListener('input',function(){inp.classList.remove('on');mostra()});
+ inp.addEventListener('focus',function(){if(!inp.classList.contains('on'))mostra()});
+ inp.addEventListener('keydown',function(ev){var li=[].slice.call(box.querySelectorAll('li[data-i]'));
+  if(ev.key==='Escape'){fecha();return}if(box.hidden||!li.length)return;
+  if(ev.key==='ArrowDown')ativo=Math.min(ativo+1,li.length-1);else if(ev.key==='ArrowUp')ativo=Math.max(ativo-1,0);
+  else if(ev.key==='Enter'){ev.preventDefault();var x=itens[+(li[ativo]||li[0]).dataset.i];fecha();inp.blur();escolhe(x);return}else return;
+  ev.preventDefault();li.forEach(function(x,i){x.classList.toggle('on',i===ativo)});li[ativo].scrollIntoView({block:'nearest'})});
+ box.addEventListener('mousedown',function(ev){ev.preventDefault()});
+ box.addEventListener('click',function(ev){var li=ev.target.closest('li[data-i]');if(!li)return;var x=itens[+li.dataset.i];fecha();inp.blur();escolhe(x)});
+ d.addEventListener('click',function(ev){if(ev.target!==inp&&!box.contains(ev.target))fecha()})}
+/* começa com > começa uma palavra > contém; dentro de cada grupo, o maior peso (eleitores) ou a ordem da lista (votos) */
+function casa(idx,q,chave,limite,peso){var r=[];for(var i=0;i<idx.length;i++){var k=chave(idx[i]),j=k.indexOf(q);if(j<0)continue;
+  r.push([j===0?0:(/[\s'-]/.test(k.charAt(j-1))?1:2),peso?-peso(idx[i]):i,idx[i]])}
+ r.sort(function(a,b){return a[0]-b[0]||a[1]-b[1]});return r.slice(0,limite).map(function(x){return x[2]})}
+var CHAVES=new WeakMap();
+function chaves(lst,i){var m=CHAVES.get(lst);if(!m){m=lst.map(function(x){return semAc(String(x[i]))});CHAVES.set(lst,m)}return m}
+autocompleta(inCid,sCid,function(q){
+ var fonte=S.uf?get('uf/'+S.uf+'.json').then(function(u){if(!u._cid)u._cid=u.cid.map(function(c){return [S.uf,c[0],c[1],c[2]]});return u._cid}):get('cidades.json');
+ return Promise.all([fonte,br()]).then(function(r){var l=r[0],ks=chaves(l,2),idx=[];for(var i=0;i<l.length;i++)idx.push(i);
+  return casa(idx,q,function(i){return ks[i]},8,function(i){return l[i][3]}).map(function(i){var c=l[i];return {uf:c[0],cd:c[1],t:c[2],s:B.U[c[0]].nome+' · '+fmt(c[3])+' eleitores'}})})},
+ function(x){ir({uf:x.uf,cid:x.cd,f:S.f,p:S.p})});
+inCid.addEventListener('search',function(){if(!inCid.value&&S.cid)ir({uf:S.uf,f:S.f,p:S.p})});
+autocompleta(inCand,sCand,function(q){return Promise.all([get('cand.json'),br()]).then(function(r){var l=r[0],ks=chaves(l,2),idx=[],res;for(var i=0;i<l.length;i++)idx.push(i);
+  if(/^\d+$/.test(q))res=idx.filter(function(i){return String(l[i][1]).indexOf(q)===0}).slice(0,8);else res=casa(idx,q,function(i){return ks[i]},8);
+  return res.map(function(i){var c=l[i];return {uf:c[0],n:c[1],t:c[2],s:sg(c[3])+'-'+c[0].toUpperCase()+' · '+fmt(c[4])}})})},
+ function(x){ir({c:x.uf+'-'+x.n})});
+inCand.addEventListener('search',function(){if(!inCand.value&&S.c)ir({})});
+
+window.addEventListener('hashchange',rota);window.addEventListener('popstate',rota);
+rota();
+}catch(err){document.documentElement.classList.remove('js');if(window.console)console.error(err)}})();
+</script></body></html>

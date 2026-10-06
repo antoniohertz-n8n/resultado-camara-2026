@@ -1,0 +1,6 @@
+{
+  "headers": [
+    { "source": "/d/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=600, must-revalidate" }] },
+    { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] }
+  ]
+}
