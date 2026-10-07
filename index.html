@@ -149,10 +149,28 @@ td a,th a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink3
 .qe-nota b{color:var(--ink)}
 .selo{white-space:nowrap;flex:none}
 .l-top .selo{margin-left:auto}
+/* cargo, botões do filtro e painel do relatório */
+.seg.cargo{margin:0}
+.seg.cargo button{flex:1 1 auto}
+.f-bts{display:flex;gap:8px;flex-wrap:wrap}
+.pdf-btn{font:inherit;font-size:.88rem;font-weight:700;padding:9px 14px;border-radius:6px;border:1.5px solid var(--brand);background:var(--brand);color:var(--card);cursor:pointer}
+.pdf-btn[disabled]{opacity:.6;cursor:progress}
+.rel{background:var(--card);border:1.5px solid var(--brand);border-radius:8px;padding:14px;margin:12px 0 4px;display:grid;gap:14px}
+.rel-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rel-rec{margin:0;color:var(--ink2);font-size:.9rem}
+.rel-secs{display:grid;gap:8px}
+@media (min-width:720px){.rel-secs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:6px;cursor:pointer;background:var(--bg)}
+.chk input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--brand)}
+.chk b{display:block;font-size:.92rem}.chk small{display:block;color:var(--ink3);font-size:.78rem}
+.rel select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%;height:42px}
+.rel-pe{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.rel-st{font-size:.88rem;color:var(--ink2)}
 </style><script>document.documentElement.classList.add('js')</script></head><body><div class="pag">
-<header class="topo"><h1>Eleições 2026 · Câmara dos Deputados</h1><small>Deputado federal · resultado oficial do TSE, Brasil inteiro</small>
-<p class="fonte">1º turno, 4/10/2026 · 100% das seções apuradas · dados do TSE gerados até 05/10/2026 11:48</p></header>
+<header class="topo"><h1 id="t-h1">Eleições 2026 · Câmara dos Deputados</h1><small id="t-sub">Deputado federal · resultado oficial do TSE, Brasil inteiro</small>
+<p class="fonte" id="t-fonte">1º turno, 4/10/2026 · 100% das seções apuradas · dados do TSE gerados até 05/10/2026 11:48</p></header>
 <form class="filtros" id="filtros" role="search" onsubmit="return false">
+<div class="seg cargo" role="group" aria-label="Cargo"><button type="button" data-cg="" class="on" aria-pressed="true">Deputado federal</button><button type="button" data-cg="e" aria-pressed="false">Deputado estadual e distrital</button></div>
 <fieldset class="caixa"><legend>Partido ou federação</legend>
 <div class="campo"><label for="f-grupo" class="vh">Partido ou federação</label><select id="f-grupo"><option value="">Todos os partidos e federações</option>
 <optgroup label="Federações"><option value="f103">PRD/Solidariedade · Renovação Solidária</option><option value="f100">PSDB/Cidadania · PSDB Cidadania</option><option value="f102">PSOL/Rede · PSOL Rede</option><option value="f101">PT/PCdoB/PV · Brasil da Esperança</option><option value="f104">União/PP · União Progressista</option></optgroup><optgroup label="Partidos"><option value="p36">Agir</option><option value="p70">Avante</option><option value="p23">Cidadania · na federação PSDB/Cidadania</option><option value="p27">DC</option><option value="p35">Democrata</option><option value="p15">MDB</option><option value="p14">Missão</option><option value="p33">Mobiliza</option><option value="p30">Novo</option><option value="p65">PCdoB · na federação PT/PCdoB/PV</option><option value="p29">PCO</option><option value="p12">PDT</option><option value="p22">PL</option><option value="p20">Podemos</option><option value="p11">PP · na federação União/PP</option><option value="p25">PRD · na federação PRD/Solidariedade</option><option value="p40">PSB</option><option value="p55">PSD</option><option value="p45">PSDB · na federação PSDB/Cidadania</option><option value="p50">PSOL · na federação PSOL/Rede</option><option value="p16">PSTU</option><option value="p13">PT · na federação PT/PCdoB/PV</option><option value="p43">PV · na federação PT/PCdoB/PV</option><option value="p18">Rede · na federação PSOL/Rede</option><option value="p10">Republicanos</option><option value="p77">Solidariedade · na federação PRD/Solidariedade</option><option value="p44">União · na federação União/PP</option><option value="p80">UP</option></optgroup></select></div></fieldset>
@@ -161,7 +179,7 @@ td a,th a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink3
 <div class="campo"><label for="f-cid">Cidade</label><input id="f-cid" type="search" placeholder="Digite a cidade" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="s-cid" aria-autocomplete="list"><ul id="s-cid" class="sugestoes" role="listbox" hidden></ul></div>
 </div></fieldset>
 <div class="campo"><label for="f-cand">Candidato</label><input id="f-cand" type="search" placeholder="Busque pelo nome de urna ou pelo número" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="s-cand" aria-autocomplete="list"><ul id="s-cand" class="sugestoes" role="listbox" hidden></ul></div>
-<div class="f-pe"><span class="f-res" id="f-res">Mostrando o <b>Brasil inteiro</b></span><button type="button" class="limpa" id="limpar" disabled>Limpar filtros</button></div>
+<div class="f-pe"><span class="f-res" id="f-res">Mostrando o <b>Brasil inteiro</b></span><span class="f-bts"><button type="button" class="limpa" id="limpar" disabled>Limpar filtros</button><button type="button" class="pdf-btn" id="relatorio">Relatório em PDF</button></span></div>
 </form>
 <p class="sem-js regra">Os filtros por estado, cidade, partido e candidato precisam de JavaScript. O painel do Brasil está abaixo.</p>
 <main>
@@ -192,7 +210,7 @@ td a,th a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink3
 <li>Quociente eleitoral (Código Eleitoral, art. 106) = válidos ÷ cadeiras do estado, desprezada a fração igual ou menor que meio. O valor calculado confere com o publicado pelo TSE nos 27 estados. Quociente partidário (art. 107) = votos do partido ou federação ÷ quociente eleitoral, sem a fração: é o número de cadeiras a que tem direito na primeira etapa, desde que tenha candidatos com pelo menos 10% do quociente (art. 108). As cadeiras que sobram vão para as maiores médias, entre os partidos que fizeram pelo menos 80% do quociente, com candidatos de pelo menos 20% dele (art. 109).</li>
 <li>Cláusula de barreira de 2026: Emenda Constitucional 97/2017, art. 3º, parágrafo único, III. Federação soma votos e eleitos dos partidos (Resolução TSE 23.670/2021, art. 4º, § 2º). Conta feita aqui com os votos válidos de hoje; a apuração oficial da cláusula é do TSE.</li>
 <li>Percentual do candidato: votos ÷ (válidos + anulados sub judice), o mesmo critério que o TSE usa no resultado. Percentual de partido e federação: votos ÷ válidos.</li>
-<li>Sub judice: candidato ou lista com registro ainda em julgamento. Os votos ficam fora da conta até a decisão: 381.082 no país, sendo 376.347 de 212 candidatos e 4.735 de legenda de listas inteiras sub judice.</li><li>Nomes das cidades como no TSE (alguns diferem do IBGE).</li>
+<li>Sub judice: candidato ou lista com registro ainda em julgamento. Os votos ficam fora da conta até a decisão: 381.082 no país, sendo 376.347 de 212 candidatos e 4.735 de legenda de listas inteiras sub judice.</li><li>Nomes das cidades como no TSE (alguns diferem do IBGE).</li><li>Deputado estadual e distrital: mesma eleição 6259, cargo 7 (no DF, cargo 8: deputado distrital), com as mesmas regras de quociente eleitoral, quociente partidário e sobras. O quociente calculado confere com o do TSE nos 27 estados e a soma das cidades confere com o total de cada estado. Não existe cláusula de barreira para esse cargo.</li>
 <li>Os 28 partidos que tiveram candidato a deputado federal estão aqui, com todos os candidatos, passando ou não na cláusula.</li>
 </ul></details></section>
 </div><script>window.URL_PUBLICA="https://antoniohertz-n8n.github.io/resultado-camara-2026/";</script><script>(function(){'use strict';try{
@@ -207,30 +225,41 @@ function pc(v,den,casas){if(casas==null)casas=2;if(!den)return '0';var m=Math.po
  return (r/m).toFixed(casas).replace('.',',')}
 function razao(a,b,casas){var m=Math.pow(10,casas);return (Math.floor((2*a*m+b)/(2*b))/m).toFixed(casas).replace('.',',')}
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-function semAc(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+function semAc(s){return s.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase()}
 function nomeProprio(s){var mi={de:1,da:1,do:1,das:1,dos:1,e:1};return s.toLowerCase().split(' ').map(function(w,i){if(i&&mi[w])return w;
  if(w.length<=4&&!/[aeiouáéíóúâêôãõà]/.test(w)&&!/\.$/.test(w))return w.toUpperCase();return (w.charAt(0).toUpperCase()+w.slice(1)).replace(/([-'])([a-zà-öø-ÿ])/g,function(_,a,b){return a+b.toUpperCase()})}).join(' ')}
 function plural(n,um,varios){return n===1?um:varios}
 function precisa(v,den,mil){return Math.max(0,Math.ceil(mil*den/1000)-v)}
 
-/* ---------- dados sob demanda */
-var cache={};
-function get(p){if(!cache[p]){cache[p]=fetch('d/'+p).then(function(r){if(!r.ok)throw new Error(p+' '+r.status);return r.json()})
- .catch(function(err){delete cache[p];throw err})}return cache[p]}
-var B=null;
-function br(){return get('brasil.json').then(function(b){if(!b.U){b.U={};b.uf.forEach(function(r){b.U[r[0]]={uf:r[0],nome:r[1],vagas:r[2],qe:r[3],vv:r[4],vvc:r[5],
- te:r[6],c:r[7],a:r[8],vb:r[9],tvn:r[10],ncand:r[11],ncid:r[12]}})}B=b;return b})}
-function sg(p){p=String(p);return B.par[p]?B.par[p].sg:p}
-function fedDe(p){p=String(p);return B.par[p]&&B.par[p].fed}
-
-/* ---------- estado e endereço: #uf=go&cid=93734&f=101&p=22&c=go-4455&aba=cand */
-var CH=['uf','cid','f','p','c','aba'],S={};CH.forEach(function(k){S[k]=''});
-function lerHash(){var q=new URLSearchParams(location.hash.slice(1));CH.forEach(function(k){S[k]=(q.get(k)||'').trim().toLowerCase()})}
+/* ---------- estado e endereço: #cg=e&uf=go&cid=93734&f=101&p=22&c=go-4455&aba=cand (sem cg = deputado federal) */
+var CH=['cg','uf','cid','f','p','c','aba'],S={};CH.forEach(function(k){S[k]=''});
+function lerHash(){var q=new URLSearchParams(location.hash.slice(1));CH.forEach(function(k){S[k]=(q.get(k)||'').trim().toLowerCase()});if(S.cg!=='e')S.cg=''}
 function hashDe(s){return CH.filter(function(k){return s[k]}).map(function(k){return k+'='+encodeURIComponent(s[k])}).join('&')}
 function linkAtual(){var h=hashDe(S);return URL_BASE+(h?'#'+h:'')}
-function ir(novo){var h=hashDe(novo);if(h===location.hash.slice(1)){rota();return}
+function ir(novo){if(!('cg' in novo))novo.cg=S.cg;var h=hashDe(novo);if(h===location.hash.slice(1)){rota();return}
  if(h){location.hash=h}else{history.pushState(null,'',location.pathname+location.search);rota()}}
 function vazio(){return !S.uf&&!S.cid&&!S.f&&!S.p&&!S.c}
+function ehE(){return S.cg==='e'}
+var PREP={ac:'do',al:'de',ap:'do',am:'do',ba:'da',ce:'do',df:'do',es:'do',go:'de',ma:'do',mt:'de',ms:'de',mg:'de',pa:'do',pb:'da',pr:'do',pe:'de',pi:'do',rj:'do',rn:'do',rs:'do',ro:'de',rr:'de',sc:'de',sp:'de',se:'de',to:'do'};
+function deUF(uf,nome){return (PREP[uf]||'de')+' '+nome}
+function cargoNome(uf){return ehE()?(uf==='df'?'deputado distrital':'deputado estadual'):'deputado federal'}
+function casaNome(uf){return ehE()?(uf==='df'?'Câmara Legislativa do DF':'Assembleia Legislativa'):'Câmara dos Deputados'}
+/* link interno herda o cargo escolhido */
+d.addEventListener('click',function(ev){if(!S.cg||ev.defaultPrevented)return;var a=ev.target.closest&&ev.target.closest('a[href^="#"]');if(!a||a.classList.contains('wa'))return;
+ var h=a.getAttribute('href').slice(1);if(h.indexOf('=')<0)return;var q=new URLSearchParams(h);if(q.has('cg'))return;ev.preventDefault();q.set('cg',S.cg);location.hash=q.toString()});
+
+/* ---------- dados sob demanda: d/ = deputado federal; e/ = deputado estadual e distrital */
+var cache={};
+function pre(cg){return (cg==null?S.cg:cg)==='e'?'e/':'d/'}
+function get(p,cg){var u=pre(cg)+p;if(!cache[u]){cache[u]=fetch(u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json()})
+ .catch(function(err){delete cache[u];throw err})}return cache[u]}
+function prepBR(b){if(!b.U){b.U={};b.uf.forEach(function(r){b.U[r[0]]={uf:r[0],nome:r[1],vagas:r[2],qe:r[3],vv:r[4],vvc:r[5],
+ te:r[6],c:r[7],a:r[8],vb:r[9],tvn:r[10],ncand:r[11],ncid:r[12]}})}return b}
+var B=null;
+function br(cg){return get('brasil.json',cg).then(function(b){prepBR(b);if(cg==null)B=b;return b})}
+function sg(p){p=String(p);return B.par[p]?B.par[p].sg:p}
+function fedDe(p){p=String(p);return B.par[p]&&B.par[p].fed}
+function temCl(){return !!(B&&B.cl)}
 function grupo(){var g;if(S.f&&B.fed[S.f]){g=B.fed[S.f];return {tipo:'fed',id:S.f,g:g,membros:g.par,ent:'F'+S.f,rot:'Federação'}}
  if(S.p&&B.par[S.p]){g=B.par[S.p];return {tipo:'par',id:S.p,g:g,membros:[S.p],ent:g.fed?'F'+g.fed:'P'+S.p,rot:'Partido'}}return null}
 function doGrupo(G,p){return !G||G.membros.indexOf(String(p))>=0}
@@ -250,7 +279,7 @@ function sec(titulo,sub,corpo){return '<section><div class="sec-h"><h2>'+esc(tit
 function barra(v,max){return '<div class="barra"><i style="width:'+(max?(100*v/max).toFixed(2):0)+'%"></i></div>'}
 function barraQE(v,max,qe){var s=(100*qe/Math.max(v,1)).toFixed(3);return '<div class="barra"><i style="width:'+(max?(100*v/max).toFixed(2):0)+'%;'+
  (v>=qe?'background-image:repeating-linear-gradient(to right,var(--bar) 0,var(--bar) calc('+s+'% - 2px),var(--card) calc('+s+'% - 2px),var(--card) '+s+'%)':'')+'"></i></div>'}
-function naoAchou(){return '<section><p class="vazio-msg">Não encontrei esse filtro. <a href="#" data-volta="1">Voltar ao painel do Brasil</a></p></section>'}
+function naoAchou(){return '<section><p class="vazio-msg">Não encontrei esse filtro'+(ehE()?' para deputado estadual':'')+'. <a href="#" data-volta="1">Voltar ao painel do Brasil</a></p></section>'}
 
 /* listas paginadas (20 por vez) */
 var LST={},seq=0;
@@ -272,15 +301,16 @@ function listaComp(id){var c=COMP[id],k=0;var arr=c.objs.filter(function(o){retu
 
 /* cidades com ordenação */
 function compCid(objs,rotG){var id='ci'+(++seq);CIDC[id]={objs:objs,ordem:rotG?'gv':'te',rot:rotG};
- var op=(rotG?'<option value="gv">Mais votos de '+esc(rotG)+'</option><option value="gp">Maior % de '+esc(rotG)+'</option>':'')+
+ var op=(rotG?'<option value="gv">Mais votos de '+esc(rotG)+'</option><option value="gm">Menos votos de '+esc(rotG)+' (sem voto primeiro)</option><option value="gp">Maior % de '+esc(rotG)+'</option>':'')+
   '<option value="te">Mais eleitores</option><option value="vv">Mais votos válidos</option><option value="nome">Nome</option>';
  return '<label class="ordem">Ordenar por <select data-ci="'+id+'">'+op+'</select></label><div id="'+id+'">'+listaCid(id)+'</div>'}
-var ORD={gv:function(a,b){return b.gv-a.gv||b.te-a.te},gp:function(a,b){return b.gp-a.gp||b.gv-a.gv},te:function(a,b){return b.te-a.te},
+var ORD={gv:function(a,b){return b.gv-a.gv||b.te-a.te},gm:function(a,b){return a.gv-b.gv||b.te-a.te},gp:function(a,b){return b.gp-a.gp||b.gv-a.gv},te:function(a,b){return b.te-a.te},
  vv:function(a,b){return b.vv-a.vv},nome:function(a,b){return a.nome.localeCompare(b.nome,'pt')}};
 function listaCid(id){var c=CIDC[id],arr=c.objs.slice().sort(ORD[c.ordem]),k=0;return lista(arr.map(function(o){return rowCid(o,++k,c.rot)}),'Nenhuma cidade.')}
 function rowCid(o,k,rotG){var href='#uf='+o.uf+'&cid='+o.cd+(S.f?'&f='+S.f:'')+(S.p?'&p='+S.p:'');
  var dir=rotG?'<b>'+fmt(o.gv)+'</b><small>'+pc(o.gv,o.vv)+'% dos válidos</small>':'<b>'+fmt(o.te)+'</b><small>eleitores</small>';
- var sub=rotG?fmt(o.te)+' eleitores · '+fmt(o.vv)+' válidos':'comparecimento '+pc(o.c,o.te,1)+'% · '+fmt(o.vv)+' válidos'+(o.ln?(o.emp?' · empate no 1º: '+esc(o.ln)+' ('+esc(o.lp)+'), '+fmt(o.lv)+' cada':' · mais votado: '+esc(o.ln)+' ('+esc(o.lp)+'), '+fmt(o.lv)):'');
+ var sub=rotG?fmt(o.te)+' eleitores · '+fmt(o.vv)+' válidos':'comparecimento '+pc(o.c,o.te,1)+'% · '+fmt(o.vv)+' válidos'+
+  (o.ln?(o.emp?' · empate no 1º: '+esc(o.ln)+' ('+esc(o.lp)+'), '+fmt(o.lv)+' cada':' · mais votado: '+esc(o.ln)+' ('+esc(o.lp)+'), '+fmt(o.lv)):'');
  return '<li><a class="cand" href="'+href+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(o.nome)+'</b><small>'+sub+'</small></span><span class="c-v">'+dir+'</span></a></li>'}
 
 /* abas */
@@ -299,90 +329,125 @@ vista.addEventListener('click',function(ev){var t=ev.target;
   history.replaceState(null,'',location.pathname+location.search+(hashDe(S)?'#'+hashDe(S):''));
   [].forEach.call(a.parentNode.children,function(x){var on=x===a;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
   [].forEach.call(vista.querySelectorAll('.aba-p'),function(p){p.hidden=p.dataset.aba!==id2});return}
- if(t.closest('[data-volta]')){ev.preventDefault();ir({})}});
+ if(t.closest('[data-volta]')){ev.preventDefault();ir({cg:S.cg})}});
 vista.addEventListener('change',function(ev){var s=ev.target.closest('select[data-ci]');if(!s)return;CIDC[s.dataset.ci].ordem=s.value;d.getElementById(s.dataset.ci).innerHTML=listaCid(s.dataset.ci)});
 
-/* cláusula */
-function caixaClausula(G){var cl=B.cl[G.ent],h='<div class="regra">'+selo(cl.passa)+' '+esc(cl.txt);
+/* cláusula (só deputado federal) */
+function caixaClausula(G){if(!temCl())return '<div class="regra">A cláusula de barreira vale só para a Câmara dos Deputados. Para ver a cláusula, troque o cargo para deputado federal no seletor lá em cima.</div>';
+ var cl=B.cl[G.ent],h='<div class="regra">'+selo(cl.passa)+' '+esc(cl.txt);
  if(G.tipo==='par'&&G.g.fed){var f=B.fed[G.g.fed],own=G.g.own;
   h+='<br><b>'+esc(G.g.sg)+'</b> disputou dentro da federação '+esc(f.sg)+', e a cláusula vale para a federação inteira. Sozinho, teria '+pc(G.g.v,B.br.vv)+'% no país, 1,5% em '+
    own.ufs15.length+' '+plural(own.ufs15.length,'estado','estados')+' e '+G.g.el+' '+plural(G.g.el,'eleito','eleitos')+' em '+own.ufsEl.length+' '+plural(own.ufsEl.length,'estado','estados')+
    ' ('+(own.passa?'passaria':'não passaria')+' por conta própria).'}
  return h+'</div>'}
-function tabelaEstados(G){var so=G.tipo==='par'&&G.g.fed;
+function tabelaEstados(G){var so=G.tipo==='par'&&G.g.fed,cl=temCl();
  var rows=B.uf.map(function(r){var uf=r[0],U=B.U[uf],x=G.g.uf[uf]||[0,0,0];return {uf:uf,U:U,v:x[0],el:x[1],cand:x[2],need:precisa(x[0],U.vv,15)}})
   .sort(function(a,b){return b.v/b.U.vv-a.v/a.U.vv||b.v-a.v});
  var tr=rows.map(function(r){var cel=!r.need?'<span class="st ok"><i>✓</i> alcançou</span>':(r.cand||r.v?'<span class="st no"><i>✕</i> faltaram '+fmt(r.need)+'</span>':'<span class="st neu">sem candidato</span>');
   return '<tr><th><a href="#uf='+r.uf+filtroGrupo(G)+'">'+esc(r.U.nome)+'</a></th><td>'+fmt(r.v)+'</td><td>'+pc(r.v,r.U.vv)+'%</td><td>'+fmt(r.U.qe)+'</td><td>'+razao(r.v,r.U.qe,2)+
-   '</td><td>'+r.el+'</td><td>'+cel+'</td><td>'+r.cand+'</td></tr>'}).join('');
- return '<div class="tab"><table><thead><tr><th>Estado</th><th>Votos</th><th>% dos válidos</th><th>Quociente eleitoral</th><th>Votos ÷ quociente</th><th>Eleitos</th><th>1,5% para a cláusula'+(so?' (só o partido)':'')+
-  '</th><th>Candidatos</th></tr></thead><tbody>'+tr+'</tbody></table></div>'}
+   '</td><td>'+r.el+'</td>'+(cl?'<td>'+cel+'</td>':'')+'<td>'+r.cand+'</td></tr>'}).join('');
+ return '<div class="tab"><table><thead><tr><th>Estado</th><th>Votos</th><th>% dos válidos</th><th>Quociente eleitoral</th><th>Votos ÷ quociente</th><th>Eleitos</th>'+
+  (cl?'<th>1,5% para a cláusula'+(so?' (só o partido)':'')+'</th>':'')+'<th>Candidatos</th></tr></thead><tbody>'+tr+'</tbody></table></div>'}
 function topCidades(top,rotG){if(!top.length)return '<p class="vazio-msg">Sem votos.</p>';var k=0;
  return '<ol class="cands">'+top.map(function(c){return '<li><a class="cand" href="#uf='+c[0]+'&cid='+c[1]+(S.f?'&f='+S.f:'')+(S.p?'&p='+S.p:'')+'"><span class="c-k">'+(++k)+'º</span><span class="c-n"><b>'+esc(c[2])+
   '</b><small>'+c[0].toUpperCase()+' · '+fmt(c[4])+' eleitores</small></span><span class="c-v"><b>'+fmt(c[3])+'</b><small>votos de '+esc(rotG)+'</small></span></a></li>'}).join('')+'</ol>'}
 
+/* ---------- visão: deputados estaduais no Brasil (o painel federal é estático) */
+function vBrasilE(){return get('cand.json').then(function(cs){var b=B,br_=b.br;
+ var nQ=0,nM=0,sj=0,porUF={};cs.forEach(function(c){if(c[5]==='Q')nQ++;else if(c[5]==='M')nM++;if(c[6])sj++;if(!porUF[c[0]])porUF[c[0]]=c});
+ var h='<section>'+cab('Assembleias Legislativas · Brasil','Deputados estaduais e distritais',fmt(br_.vv)+' votos válidos em 26 estados e no DF (no DF o cargo é deputado distrital)');
+ h+='<p class="big">'+fmt(br_.vagas)+'<small>eleitos nas assembleias</small></p>';
+ h+='<div class="tiles">'+tile('Votos válidos',fmt(br_.vv),pc(br_.vl,br_.vv,1)+'% de legenda')+tile('Comparecimento',pc(br_.c,br_.te,1)+'%',fmt(br_.c)+' de '+fmt(br_.te)+' eleitores')+
+  tile('Brancos e nulos',fmt(br_.vb+br_.tvn),'brancos '+fmt(br_.vb)+' · nulos '+fmt(br_.tvn))+tile('Candidatos',fmt(br_.candidatos),br_.partidos+' partidos, '+Object.keys(b.fed).length+' federações')+
+  tile('Eleitos por quociente',String(nQ),'e '+nM+' pelas maiores médias (sobras)')+tile('Votos sub judice',fmt(br_.vvc-br_.vv),sj+' candidatos, fora da conta até o julgamento')+'</div>';
+ h+='<p class="regra">Não existe cláusula de barreira para deputado estadual: ela é medida só na eleição para a Câmara dos Deputados. Cada assembleia divide as cadeiras pelo quociente eleitoral do estado.</p>';
+ h+=waBtn('Eleições 2026 · Assembleias Legislativas: '+fmt(br_.vagas)+' deputados estaduais e distritais eleitos. Resultado por estado, cidade, partido e candidato:')+'</section>';
+ var pars=Object.keys(b.par).map(function(k){return [k,b.par[k]]}).sort(function(x,y){return y[1].el-x[1].el||y[1].v-x[1].v}),mx=pars[0][1].el||1;
+ var lp=pars.map(function(x){var p=x[1];return '<li><a class="linha" href="#p='+x[0]+'"><div class="l-top"><span class="l-nome">'+esc(p.sg)+'<small>'+esc(p.nome)+(p.fed?' · '+esc(b.fed[p.fed].sg):'')+
+  '</small></span><span class="l-num">'+p.el+'</span></div>'+barra(p.el,mx)+'<div class="l-sub">'+fmt(p.v)+' votos ('+pc(p.v,br_.vv)+'%) · '+fmt(p.cand)+' candidatos</div></a></li>'}).join('');
+ var feds=Object.keys(b.fed).map(function(k){return [k,b.fed[k]]}).sort(function(x,y){return y[1].el-x[1].el});
+ var lf=feds.map(function(x){var f=x[1];return '<li><a class="linha" href="#f='+x[0]+'"><div class="l-top"><span class="l-nome">'+esc(f.sg)+'<small>'+esc(f.nome)+'</small></span><span class="l-num">'+f.el+' eleitos</span></div>'+
+  '<div class="l-sub">'+fmt(f.v)+' votos ('+pc(f.v,br_.vv)+'%) · '+f.par.map(function(p){return esc(b.par[p].sg)+': '+b.par[p].el}).join(' · ')+'</div></a></li>'}).join('');
+ var ufs=b.uf.map(function(r){return b.U[r[0]]}).sort(function(x,y){return y.vagas-x.vagas||x.nome.localeCompare(y.nome)});
+ var tr=ufs.map(function(U){var mv=porUF[U.uf];return '<tr><th><a href="#uf='+U.uf+'">'+esc(U.nome)+'</a><small>'+esc(U.uf==='df'?'Câmara Legislativa':'Assembleia Legislativa')+'</small></th><td>'+U.vagas+'</td><td>'+fmt(U.qe)+'</td><td>'+fmt(U.vv)+
+  '</td><td>'+pc(U.c,U.te,1)+'%</td><td>'+(mv?'<a href="#c='+mv[0]+'-'+mv[1]+'">'+esc(mv[2])+'</a><small>'+esc(sg(mv[3]))+' · '+fmt(mv[4])+'</small>':'')+'</td></tr>'}).join('');
+ var top=cs.slice(0,20).map(function(c,i){return rowCand({uf:c[0],n:c[1],nome:c[2],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],b.U[c[0]].vvc)+'% no estado'},i+1)}).join('');
+ var fora=cs.filter(function(c){return c[5]!=='Q'&&c[5]!=='M'}).slice(0,5).map(function(c,i){return rowCand({uf:c[0],n:c[1],nome:c[2],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],b.U[c[0]].vvc)+'% no estado'},i+1)}).join('');
+ var menos=cs.filter(function(c){return c[5]==='Q'||c[5]==='M'}).slice(-5).reverse().map(function(c,i){return rowCand({uf:c[0],n:c[1],nome:c[2],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],b.U[c[0]].vvc)+'% no estado'},i+1)}).join('');
+ h+=sec('Bancadas eleitas nas assembleias','Soma das 27 casas (26 assembleias e a Câmara Legislativa do DF). Toque no partido para ver estado por estado.','<ol class="linhas">'+lp+'</ol>');
+ h+=sec('Federações','Na eleição, a federação funciona como um partido só e soma os votos para o quociente.','<ol class="linhas">'+lf+'</ol>');
+ h+=sec('Estados e quociente eleitoral','Quociente eleitoral = votos válidos do estado ÷ cadeiras da assembleia. Toque no estado para ver como as cadeiras foram divididas.',
+  '<div class="tab"><table><thead><tr><th>Estado</th><th>Cadeiras</th><th>Quociente eleitoral</th><th>Votos válidos</th><th>Compareci&shy;mento</th><th>Mais votado</th></tr></thead><tbody>'+tr+'</tbody></table></div>');
+ h+=sec('Os 20 mais votados do Brasil','','<ol class="cands">'+top+'</ol>');
+ h+=sec('Fora da curva','O voto conta para a legenda: muito voto não garante vaga, e pouco voto pode bastar.','<div class="duas"><div><h3>Mais votados que ficaram fora</h3><ol class="cands" style="margin-top:10px">'+fora+
+  '</ol></div><div><h3>Eleitos com menos votos</h3><ol class="cands" style="margin-top:10px">'+menos+'</ol></div></div>');
+ return h})}
+
 /* ---------- visão: partido ou federação no Brasil */
-function vGrupoBR(){return Promise.all([br(),get('cand.json')]).then(function(r){var cs=r[1],G=grupo();if(!G)return naoAchou();var g=G.g,cl=B.cl[G.ent],so=G.tipo==='par'&&g.fed;
- var nE=g.st.Q+g.st.M,u15=so?g.own.ufs15.length:cl.ufs15.length,uel=so?g.own.ufsEl.length:cl.ufsEl.length,sx=so?' (só o partido)':'';
- var h='<section>'+cab(G.rot+' · Brasil',g.sg,esc(g.nome)+(so?' · na '+esc(B.fed[g.fed].nome)+' ('+esc(B.fed[g.fed].sg)+')':''));
- h+='<p class="big">'+g.el+'<small>'+plural(g.el,'deputado eleito','deputados eleitos')+'</small></p>';
+function vGrupoBR(){return get('cand.json').then(function(cs){var G=grupo();if(!G)return naoAchou();var g=G.g,cl=temCl()?B.cl[G.ent]:null,so=G.tipo==='par'&&g.fed;
+ var nE=g.st.Q+g.st.M,sx=so?' (só o partido)':'',nUfEl=Object.keys(g.uf).filter(function(u){return g.uf[u][1]>0}).length;
+ var h='<section>'+cab(G.rot+' · '+(ehE()?'deputado estadual · Brasil':'Brasil'),g.sg,esc(g.nome)+(so?' · na '+esc(B.fed[g.fed].nome)+' ('+esc(B.fed[g.fed].sg)+')':''));
+ h+='<p class="big">'+g.el+'<small>'+(ehE()?plural(g.el,'eleito nas assembleias','eleitos nas assembleias'):plural(g.el,'deputado eleito','deputados eleitos'))+'</small></p>';
  h+='<p class="sit">'+fmt(g.v)+' votos · '+pc(g.v,B.br.vv)+'% dos válidos do país · '+fmt(g.cand)+' candidatos em '+Object.keys(g.uf).length+' estados</p>';
- h+='<div class="tiles">'+tile('Eleitos',String(nE),g.st.Q+' pelo quociente, '+g.st.M+' pela média')+tile('Não eleitos',fmt(g.cand-nE),fmt(g.st.S)+' suplentes'+(g.st.J?' · '+g.st.J+' sub judice':''))+
-  tile('Estados com 1,5%'+sx,u15+' de 27','a cláusula pede 9')+tile('Estados com eleito'+sx,uel+' de 27','a cláusula pede 13 eleitos em 9')+
-  (G.tipo==='par'?tile('Votos de legenda',fmt(g.leg),pc(g.leg,g.v,1)+'% dos votos do partido'):tile('Partidos da federação',esc(g.par.map(sg).join(', ')),''))+
-  tile('Cláusula de barreira',cl.passa?'✓ passou':'✕ não passou',so?'conta feita pela federação':'')+'</div>';
- h+=caixaClausula(G)+waBtn((G.tipo==='fed'?'Federação ':'')+g.sg+' na Câmara (eleição 2026): '+g.el+' '+plural(g.el,'eleito','eleitos')+', '+fmt(g.v)+' votos ('+pc(g.v,B.br.vv)+'% do país). Cláusula de barreira: '+(cl.passa?'passou':'não passou')+'.')+'</section>';
+ var t=tile('Eleitos',String(nE),g.st.Q+' pelo quociente, '+g.st.M+' pela média')+tile('Não eleitos',fmt(g.cand-nE),fmt(g.st.S)+' suplentes'+(g.st.J?' · '+g.st.J+' sub judice':''));
+ if(cl)t+=tile('Estados com 1,5%'+sx,(so?g.own.ufs15.length:cl.ufs15.length)+' de 27','a cláusula pede 9')+tile('Estados com eleito'+sx,(so?g.own.ufsEl.length:cl.ufsEl.length)+' de 27','a cláusula pede 13 eleitos em 9');
+ else t+=tile('Estados com eleito',nUfEl+' de 27',ehE()?'assembleias com bancada':'');
+ t+=(G.tipo==='par'?tile('Votos de legenda',fmt(g.leg),pc(g.leg,g.v,1)+'% dos votos do partido'):tile('Partidos da federação',esc(g.par.map(sg).join(', ')),''));
+ if(cl)t+=tile('Cláusula de barreira',cl.passa?'✓ passou':'✕ não passou',so?'conta feita pela federação':'');
+ h+='<div class="tiles">'+t+'</div>'+caixaClausula(G)+(G.tipo==='par'&&g.sj?'<p class="regra">'+fmt(g.sj)+' votos de candidatos ou listas deste partido estão sub judice e ficam fora da conta até o julgamento.</p>':'')+waBtn((G.tipo==='fed'?'Federação ':'')+g.sg+(ehE()?' nas assembleias (deputado estadual 2026): ':' na Câmara (eleição 2026): ')+g.el+' '+plural(g.el,'eleito','eleitos')+', '+
+  fmt(g.v)+' votos ('+pc(g.v,B.br.vv)+'% do país).'+(cl?' Cláusula de barreira: '+(cl.passa?'passou':'não passou')+'.':''))+'</section>';
  var geralH='';
  if(G.tipo==='fed'){var mx=Math.max.apply(null,g.par.map(function(p){return B.par[p].v}));
   geralH+=sec('Partidos da federação','',
    '<ol class="linhas">'+g.par.map(function(p){var x=B.par[p];return '<li><a class="linha" href="#p='+p+'"><div class="l-top"><span class="l-nome">'+esc(x.sg)+'<small>'+esc(x.nome)+'</small></span><span class="l-num">'+x.el+' '+plural(x.el,'eleito','eleitos')+'</span></div>'+
    barra(x.v,mx)+'<div class="l-sub">'+fmt(x.v)+' votos ('+pc(x.v,B.br.vv)+'% do país) · '+fmt(x.cand)+' candidatos</div></a></li>'}).join('')+'</ol>')}
- geralH+=sec('Estado por estado','Votos, quociente eleitoral de cada estado, eleitos e onde alcançou ou não os 1,5% da cláusula. Toque no estado para ver tudo de lá.',tabelaEstados(G));
+ geralH+=sec('Estado por estado','Votos, quociente eleitoral de cada estado e eleitos'+(cl?', e onde alcançou ou não os 1,5% da cláusula':'')+'. Toque no estado para ver tudo de lá.',tabelaEstados(G));
  geralH+=sec('Cidades onde teve mais votos','As 10 do país, com o número de eleitores. Escolha um estado para ver todas as cidades.',topCidades(g.top,g.sg));
  var objs=cs.filter(function(c){return doGrupo(G,c[3])}).map(function(c){return {uf:c[0],n:c[1],nome:c[2],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],B.U[c[0]].vvc)+'% no estado'}});
  h+=abas([{id:'geral',rot:'Visão geral',html:geralH},{id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos '+(G.tipo==='fed'?'da federação':'do partido')+' no Brasil','Do mais ao menos votado, 20 por vez.',compCand(objs))}]);
  return h})}
 
 /* ---------- visão: estado */
-function vEstado(){return Promise.all([br(),get('uf/'+S.uf+'.json')]).then(function(r){var u=r[1],U=B.U[S.uf];if(!U)return naoAchou();var G=grupo();
+function vEstado(){return get('uf/'+S.uf+'.json').then(function(u){var U=B.U[S.uf];if(!U)return naoAchou();var G=grupo();
  if(G)return get('pm/'+S.uf+'.json').then(function(pm){return vGrupoUF(u,U,G,pm)});
  var nQ=0,nM=0,info={};u.cand.forEach(function(c){info[c[0]]=c;if(c[5]==='Q')nQ++;else if(c[5]==='M')nM++});var mv=u.cand[0];
- var h='<section>'+cab('Estado · deputado federal',U.nome,fmt(U.te)+' eleitores · '+fmt(U.ncid)+' '+plural(U.ncid,'cidade','cidades')+' · '+fmt(U.ncand)+' candidatos');
+ var h='<section>'+cab('Estado · '+cargoNome(S.uf),U.nome,casaNome(S.uf)+' · '+fmt(U.te)+' eleitores · '+fmt(U.ncid)+' '+plural(U.ncid,'cidade','cidades')+' · '+fmt(U.ncand)+' candidatos');
  h+='<p class="big">'+U.vagas+'<small>cadeiras</small></p><p class="sit">Quociente eleitoral: '+fmt(U.qe)+' votos ('+fmt(U.vv)+' válidos ÷ '+U.vagas+' cadeiras)</p>';
  h+='<div class="tiles">'+tile('Comparecimento',pc(U.c,U.te,1)+'%',fmt(U.c)+' de '+fmt(U.te)+' eleitores')+tile('Brancos e nulos',fmt(U.vb+U.tvn),'brancos '+fmt(U.vb)+' · nulos '+fmt(U.tvn))+
   tile('Eleitos',String(nQ+nM),nQ+' pelo quociente, '+nM+' pela média')+tile('Votação mínima para ser eleito',fmt(Math.ceil(U.qe/10)),'10% do quociente, na vaga do quociente (art. 108); nas sobras, '+fmt(Math.ceil(U.qe/5))+' (20%, art. 109)')+
   tile('Mais votado',esc(mv[1]),esc(sg(mv[3]))+' · '+fmt(mv[4])+' votos')+(U.vvc>U.vv?tile('Votos sub judice',fmt(U.vvc-U.vv),'fora da conta até o julgamento'):tile('Votos válidos',fmt(U.vv),''))+'</div>';
- h+=waBtn(U.nome+' · deputado federal 2026: '+U.vagas+' cadeiras, quociente eleitoral de '+fmt(U.qe)+' votos. Mais votado: '+nomeProprio(mv[1])+' ('+sg(mv[3])+'), '+fmt(mv[4])+' votos.')+'</section>';
- var mx=Math.max.apply(null,u.agr.map(function(a){return a[3]})),lim=Math.ceil(15*U.vv/1000);
+ h+=waBtn(U.nome+' · '+cargoNome(S.uf)+' 2026: '+U.vagas+' cadeiras, quociente eleitoral de '+fmt(U.qe)+' votos. Mais votado: '+nomeProprio(mv[1])+' ('+sg(mv[3])+'), '+fmt(mv[4])+' votos.')+'</section>';
+ var mx=Math.max.apply(null,u.agr.map(function(a){return a[3]})),lim=Math.ceil(15*U.vv/1000),cl=temCl();
  var ag=u.agr.map(function(a){var fed=a[1]==='fed',n=a[0].slice(1),nome=fed?B.fed[n].sg:sg(n),sub=fed?B.fed[n].nome:B.par[n].nome,cad=a[8];
   return '<li><a class="linha" href="#uf='+S.uf+(fed?'&f=':'&p=')+n+'"><div class="l-top"><span class="l-nome">'+esc(nome)+'<small>'+esc(sub)+'</small></span><span class="l-num">'+cad+' '+plural(cad,'cadeira','cadeiras')+'</span></div>'+
    barraQE(a[3],mx,U.qe)+'<div class="l-sub">'+fmt(a[3])+' votos ('+pc(a[3],U.vv)+'%) · '+razao(a[3],U.qe,2)+' quocientes · '+a[9]+' pelo quociente'+(a[10]?' + '+a[10]+' pela média':'')+
-   (a[9]<a[7]?' (quociente partidário '+a[7]+', mas só '+a[9]+' com 10% do quociente)':'')+'</div>'+
-   '<div class="l-sub">1,5% para a cláusula: '+(a[3]>=lim?'<span class="st ok"><i>✓</i> alcançou</span>':'<span class="st no"><i>✕</i> faltaram '+fmt(lim-a[3])+' votos</span>')+'</div></a></li>'}).join('');
+   (a[9]<a[7]?' (quociente partidário '+a[7]+', mas só '+a[9]+' com 10% do quociente)':'')+(a[6]?' · '+fmt(a[6])+' votos sub judice, fora da conta até o julgamento':'')+'</div>'+
+   (cl?'<div class="l-sub">1,5% para a cláusula: '+(a[3]>=lim?'<span class="st ok"><i>✓</i> alcançou</span>':'<span class="st no"><i>✕</i> faltaram '+fmt(lim-a[3])+' votos</span>')+'</div>':'')+'</a></li>'}).join('');
  var geralH=sec('Como as '+U.vagas+' cadeiras foram divididas','Cada traço na barra é um quociente eleitoral ('+fmt(U.qe)+' votos). Cada quociente completo dá direito a uma cadeira, se o partido tiver candidato com 10% do quociente. As que sobram vão para as maiores médias, entre partidos com 80% do quociente e candidatos com 20%. Partidos de federação contam juntos.','<ol class="linhas">'+ag+'</ol>');
  var objs=u.cand.map(function(c){return {uf:S.uf,n:c[0],nome:c[1],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],U.vvc)+'%'}});
  var cids=u.cid.map(function(c){var l=info[c[7]],l2=c[9]?info[c[9]]:null;return {uf:S.uf,cd:c[0],nome:c[1],te:c[2],vv:c[3],c:c[6],
   ln:l?l[1]+(l2?' e '+l2[1]:''):'',lp:l?sg(l[3])+(l2?', '+sg(l2[3]):''):'',lv:c[8],emp:!!l2}});
  h+=abas([{id:'geral',rot:'Visão geral',html:geralH},
-  {id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos de '+U.nome,nQ+nM+' eleitos e '+(objs.length-nQ-nM)+' não eleitos. Use Partido ou federação, lá em cima, para ver só um grupo.',compCand(objs))},
-  {id:'cid',rot:'Cidades',n:cids.length,html:sec('Cidades de '+U.nome,'Eleitores, comparecimento, votos válidos e o mais votado de cada cidade. Toque para ver a cidade.',compCid(cids,''))}]);
+  {id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos '+deUF(S.uf,U.nome),(nQ+nM)+' eleitos e '+(objs.length-nQ-nM)+' não eleitos. Use Partido ou federação, lá em cima, para ver só um grupo.',compCand(objs))},
+  {id:'cid',rot:'Cidades',n:cids.length,html:sec('Cidades '+deUF(S.uf,U.nome),'Eleitores, comparecimento, votos válidos e o mais votado de cada cidade. Toque para ver a cidade.',compCid(cids,''))}]);
  return h})}
 
 /* ---------- visão: partido ou federação dentro de um estado */
-function vGrupoUF(u,U,G,pm){var g=G.g,x=g.uf[S.uf]||[0,0,0],agr=null;u.agr.forEach(function(a){if(a[0]===G.ent)agr=a});
+function vGrupoUF(u,U,G,pm){var g=G.g,x=g.uf[S.uf]||[0,0,0],agr=null,cl=temCl();u.agr.forEach(function(a){if(a[0]===G.ent)agr=a});
  var lim=Math.ceil(15*U.vv/1000),entV=agr?agr[3]:0,daFed=agr&&agr[1]==='fed'&&G.tipo==='par',fedSg=daFed?B.fed[agr[0].slice(1)].sg:'';
  var objs=u.cand.filter(function(c){return doGrupo(G,c[3])}).map(function(c){return {uf:S.uf,n:c[0],nome:c[1],p:c[3],v:c[4],st:c[5],sj:c[6],sub:pc(c[4],U.vvc)+'% · '+c[8]+'º no estado'}});
  var nE=0;objs.forEach(function(o){if(eleito(o))nE++});
- var h='<section>'+cab(G.rot+' · '+U.nome,g.sg,esc(g.nome));
+ var h='<section>'+cab(G.rot+' · '+U.nome+' · '+cargoNome(S.uf),g.sg,esc(g.nome));
  h+='<p class="big">'+x[1]+'<small>'+plural(x[1],'eleito','eleitos')+' de '+U.vagas+' cadeiras</small></p>';
  h+='<p class="sit">'+fmt(x[0])+' votos · '+pc(x[0],U.vv)+'% dos válidos de '+esc(U.nome)+' · '+objs.length+' '+plural(objs.length,'candidato','candidatos')+'</p>';
  var t=tile('Quociente eleitoral',fmt(U.qe),'votos por cadeira em '+esc(U.nome));
  if(agr){t+=tile('Quocientes alcançados'+(daFed?' (federação)':''),razao(agr[3],U.qe,2),'quociente partidário: '+agr[7]+(daFed?' · '+esc(fedSg):''))+
-  tile('Cadeiras'+(daFed?' da federação':''),String(agr[8]),agr[9]+' pelo quociente, '+agr[10]+' pela média')+
-  tile('1,5% para a cláusula',entV>=lim?'✓ alcançou':'✕ não alcançou',(entV>=lim?pc(entV,U.vv)+'% em ':'faltaram '+fmt(lim-entV)+' votos em ')+esc(U.nome)+(daFed?' (conta da federação)':''))}
- else t+=tile('Neste estado','sem candidato','não disputou deputado federal em '+esc(U.nome));
- t+=tile('Eleitos',String(nE),'de '+objs.length+' '+plural(objs.length,'candidato','candidatos'))+tile('Eleitores no estado',fmt(U.te),fmt(U.ncid)+' '+plural(U.ncid,'cidade','cidades'));
- h+='<div class="tiles">'+t+'</div>'+caixaClausula(G)+waBtn(g.sg+' em '+U.nome+' (deputado federal 2026): '+x[1]+' '+plural(x[1],'eleito','eleitos')+', '+fmt(x[0])+' votos ('+pc(x[0],U.vv)+'%). Quociente eleitoral do estado: '+fmt(U.qe)+'.')+'</section>';
+  tile('Cadeiras'+(daFed?' da federação':''),String(agr[8]),agr[9]+' pelo quociente, '+agr[10]+' pela média');
+  if(cl)t+=tile('1,5% para a cláusula',entV>=lim?'✓ alcançou':'✕ não alcançou',(entV>=lim?pc(entV,U.vv)+'% em ':'faltaram '+fmt(lim-entV)+' votos em ')+esc(U.nome)+(daFed?' (conta da federação)':''))}
+ else t+=tile('Neste estado','sem candidato','não disputou '+cargoNome(S.uf)+' em '+esc(U.nome));
+ var ix0=[];G.membros.forEach(function(m){var i=pm.p.indexOf(+m);if(i>=0)ix0.push(i)});var zero=u.cid.filter(function(c){var row=pm.v[c[0]]||[],s=0;ix0.forEach(function(i){s+=row[i]||0});return !s}).length;
+ t+=tile('Eleitos',String(nE),'de '+objs.length+' '+plural(objs.length,'candidato','candidatos'))+tile('Cidades sem voto',zero+' de '+u.cid.length,'na aba Cidades, ordene por menos votos')+tile('Eleitores no estado',fmt(U.te),fmt(U.ncid)+' '+plural(U.ncid,'cidade','cidades'));
+ h+='<div class="tiles">'+t+'</div>'+(cl?caixaClausula(G):'')+waBtn(g.sg+' em '+U.nome+' ('+cargoNome(S.uf)+' 2026): '+x[1]+' '+plural(x[1],'eleito','eleitos')+', '+fmt(x[0])+' votos ('+pc(x[0],U.vv)+'%). Quociente eleitoral do estado: '+fmt(U.qe)+'.')+'</section>';
  var idx=[];G.membros.forEach(function(m){var i=pm.p.indexOf(+m);if(i>=0)idx.push(i)});
  var cids=u.cid.map(function(c){var row=pm.v[c[0]]||[],gv=0;idx.forEach(function(i){gv+=row[i]||0});return {uf:S.uf,cd:c[0],nome:c[1],te:c[2],vv:c[3],c:c[6],gv:gv,gp:c[3]?gv/c[3]:0}});
  var geralH='';
@@ -397,21 +462,21 @@ function vGrupoUF(u,U,G,pm){var g=G.g,x=g.uf[S.uf]||[0,0,0],agr=null;u.agr.forEa
  return h}
 
 /* ---------- visão: cidade */
-function vCidade(){return Promise.all([br(),get('uf/'+S.uf+'.json'),get('m/'+S.uf+'/'+S.cid+'.json')]).then(function(r){var u=r[1],m=r[2],U=B.U[S.uf];
+function vCidade(){return Promise.all([get('uf/'+S.uf+'.json'),get('m/'+S.uf+'/'+S.cid+'.json')]).then(function(r){var u=r[0],m=r[1],U=B.U[S.uf];
  var ci=null;u.cid.forEach(function(c){if(c[0]===S.cid)ci=c});if(!U||!ci)return naoAchou();inCid.value=ci[1];inCid.classList.add('on');
  var t=m.t,info={};u.cand.forEach(function(c){info[c[0]]=c});var G=grupo();
  var gv=0;m.p.forEach(function(p){if(doGrupo(G,p[0]))gv+=p[1]});
  var emp=m.c.length>1&&m.c[1][1]===m.c[0][1],nm1=function(i){var x=info[m.c[i][0]];return x[1]+' ('+sg(x[3])+')'},lid=m.c[0]?nm1(0)+(emp?' e '+nm1(1):''):'',
   nmW=function(i){var x=info[m.c[i][0]];return nomeProprio(x[1])+' ('+sg(x[3])+')'},lidW=m.c[0]?nmW(0)+(emp?' e '+nmW(1):''):'';
  var objs=m.c.filter(function(c){return doGrupo(G,info[c[0]][3])}).map(function(c){var x=info[c[0]];return {uf:S.uf,n:c[0],nome:x[1],p:x[3],v:c[1],st:x[5],sj:x[6],sub:pc(c[1],t[4])+'% na cidade'}});
- var h='<section>'+cab('Cidade · '+U.nome,ci[1]+(G?' · '+G.g.sg:''),fmt(t[1])+' votaram ('+pc(t[1],t[0],1)+'% de comparecimento) · '+fmt(t[3])+' votos válidos para deputado federal');
+ var h='<section>'+cab('Cidade · '+U.nome+' · '+cargoNome(S.uf),ci[1]+(G?' · '+G.g.sg:''),fmt(t[1])+' votaram ('+pc(t[1],t[0],1)+'% de comparecimento) · '+fmt(t[3])+' votos válidos para '+cargoNome(S.uf));
  if(G)h+='<p class="big">'+fmt(gv)+'<small>votos de '+esc(G.g.sg)+'</small></p><p class="sit">'+pc(gv,t[3])+'% dos votos válidos da cidade · '+fmt(t[0])+' eleitores</p>';
  else h+='<p class="big">'+fmt(t[0])+'<small>eleitores</small></p>'+(m.c[0]?'<p class="sit">'+(emp?'Empate no 1º lugar: ':'Mais votado: ')+esc(lid)+', '+fmt(m.c[0][1])+' votos'+(emp?' cada':'')+'</p>':'');
  h+='<p class="qe-nota">O quociente eleitoral é do estado: <b>'+fmt(U.qe)+' votos por cadeira</b> em '+esc(U.nome)+'. Os '+fmt(t[3])+' votos válidos de '+esc(ci[1])+' equivalem a <b>'+(t[3]>=U.qe?razao(t[3],U.qe,2)+' '+(t[3]<2*U.qe?'quociente':'quocientes'):pc(t[3],U.qe,1)+'% de um quociente')+'</b>.</p>';
  h+='<div class="tiles">'+tile('Comparecimento',pc(t[1],t[0],1)+'%',fmt(t[2])+' não votaram')+tile('Brancos',fmt(t[5]),pc(t[5],t[1],1)+'% de quem votou')+tile('Nulos',fmt(t[6]),pc(t[6],t[1],1)+'% de quem votou')+
   tile('Votos de legenda',fmt(t[7]),'votos só no número do partido')+tile('Candidatos com voto',fmt(m.c.length),'de '+fmt(U.ncand)+' do estado')+
   tile('Eleitos com voto aqui',String(m.c.filter(function(c){var s=info[c[0]][5];return s==='Q'||s==='M'}).length),'de '+U.vagas+' eleitos do estado')+'</div>';
- h+=waBtn(ci[1]+' ('+S.uf.toUpperCase()+') · deputado federal 2026'+(G?': '+G.g.sg+' teve '+fmt(gv)+' votos ('+pc(gv,t[3])+'%).':(m.c[0]?(emp?': empate no 1º lugar entre ':': mais votado ')+lidW+', '+fmt(m.c[0][1])+' votos'+(emp?' cada.':'.'):'.')))+'</section>';
+ h+=waBtn(ci[1]+' ('+S.uf.toUpperCase()+') · '+cargoNome(S.uf)+' 2026'+(G?': '+G.g.sg+' teve '+fmt(gv)+' votos ('+pc(gv,t[3])+'%).':(m.c[0]?(emp?': empate no 1º lugar entre ':': mais votado ')+lidW+', '+fmt(m.c[0][1])+' votos'+(emp?' cada.':'.'):'.')))+'</section>';
  var mx=m.p.length?m.p[0][1]:0;
  var lp=m.p.filter(function(p){return doGrupo(G,p[0])}).map(function(p){var x=B.par[String(p[0])],f=fedDe(p[0]);
   return '<li><a class="linha" href="#uf='+S.uf+'&cid='+S.cid+'&p='+p[0]+'"><div class="l-top"><span class="l-nome">'+esc(x?x.sg:p[0])+(f?'<small>'+esc(B.fed[f].sg)+'</small>':'')+'</span><span class="l-num">'+fmt(p[1])+'</span></div>'+
@@ -422,43 +487,55 @@ function vCidade(){return Promise.all([br(),get('uf/'+S.uf+'.json'),get('m/'+S.u
 
 /* ---------- visão: candidato */
 function vCand(){var pr=S.c.split('-'),uf=pr[0],num=pr[1];
- return Promise.all([br(),get('uf/'+uf+'.json')]).then(function(r){var u=r[1],U=B.U[uf],k=null;if(U)u.cand.forEach(function(c){if(String(c[0])===num)k=c});if(!k)return naoAchou();
+ return get('uf/'+uf+'.json').then(function(u){var U=B.U[uf],k=null;if(U)u.cand.forEach(function(c){if(String(c[0])===num)k=c});if(!k)return naoAchou();
   return get('cc/'+uf+'/'+k[3]+'.json').catch(function(){return {}}).then(function(cc){var cid={};u.cid.forEach(function(c){cid[c[0]]=c});var lst=cc[String(k[0])]||[];
    inCand.value=k[1];inCand.classList.add('on');var f=fedDe(k[3]);
-   var h='<section>'+cab('Candidato · deputado federal · '+U.nome,k[1],esc(nomeProprio(k[2]))+' · '+esc(B.par[String(k[3])].nome)+' ('+esc(sg(k[3]))+')'+(f?' · '+esc(B.fed[f].sg):'')+' · nº '+k[0]);
+   var h='<section>'+cab('Candidato · '+cargoNome(uf)+' · '+U.nome,k[1],esc(nomeProprio(k[2]))+' · '+esc(B.par[String(k[3])].nome)+' ('+esc(sg(k[3]))+')'+(f?' · '+esc(B.fed[f].sg):'')+' · nº '+k[0]);
    h+='<p class="big">'+fmt(k[4])+'<small>votos</small></p><p class="sit">'+stH(k[5],k[6])+' · '+k[8]+'º de '+fmt(U.ncand)+' no estado · '+k[9]+'º de '+fmt(B.br.candidatos)+' no Brasil</p>';
    var topo=lst[0];
    h+='<div class="tiles">'+tile('Parte dos votos do estado',pc(k[4],U.vvc)+'%','critério do TSE (válidos + sub judice)')+tile('Do quociente eleitoral',pc(k[4],U.qe,1)+'%','quociente de '+fmt(U.qe)+' votos')+
     tile('Cidades com voto',fmt(k[7])+' de '+fmt(U.ncid),'')+(topo?tile('Onde mais votou',esc(cid[topo[0]][1]),fmt(topo[1])+' votos · '+pc(topo[1],k[4],1)+'% do total dele'):'')+'</div>';
    if(k[6])h+='<p class="regra">O registro deste candidato está em julgamento (sub judice). Os votos dele aparecem aqui, mas ficam fora dos válidos até a decisão.</p>';
-   h+=waBtn(nomeProprio(k[1])+' ('+sg(k[3])+'-'+uf.toUpperCase()+'), deputado federal 2026: '+fmt(k[4])+' votos, '+k[8]+'º no estado. '+({Q:'Eleito pelo quociente.',M:'Eleito pela média.',S:'Suplente.',N:'Não eleito.'}[k[5]]))+
+   h+=waBtn(nomeProprio(k[1])+' ('+sg(k[3])+'-'+uf.toUpperCase()+'), '+cargoNome(uf)+' 2026: '+fmt(k[4])+' votos, '+k[8]+'º no estado. '+({Q:'Eleito pelo quociente.',M:'Eleito pela média.',S:'Suplente.',N:'Não eleito.'}[k[5]]))+
     '<ul class="indice"><li><a href="#uf='+uf+'&p='+k[3]+'">Candidatos do '+esc(sg(k[3]))+' em '+esc(U.nome)+'</a></li><li><a href="#uf='+uf+'">'+esc(U.nome)+'</a></li><li><a href="#p='+k[3]+'">'+esc(sg(k[3]))+' no Brasil</a></li></ul></section>';
-   var i=0,itens=lst.map(function(c){var ci=cid[c[0]];i++;
+   var tem={};lst.forEach(function(c){tem[c[0]]=1});var zeros=u.cid.filter(function(c){return !tem[c[0]]}).sort(function(a,b){return b[2]-a[2]}).map(function(c){return [c[0],0]});
+   var i=0,itens=lst.concat(zeros).map(function(c){var ci=cid[c[0]];i++;
     return '<li><a class="cand" href="#uf='+uf+'&cid='+c[0]+'"><span class="c-k">'+i+'º</span><span class="c-n"><b>'+esc(ci[1])+'</b><small>'+fmt(ci[2])+' eleitores · '+pc(c[1],ci[4])+'% dos votos da cidade</small></span><span class="c-v"><b>'+fmt(c[1])+'</b><small>'+pc(c[1],k[4],1)+'% do total</small></span></a></li>'});
-   h+=sec('Votos em cada cidade',fmt(itens.length)+' '+plural(itens.length,'cidade','cidades')+', da que mais votou para a que menos votou.',lista(itens,'Sem votos.'));
+   h+=sec('Votos em cada cidade','Teve voto em '+fmt(lst.length)+' de '+fmt(u.cid.length)+' cidades, da que mais votou para a que menos votou. As '+fmt(zeros.length)+' cidades sem nenhum voto vêm no fim, das de mais eleitores para as de menos.',lista(itens,'Sem votos.'));
    return h})})}
 
 /* ---------- desenhar */
 var token=0;
-function rotulo(){if(!B)return '';var p=[];if(S.c)p.push('candidato');else{var G=grupo();if(G)p.push(G.g.sg);if(S.uf&&B.U[S.uf])p.push(B.U[S.uf].nome);if(S.cid&&inCid.value)p.push(inCid.value)}
- return p.length?'Mostrando: <b>'+esc(p.join(' · '))+'</b>':'Mostrando o <b>Brasil inteiro</b>'}
-function sincroniza(){selUF.value=S.uf;selG.value=S.f?'f'+S.f:S.p?'p'+S.p:'';[selUF,selG].forEach(function(s){s.classList.toggle('on',!!s.value)});
+function rotulo(){if(!B)return '';var p=[];if(ehE())p.push('Deputado estadual');if(S.c)p.push('candidato');else{var G=grupo();if(G)p.push(G.g.sg);if(S.uf&&B.U[S.uf])p.push(B.U[S.uf].nome);if(S.cid&&inCid.value)p.push(inCid.value)}
+ return p.length&&!(p.length===1&&ehE())?'Mostrando: <b>'+esc(p.join(' · '))+'</b>':'Mostrando o <b>Brasil inteiro'+(ehE()?' · deputado estadual':'')+'</b>'}
+function montaGrupos(){if(!B||selG.dataset.cg===(S.cg||'f'))return;selG.dataset.cg=S.cg||'f';
+ var feds=Object.keys(B.fed).sort(function(a,b){return B.fed[a].sg.toLowerCase().localeCompare(B.fed[b].sg.toLowerCase())}),
+  pars=Object.keys(B.par).sort(function(a,b){return B.par[a].sg.toLowerCase().localeCompare(B.par[b].sg.toLowerCase())});
+ selG.innerHTML='<option value="">Todos os partidos e federações</option><optgroup label="Federações">'+feds.map(function(k){return '<option value="f'+k+'">'+esc(B.fed[k].sg)+' · '+esc(B.fed[k].nome.replace('Federação ',''))+'</option>'}).join('')+
+  '</optgroup><optgroup label="Partidos">'+pars.map(function(k){var p=B.par[k];return '<option value="p'+k+'">'+esc(p.sg)+(p.fed?' · na federação '+esc(B.fed[p.fed].sg):'')+'</option>'}).join('')+'</optgroup>'}
+var TT={f:['Eleições 2026 · Câmara dos Deputados','Deputado federal · resultado oficial do TSE, Brasil inteiro','Câmara 2026'],
+ e:['Eleições 2026 · Assembleias Legislativas','Deputado estadual e distrital · resultado oficial do TSE, Brasil inteiro','Assembleias 2026']};
+function cabecalho(){var t=TT[ehE()?'e':'f'],h=$('#t-h1'),s=$('#t-sub'),f=$('#t-fonte');if(h)h.textContent=t[0];if(s)s.textContent=t[1];d.title=t[2];
+ if(f&&B&&B.at)f.textContent='1º turno, 4/10/2026 · 100% das seções apuradas · dados do TSE gerados até '+B.at}
+function sincroniza(){montaGrupos();cabecalho();selUF.value=S.uf;selG.value=S.f?'f'+S.f:S.p?'p'+S.p:'';[selUF,selG].forEach(function(s){s.classList.toggle('on',!!s.value)});
+ [].forEach.call(segCg,function(b){var on=(b.dataset.cg||'')===S.cg;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
  if(!S.cid){inCid.value='';inCid.classList.remove('on')}if(!S.c){inCand.value='';inCand.classList.remove('on')}
  btLimpar.disabled=vazio();fRes.innerHTML=rotulo()}
 function rota(){lerHash();render()}
-function render(){var my=++token;LST={};COMP={};CIDC={};sincroniza();
- if(vazio()){geral.hidden=false;vista.hidden=true;vista.innerHTML='';return}
+function render(){var my=++token;LST={};COMP={};CIDC={};
+ if(vazio()&&!S.cg){geral.hidden=false;vista.hidden=true;vista.innerHTML='';br().then(function(){if(my===token)sincroniza()}).catch(function(){});return}
  geral.hidden=true;vista.hidden=false;vista.innerHTML='<p class="carrega">Carregando…</p>';
- var p=br().then(function(){return S.c?vCand():S.cid&&S.uf?vCidade():S.uf?vEstado():(S.p||S.f)?vGrupoBR():naoAchou()});
- p.then(function(html){if(my!==token)return;vista.innerHTML=html;sincroniza();if(S.cid&&!inCid.value)inCid.value='';
+ br().then(function(){if(my!==token)return '';sincroniza();return S.c?vCand():S.cid&&S.uf?vCidade():S.uf?vEstado():(S.p||S.f)?vGrupoBR():vBrasilE()})
+ .then(function(html){if(my!==token)return;vista.innerHTML=html;sincroniza();
   if(form.getBoundingClientRect().top<-40)form.scrollIntoView({block:'start'})})
  .catch(function(err){if(my!==token)return;if(window.console)console.error(err);vista.innerHTML='<section><p class="vazio-msg">Não consegui carregar os dados. Confira a conexão e toque no filtro de novo.</p></section>'})}
 
 /* ---------- filtros */
-var selG=$('#f-grupo'),selUF=$('#f-uf'),inCid=$('#f-cid'),inCand=$('#f-cand'),sCid=$('#s-cid'),sCand=$('#s-cand'),btLimpar=$('#limpar'),fRes=$('#f-res');
+var selG=$('#f-grupo'),selUF=$('#f-uf'),inCid=$('#f-cid'),inCand=$('#f-cand'),sCid=$('#s-cid'),sCand=$('#s-cand'),btLimpar=$('#limpar'),fRes=$('#f-res'),segCg=form.querySelectorAll('[data-cg]');
 selG.addEventListener('change',function(){var v=selG.value,t=v.charAt(0),n=v.slice(1);ir({uf:S.uf,cid:S.cid,f:t==='f'?n:'',p:t==='p'?n:''})});
 selUF.addEventListener('change',function(){ir({uf:selUF.value,f:S.f,p:S.p})});
 btLimpar.addEventListener('click',function(){ir({})});
+[].forEach.call(segCg,function(b){b.addEventListener('click',function(){var cg=b.dataset.cg||'';if(cg===S.cg)return;ir({cg:cg,uf:S.uf,cid:S.cid,f:S.f,p:S.p})})});
 
 function autocompleta(inp,box,fonte,escolhe){var ativo=-1,itens=[];
  function fecha(){box.hidden=true;inp.setAttribute('aria-expanded','false');ativo=-1}
@@ -493,6 +570,17 @@ autocompleta(inCand,sCand,function(q){return Promise.all([get('cand.json'),br()]
   return res.map(function(i){var c=l[i];return {uf:c[0],n:c[1],t:c[2],s:sg(c[3])+'-'+c[0].toUpperCase()+' · '+fmt(c[4])}})})},
  function(x){ir({c:x.uf+'-'+x.n})});
 inCand.addEventListener('search',function(){if(!inCand.value&&S.c)ir({})});
+
+/* ---------- relatório em PDF (o código só carrega quando alguém pede) */
+var relBtn=$('#relatorio');
+function carregaScript(src){return new Promise(function(ok,falha){var s=d.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){falha(new Error(src))};d.head.appendChild(s)})}
+var relPronto=null;
+if(relBtn)relBtn.addEventListener('click',function(){relBtn.disabled=true;
+ relPronto=relPronto||carregaScript('relatorio.js?v=1');
+ relPronto.then(function(){window.RELATORIO.abrir({S:Object.assign({},S),get:get,rotulo:rotulo,depois:form})})
+ .catch(function(){relPronto=null;alerta('Não consegui abrir o relatório. Confira a conexão e tente de novo.')})
+ .then(function(){relBtn.disabled=false})});
+function alerta(t){fRes.innerHTML='<b>'+esc(t)+'</b>'}
 
 window.addEventListener('hashchange',rota);window.addEventListener('popstate',rota);
 rota();
