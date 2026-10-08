@@ -378,7 +378,9 @@ d.addEventListener('click',function(ev){var b=ev.target.closest&&ev.target.close
 d.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a.wa[data-wa]');if(a)a.href=waHref(a.getAttribute('data-wa'))},true);
 /* caminho de volta no topo de cada tela: cidade inteira, estado, partido no Brasil, Brasil */
 function trilha(){if(!B)return '';var l=[],G=grupo(),gf=filtroGrupo(G);
- if(S.c){var uc=S.c.split('-')[0];if(B.U[uc])l.push(['#uf='+uc,B.U[uc].nome])}
+ if(S.c&&S.cid){var uk=S.c.split('-')[0],nk=inCand.value||'Candidato',ck=inCid.value||'Cidade';if(S.z)l.push(['#uf='+uk+'&cid='+S.cid+'&c='+S.c,nk+' em '+ck+' (cidade inteira)']);
+  l.push(['#c='+S.c,nk+' (todas as cidades)']);l.push(['#uf='+uk+'&cid='+S.cid,ck+' (todos os candidatos)'])}
+ else if(S.c){var uc=S.c.split('-')[0];if(B.U[uc])l.push(['#uf='+uc,B.U[uc].nome])}
  else if(S.cid&&B.U[S.uf]){if(S.z)l.push(['#uf='+S.uf+'&cid='+S.cid+gf,(inCid.value||'Cidade')+' inteira']);l.push(['#uf='+S.uf+gf,B.U[S.uf].nome+(G?' · '+G.g.sg:'')])}
  else if(S.uf&&G&&B.U[S.uf]){l.push(['#uf='+S.uf,B.U[S.uf].nome+', todos os partidos']);l.push([(G.tipo==='fed'?'#f=':'#p=')+G.id,G.g.sg+' no Brasil'])}
  var h=l.map(function(x){return '<a href="'+x[0]+'">← '+esc(x[1])+'</a>'}).join('')+(vazio()?'':'<a href="#" data-volta="1">← Brasil</a>');
@@ -400,7 +402,7 @@ function maisBtn(id,m){var r=LST[id].length-m;if(r<=0)return '';return '<div cla
 /* candidatos com filtro Todos / Eleitos / Não eleitos */
 var COMP={},CIDC={};
 function eleito(o){return o.st==='Q'||o.st==='M'}
-function rowCand(o,k){return '<li><a class="cand" href="#c='+o.uf+'-'+o.n+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(nomeProprio(o.nome))+'</b><small>'+
+function rowCand(o,k){return '<li><a class="cand" href="'+(o.href||'#c='+o.uf+'-'+o.n)+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(nomeProprio(o.nome))+'</b><small>'+
  esc(sg(o.p))+' · '+o.uf.toUpperCase()+' · nº '+o.n+(o.k2?' · '+o.k2:'')+'</small><small>'+stH(o.st,o.sj)+'</small></span><span class="c-v"><b>'+fmt(o.v)+'</b><small>'+o.sub+'</small></span></a></li>'}
 function compCand(objs,vz){var id='cc'+(++seq),nE=0;objs.forEach(function(o){if(eleito(o))nE++});COMP[id]={objs:objs,modo:'todos',vz:vz};
  function bt(m,rot,n){var on=m==='todos';return '<button type="button" data-cc="'+id+'" data-m="'+m+'" class="'+(on?'on':'')+'" aria-pressed="'+on+'">'+rot+' <b>'+fmt(n)+'</b></button>'}
@@ -429,9 +431,9 @@ function compCV(objs,total,padrao,semVoto){var id='cv'+(++seq);CV[id]={objs:objs
  var op=(semVoto?'':'<option value="v">Mais votos</option><option value="vm">Menos votos</option>')+'<option value="te"'+(semVoto?' selected':'')+'>Mais eleitores</option><option value="nome">Nome da cidade</option>';
  return '<label class="ordem">Ordenar por <select data-cv="'+id+'">'+op+'</select></label><div id="'+id+'">'+listaCV(id)+'</div>'}
 function listaCV(id){var c=CV[id],arr=c.objs.slice().sort(ORDV[c.ordem]),k=0;return lista(arr.map(function(o){return rowCV(o,++k,c.total)}),'Nenhuma cidade.')}
-function rowCV(o,k,total){if(!o.v)return '<li><a class="cand sem" href="#uf='+o.uf+'&cid='+o.cd+'"><span class="c-k"></span><span class="c-n"><b>'+esc(o.nome)+'</b><small>nenhum voto</small></span>'+
+function rowCV(o,k,total){if(!o.v)return '<li><a class="cand sem" href="#uf='+o.uf+'&cid='+o.cd+(o.ck?'&c='+o.ck:'')+'"><span class="c-k"></span><span class="c-n"><b>'+esc(o.nome)+'</b><small>nenhum voto</small></span>'+
   '<span class="c-v"><b>'+fmt(o.te)+'</b><small>eleitores</small></span></a></li>';
- return '<li><a class="cand" href="#uf='+o.uf+'&cid='+o.cd+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(o.nome)+'</b><small>'+fmt(o.te)+' eleitores · '+pc(o.v,o.vvc)+'% dos votos da cidade</small></span>'+
+ return '<li><a class="cand" href="#uf='+o.uf+'&cid='+o.cd+(o.ck?'&c='+o.ck:'')+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(o.nome)+'</b><small>'+fmt(o.te)+' eleitores · '+pc(o.v,o.vvc)+'% dos votos da cidade</small></span>'+
   '<span class="c-v"><b>'+fmt(o.v)+'</b><small>'+pc(o.v,total,1)+'% do total</small></span></a></li>'}
 
 /* abas */
@@ -456,7 +458,8 @@ vista.addEventListener('click',function(ev){var t=ev.target;
   [].forEach.call(vista.querySelectorAll('.aba-p'),function(p){p.hidden=p.dataset.aba!==id2});return}
  if(t.closest('[data-volta]')){ev.preventDefault();ir({cg:S.cg})}});
 vista.addEventListener('change',function(ev){var t0=ev.target,dz={'f-zona':1,'f-local':1,'f-secao':1};if(dz[t0.id]){var z=S.z,lv=S.lv,sc=S.sc;
- if(t0.id==='f-zona'){z=t0.value;lv='';sc=''}else if(t0.id==='f-local'){lv=t0.value;sc=''}else sc=t0.value;ir({uf:S.uf,cid:S.cid,z:z,lv:lv,sc:sc,f:S.f,p:S.p,aba:S.aba});return}
+ if(t0.id==='f-zona'){z=t0.value;lv='';sc=''}else if(t0.id==='f-local'){lv=t0.value;sc=''}else sc=t0.value;ir({uf:S.uf,cid:S.cid,c:S.c,z:z,lv:lv,sc:sc,f:S.f,p:S.p,aba:S.aba});return}
+ var s4=ev.target.closest('select[data-ls]');if(s4){LS[s4.dataset.ls].ordem=s4.value;d.getElementById(s4.dataset.ls).innerHTML=listaLS(s4.dataset.ls);return}
  var s2=ev.target.closest('select[data-cv]');if(s2){CV[s2.dataset.cv].ordem=s2.value;d.getElementById(s2.dataset.cv).innerHTML=listaCV(s2.dataset.cv);return}
  var s=ev.target.closest('select[data-ci]');if(!s)return;CIDC[s.dataset.ci].ordem=s.value;d.getElementById(s.dataset.ci).innerHTML=listaCid(s.dataset.ci)});
 
@@ -620,16 +623,8 @@ function carregaRecorte(Sx,cg){return Promise.all([get('uf/'+Sx.uf+'.json',cg),g
    if(sx.length){R.m=recorte(somaPares(sx.map(function(s){return s[2]})),info,u.leg);R.rot='Zona '+zi[0]+(lc1?' · '+lc1[1]:'')+(um.length?' · Seção '+um[0][0]:'')}}
   else if(zi[2]){R.m=recorte(zi[2],info,u.leg);R.rot='Zona '+zi[0]}
   return R})})}
-function vCidade(){return Promise.all([get('m/'+S.uf+'/'+S.cid+'.json'),carregaRecorte(S)]).then(function(r){
- var mC=r[0],R=r[1],u=R.u,ix=R.ix,zi=R.zi,zd=R.zd,lc=R.lc,secs=R.secs,info=R.info,U=B.U[S.uf];var ci=null;u.cid.forEach(function(c){if(c[0]===S.cid)ci=c});if(!U||!ci)return naoAchou();
- inCid.value=ci[1];inCid.classList.add('on');var G=grupo();
- var m=R.m||mC,rot=R.rot,t=m.t,sub=!!R.m,gv=0;ROT=rot;m.p.forEach(function(p){if(doGrupo(G,p[0]))gv+=p[1]});
- var emp=m.c.length>1&&m.c[1][1]===m.c[0][1],nm1=function(i){var x=info[m.c[i][0]];return nomeProprio(x[1])+' ('+sg(x[3])+')'},lid=m.c[0]?nm1(0)+(emp?' e '+nm1(1):''):'',
-  nmW=function(i){var x=info[m.c[i][0]];return nomeProprio(x[1])+' ('+sg(x[3])+')'},lidW=m.c[0]?nmW(0)+(emp?' e '+nmW(1):''):'';
- var objs=m.c.filter(function(c){return doGrupo(G,info[c[0]][3])}).map(function(c){var x=info[c[0]];return {uf:S.uf,n:c[0],nome:x[1],p:x[3],v:c[1],st:x[5],sj:x[6],sub:pc(c[1],t[4])+(sub?'% do recorte':'% da cidade')}});
- var h='<section>'+cab('Cidade · '+U.nome+' · '+cargoNome(S.uf),ci[1]+(G?' · '+G.g.sg:''),(sub?'<b>'+esc(rot)+'</b> · '+fmt(t[1])+' votos neste recorte':fmt(t[1])+' votaram ('+pc(t[1],t[0],1)+'% de comparecimento) · '+fmt(t[3])+' votos válidos para '+cargoNome(S.uf)));
- /* filtro de decisão */
- if(ix&&ix.z.length){var zsel='<option value="">Todas as zonas ('+ix.z.length+')</option>'+ix.z.map(function(z){return opt(z[0],'Zona '+z[0]+' · '+z[1].length+' '+plural(z[1].length,'local','locais'),S.z)}).join('');
+/* filtro de decisão zona > local de votação > seção (tela da cidade e do candidato na cidade). secs = seções da zona, só do local se houver */
+function filtroDecisao(ix,zi,zd,lc,secs,cidNome){if(!ix||!ix.z.length)return '';var h='',zsel='<option value="">Todas as zonas ('+ix.z.length+')</option>'+ix.z.map(function(z){return opt(z[0],'Zona '+z[0]+' · '+z[1].length+' '+plural(z[1].length,'local','locais'),S.z)}).join('');
   var nn={};if(zi)zi[1].forEach(function(l){nn[l[1]]=(nn[l[1]]||0)+1});
   var lsel=zi?'<option value="">Todos os locais da zona ('+zi[1].length+')</option>'+zi[1].map(function(l){return opt(l[0],l[1]+(nn[l[1]]>1?' ('+l[2]+')':'')+' · '+l[3].length+' '+plural(l[3].length,'seção','seções'),S.lv)}).join(''):'<option value="">Escolha a zona primeiro</option>';
   var ssel=zd?'<option value="">Todas as seções'+(lc?' do local':' da zona')+' ('+secs.length+')</option>'+secs.map(function(s){return opt(s[0],'Seção '+s[0]+(lc?'':' · '+(zi[1].filter(function(l){return l[0]===s[1]})[0]||[0,''])[1]),S.sc)}).join(''):'<option value="">Escolha a zona primeiro</option>';
@@ -638,7 +633,18 @@ function vCidade(){return Promise.all([get('m/'+S.uf+'/'+S.cid+'.json'),carregaR
    '<div class="campo"><label for="f-local">Local de votação</label><select id="f-local"'+(zi?'':' disabled')+'>'+lsel+'</select></div></div>'+
    '<div class="campo"><label for="f-secao">Seção</label><select id="f-secao"'+(zd?'':' disabled')+'>'+ssel+'</select></div>'+
    (lc?'<p class="sub">'+esc(lc[2])+'</p>':'')+
-   (zi&&zi[3]?'<p class="sub">A zona '+zi[0]+' também atende '+(zi[3]===1?'outra cidade':zi[3]+' outras cidades')+'. Aqui entram só as seções de '+esc(ci[1])+'.</p>':'')+'</div>'}
+   (zi&&zi[3]?'<p class="sub">A zona '+zi[0]+' também atende '+(zi[3]===1?'outra cidade':zi[3]+' outras cidades')+'. Aqui entram só as seções de '+esc(cidNome)+'.</p>':'')+'</div>';
+ return h}
+function vCidade(){return Promise.all([get('m/'+S.uf+'/'+S.cid+'.json'),carregaRecorte(S)]).then(function(r){
+ var mC=r[0],R=r[1],u=R.u,ix=R.ix,zi=R.zi,zd=R.zd,lc=R.lc,secs=R.secs,info=R.info,U=B.U[S.uf];var ci=null;u.cid.forEach(function(c){if(c[0]===S.cid)ci=c});if(!U||!ci)return naoAchou();
+ inCid.value=ci[1];inCid.classList.add('on');var G=grupo();
+ var m=R.m||mC,rot=R.rot,t=m.t,sub=!!R.m,gv=0;ROT=rot;m.p.forEach(function(p){if(doGrupo(G,p[0]))gv+=p[1]});
+ var emp=m.c.length>1&&m.c[1][1]===m.c[0][1],nm1=function(i){var x=info[m.c[i][0]];return nomeProprio(x[1])+' ('+sg(x[3])+')'},lid=m.c[0]?nm1(0)+(emp?' e '+nm1(1):''):'',
+  nmW=function(i){var x=info[m.c[i][0]];return nomeProprio(x[1])+' ('+sg(x[3])+')'},lidW=m.c[0]?nmW(0)+(emp?' e '+nmW(1):''):'';
+ var objs=m.c.filter(function(c){return doGrupo(G,info[c[0]][3])}).map(function(c){var x=info[c[0]];return {uf:S.uf,n:c[0],nome:x[1],p:x[3],v:c[1],st:x[5],sj:x[6],sub:pc(c[1],t[4])+(sub?'% do recorte':'% da cidade'),
+  href:'#uf='+S.uf+'&cid='+S.cid+'&c='+S.uf+'-'+c[0]+(S.z?'&z='+S.z:'')+(S.lv?'&lv='+S.lv:'')+(S.sc?'&sc='+S.sc:'')}});
+ var h='<section>'+cab('Cidade · '+U.nome+' · '+cargoNome(S.uf),ci[1]+(G?' · '+G.g.sg:''),(sub?'<b>'+esc(rot)+'</b> · '+fmt(t[1])+' votos neste recorte':fmt(t[1])+' votaram ('+pc(t[1],t[0],1)+'% de comparecimento) · '+fmt(t[3])+' votos válidos para '+cargoNome(S.uf)));
+ h+=filtroDecisao(ix,zi,zd,lc,secs,ci[1]);
  if(G)h+='<p class="big">'+fmt(gv)+'<small>votos de '+esc(G.g.sg)+'</small></p><p class="sit">'+pc(gv,t[3])+'% dos votos válidos '+(sub?'do recorte':'da cidade')+(sub?'':' · '+fmt(t[0])+' eleitores')+'</p>';
  else h+='<p class="big">'+fmt(sub?t[1]:t[0])+'<small>'+(sub?'votos':'eleitores')+'</small></p>'+(m.c[0]?'<p class="sit">'+(emp?'Empate no 1º lugar: ':'Mais votado: ')+esc(lid)+', '+fmt(m.c[0][1])+' votos'+(emp?' cada':'')+'</p>':'');
  if(!sub)h+='<p class="qe-nota">O quociente eleitoral é do estado: <b>'+fmt(U.qe)+' votos por cadeira</b> em '+esc(U.nome)+'. Os '+fmt(t[3])+' votos válidos de '+esc(ci[1])+' equivalem a <b>'+(t[3]>=U.qe?razao(t[3],U.qe,2)+' '+(t[3]<2*U.qe?'quociente':'quocientes'):pc(t[3],U.qe,1)+'% de um quociente')+'</b>.</p>';
@@ -655,6 +661,87 @@ function vCidade(){return Promise.all([get('m/'+S.uf+'/'+S.cid+'.json'),carregaR
  h+=abas([{id:'geral',rot:'Visão geral',html:geralH},{id:'cand',rot:'Candidatos',n:objs.length,html:sec('Candidatos votados · '+onde+(G?' · '+G.g.sg:''),'Votos neste recorte. Eleito ou não eleito é o resultado do estado.',compCand(objs,'Nenhum voto para este grupo aqui.'))}]);
  return h})}
 
+/* ---------- visão: candidato dentro da cidade (votos dele por zona, local de votação e seção, com e sem voto) */
+var LIM_SEC=800,LS={}; /* cidade com até LIM_SEC seções carrega todas as zonas de uma vez; acima disso, locais e seções saem por zona */
+function votosDe(pares,n){for(var i=0;i<pares.length;i++)if(pares[i][0]===n)return pares[i][1];return 0}
+function posDe(m,v){return v?1+m.c.filter(function(c){return c[1]>v}).length:0}
+/* soma tudo do candidato na cidade e no recorte escolhido; a tela e o PDF usam a mesma função.
+   D.zonas sempre; D.locais e D.secoes quando a zona escolhida, ou a cidade inteira (até LIM_SEC seções), foi carregada.
+   D.a = o recorte escolhido (cidade, zona, local ou seção): votos, base (válidos + sub judice), posição e nº de candidatos com voto */
+function carregaCandCidade(Sx,cg){var pr=Sx.c.split('-'),uf=pr[0],num=+pr[1];
+ return Promise.all([get('uf/'+uf+'.json',cg),get('m/'+uf+'/'+Sx.cid+'.json',cg).catch(function(){return null}),get('s/'+uf+'/'+Sx.cid+'.json',cg).catch(function(){return null})]).then(function(r){
+  var u=r[0],mC=r[1],ix=r[2],info={},D={uf:uf,num:num,k:null,ci:null,ix:ix,zi:null,zd:null,lc:null,s1:null,zonas:[],locais:null,secoes:null,nsec:0,info:info,leg:u.leg};
+  u.cand.forEach(function(c){info[c[0]]=c;if(c[0]===num)D.k=c});u.cid.forEach(function(c){if(c[0]===Sx.cid)D.ci=c});
+  if(!D.k||!D.ci||!mC)return D;
+  D.mC=mC;D.cid={v:votosDe(mC.c,num),base:mC.t[4],nc:mC.c.length};D.cid.pos=posDe(mC,D.cid.v);
+  var nomeL={};
+  if(ix)ix.z.forEach(function(z){var ns=0;z[1].forEach(function(l){ns+=l[3].length;nomeL[z[0]+'-'+l[0]]=l});D.nsec+=ns;
+   var m=z[2]?recorte(z[2],info,u.leg):mC,v=votosDe(m.c,num);
+   D.zonas.push({z:z[0],nloc:z[1].length,nsec:ns,v:v,base:m.t[4],nc:m.c.length,pos:posDe(m,v),outras:z[3]});
+   if(Sx.z&&String(z[0])===Sx.z)D.zi=z});
+  if(D.zi&&Sx.lv)D.zi[1].forEach(function(l){if(String(l[0])===Sx.lv)D.lc=l});
+  var carregar=D.zi?[D.zi]:(ix&&D.nsec<=LIM_SEC?ix.z:[]);
+  return Promise.all(carregar.map(function(z){return get('s/'+uf+'/'+Sx.cid+'/'+z[0]+'.json',cg).then(function(zd){return [z,zd]},function(){return [z,null]})})).then(function(zs){
+   if(zs.length){D.locais=[];D.secoes=[]}
+   zs.forEach(function(x){var z=x[0],zd=x[1];if(!zd)return;if(D.zi)D.zd=zd;var porLoc={};
+    zd.s.forEach(function(s){var m=recorte(s[2],info,u.leg),v=votosDe(m.c,num),l=nomeL[z[0]+'-'+s[1]];
+     D.secoes.push({z:z[0],sc:s[0],lv:s[1],loc:l?l[1]:'',v:v,base:m.t[4],nc:m.c.length,pos:posDe(m,v)});
+     (porLoc[s[1]]=porLoc[s[1]]||[]).push(s[2])});
+    z[1].forEach(function(l){var m=recorte(somaPares(porLoc[l[0]]||[]),info,u.leg),v=votosDe(m.c,num);
+     D.locais.push({z:z[0],lv:l[0],nome:l[1],end:l[2],nsec:l[3].length,v:v,base:m.t[4],nc:m.c.length,pos:posDe(m,v)})})});
+   /* o recorte escolhido; seção ou local que não existem valem como "todos", como na tela da cidade */
+   var L=D.locais,Sc=D.secoes;if(D.lc&&L){L=L.filter(function(l){return l.lv===D.lc[0]});Sc=Sc.filter(function(s){return s.lv===D.lc[0]})}
+   if(Sc&&Sx.sc&&D.zi)Sc.forEach(function(s){if(String(s.sc)===Sx.sc)D.s1=s});
+   var Z=null;if(D.zi)D.zonas.forEach(function(z){if(z.z===D.zi[0])Z=z});
+   D.locaisR=L;D.secoesR=Sc;
+   D.a=D.s1?Object.assign({rot:'Zona '+D.s1.z+(D.s1.loc?' · '+D.s1.loc:'')+' · Seção '+D.s1.sc,onde:'seção'},D.s1):
+    D.lc&&L&&L.length?Object.assign({rot:'Zona '+D.zi[0]+' · '+D.lc[1],onde:'local'},L[0]):
+    Z?Object.assign({rot:'Zona '+Z.z,onde:'zona'},Z):Object.assign({rot:'',onde:'cidade'},D.cid);
+   return D})})}
+var NA={cidade:'na cidade',zona:'na zona',local:'no local','seção':'na seção'},DA={cidade:'da cidade',zona:'da zona',local:'do local','seção':'da seção'};
+/* listas de zonas, locais e seções do candidato, com ordenação (sem voto primeiro serve para buscar voto) */
+var ORDLS={v:function(a,b){return b.v-a.v||b.base-a.base},vm:function(a,b){return a.v-b.v||b.base-a.base},b:function(a,b){return b.base-a.base||b.v-a.v},
+ n:function(a,b){return a.nome!=null?a.nome.localeCompare(b.nome,'pt')||a.z-b.z:a.z-b.z||(a.sc||0)-(b.sc||0)}};
+function compLS(tp,objs,base){var id='ls'+(++seq);LS[id]={objs:objs,ordem:'v',tp:tp,base:base};
+ var tot={z:'Mais votos na zona',l:'Mais votos no local',s:'Mais votos na seção'}[tp],nm={z:'Número da zona',l:'Nome do local',s:'Número da seção'}[tp];
+ return '<label class="ordem">Ordenar por <select data-ls="'+id+'"><option value="v">Mais votos do candidato</option><option value="vm">Menos votos (sem voto primeiro)</option>'+
+  '<option value="b">'+tot+'</option><option value="n">'+nm+'</option></select></label><div id="'+id+'">'+listaLS(id)+'</div>'}
+function listaLS(id){var c=LS[id],arr=c.objs.slice().sort(ORDLS[c.ordem]),k=0;return lista(arr.map(function(o){return rowLS(o,++k,c.tp,c.base)}),'Nada neste recorte.')}
+function rowLS(o,k,tp,base){var href=base+'&z='+o.z+(tp!=='z'?'&lv='+o.lv:'')+(tp==='s'?'&sc='+o.sc:''),
+  tit=tp==='z'?'Zona '+o.z:tp==='l'?o.nome:'Seção '+o.sc,da={z:'da zona',l:'do local',s:'da seção'}[tp],na={z:'na zona',l:'no local',s:'na seção'}[tp],
+  sub=tp==='z'?o.nloc+' '+plural(o.nloc,'local','locais')+' · '+fmt(o.nsec)+' '+plural(o.nsec,'seção','seções')+(o.outras?' · zona também de outras cidades':''):
+   tp==='l'?'Zona '+o.z+' · '+o.nsec+' '+plural(o.nsec,'seção','seções'):'Zona '+o.z+(o.loc?' · '+o.loc:'');
+ if(!o.v)return '<li><a class="cand sem" href="'+href+'"><span class="c-k"></span><span class="c-n"><b>'+esc(tit)+'</b><small>nenhum voto · '+esc(sub)+'</small></span>'+
+  '<span class="c-v"><b>'+fmt(o.base)+'</b><small>votos '+na+'</small></span></a></li>';
+ return '<li><a class="cand" href="'+href+'"><span class="c-k">'+k+'º</span><span class="c-n"><b>'+esc(tit)+'</b><small>'+esc(sub)+'</small><small>'+o.pos+'º mais votado '+na+'</small></span>'+
+  '<span class="c-v"><b>'+fmt(o.v)+'</b><small>'+pc(o.v,o.base)+'% '+da+'</small></span></a></li>'}
+function vCandCidade(){return carregaCandCidade(S).then(function(D){var k=D.k,ci=D.ci,U=B.U[D.uf];if(!k||!ci||!U||!D.mC)return naoAchou();
+ var nome=nomeProprio(k[1]),a=D.a,f=fedDe(k[3]),pid=sg(k[3]),L=D.locaisR,Sc=D.secoesR,base='#uf='+D.uf+'&cid='+S.cid+'&c='+S.c;
+ inCand.value=nome;inCand.classList.add('on');inCid.value=ci[1];inCid.classList.add('on');ROT=a.rot;
+ var h='<section>'+cab('Candidato na cidade · '+cargoNome(D.uf)+' · '+U.nome,nome+' em '+ci[1],esc(pid)+(f?' · '+esc(B.fed[f].sg):'')+' · nº '+k[0]+' · '+stH(k[5],k[6])+(a.rot?'<br><b>'+esc(a.rot)+'</b>':''));
+ h+=filtroDecisao(D.ix,D.zi,D.zd,D.lc,D.zd?D.zd.s.filter(function(s){return !D.lc||s[1]===D.lc[0]}):[],ci[1]);
+ h+='<p class="big">'+fmt(a.v)+'<small>'+plural(a.v,'voto','votos')+' '+NA[a.onde]+'</small></p><p class="sit">'+
+  (a.v?pc(a.v,a.base)+'% dos votos '+DA[a.onde]+' · '+a.pos+'º mais votado '+NA[a.onde]+', entre '+fmt(a.nc)+' candidatos com voto':'Nenhum voto '+NA[a.onde]+'.')+'</p>';
+ var t=tile('Do total do candidato',pc(a.v,k[4],1)+'%',fmt(k[4])+' votos em '+esc(U.nome));
+ if(!D.zi&&D.zonas.length>1)t+=tile('Zonas com voto',D.zonas.filter(function(z){return z.v>0}).length+' de '+D.zonas.length,'');
+ if(L&&!D.s1&&!D.lc)t+=tile('Locais com voto',L.filter(function(l){return l.v>0}).length+' de '+L.length,D.lc?'neste local':D.zi?'nesta zona':'na cidade');
+ if(Sc&&!D.s1)t+=tile('Seções com voto',Sc.filter(function(s){return s.v>0}).length+' de '+Sc.length,'');
+ if(a.rot)t+=tile('Na cidade inteira',fmt(D.cid.v),D.cid.v?D.cid.pos+'º mais votado em '+esc(ci[1]):'nenhum voto em '+esc(ci[1]));
+ h+='<div class="tiles">'+t+'</div>';
+ if(!L&&D.zonas.length)h+='<p class="regra">'+esc(ci[1])+' tem '+fmt(D.nsec)+' seções. Para ver os locais de votação e as seções, escolha uma zona: no filtro acima ou na lista de zonas abaixo.</p>';
+ h+=waBtn(nome+' ('+pid+'-'+D.uf.toUpperCase()+') em '+ci[1]+(a.rot?' · '+a.rot:'')+' · '+cargoNome(D.uf)+' 2026: '+fmt(a.v)+' '+plural(a.v,'voto','votos')+
+  (a.v?' ('+pc(a.v,a.base)+'% '+DA[a.onde]+', '+a.pos+'º mais votado '+NA[a.onde]+').':'.'))+'</section>';
+ var defs=[];
+ if(!D.zi&&D.zonas.length>1)defs.push({id:'zonas',rot:'Zonas',n:D.zonas.length,html:sec('Votos por zona · '+ci[1],'Votos do candidato em cada zona e a parte dos votos da zona. Toque na zona para ver os locais e as seções.',compLS('z',D.zonas,base))});
+ if(L&&!D.lc&&!D.s1)defs.push({id:'locais',rot:'Locais',n:L.length,html:sec('Votos por local de votação'+(D.zi?' · Zona '+D.zi[0]:' · '+ci[1]),'Cada prédio de votação, com e sem voto. Toque no local para ver as seções.',compLS('l',L,base))});
+ if(Sc&&!D.s1)defs.push({id:'secoes',rot:'Seções',n:Sc.length,html:sec('Votos por seção'+(D.lc?' · '+D.lc[1]:D.zi?' · Zona '+D.zi[0]:' · '+ci[1]),'Cada seção, com e sem voto. Toque na seção para ver todos os candidatos dela.',compLS('s',Sc,base))});
+ if(D.s1&&D.zd){var raw=null;D.zd.s.forEach(function(s){if(s[0]===D.s1.sc)raw=s});
+  if(raw){var ms=recorte(raw[2],D.info,D.leg),ctx='&z='+D.s1.z+(S.lv?'&lv='+S.lv:'')+'&sc='+D.s1.sc;
+   var objs=ms.c.map(function(c){var x=D.info[c[0]];return {uf:D.uf,n:c[0],nome:x[1],p:x[3],v:c[1],st:x[5],sj:x[6],sub:pc(c[1],ms.t[4])+'% da seção',href:'#uf='+D.uf+'&cid='+S.cid+'&c='+D.uf+'-'+c[0]+ctx}});
+   defs.push({id:'secao',rot:'Candidatos na seção',n:objs.length,html:sec('Candidatos votados na seção '+D.s1.sc,'Todos os candidatos com voto nesta seção, do mais ao menos votado.',compCand(objs,'Sem votos.'))})}}
+ if(defs.length)h+=abas(defs);
+ return h})}
+
 /* ---------- visão: candidato */
 function vCand(){var pr=S.c.split('-'),uf=pr[0],num=pr[1];
  return get('uf/'+uf+'.json').then(function(u){var U=B.U[uf],k=null;if(U)u.cand.forEach(function(c){if(String(c[0])===num)k=c});if(!k)return naoAchou();
@@ -668,8 +755,8 @@ function vCand(){var pr=S.c.split('-'),uf=pr[0],num=pr[1];
    if(k[6])h+='<p class="regra">O registro deste candidato está em julgamento (sub judice). Os votos dele aparecem aqui, mas ficam fora dos válidos até a decisão.</p>';
    h+=waBtn(nomeProprio(k[1])+' ('+sg(k[3])+'-'+uf.toUpperCase()+'), '+cargoNome(uf)+' 2026: '+fmt(k[4])+' votos, '+k[8]+'º no estado. '+({Q:'Eleito pelo quociente.',M:'Eleito nas sobras.',S:'Suplente.',N:'Não eleito.'}[k[5]]))+
     '<ul class="indice"><li><a href="#uf='+uf+'&p='+k[3]+'">Candidatos do '+esc(sg(k[3]))+' em '+esc(U.nome)+'</a></li><li><a href="#uf='+uf+'">'+esc(U.nome)+'</a></li><li><a href="#p='+k[3]+'">'+esc(sg(k[3]))+' no Brasil</a></li></ul></section>';
-   var com=lst.map(function(c){var ci=cid[c[0]];return {uf:uf,cd:c[0],nome:ci[1],te:ci[2],vvc:ci[4],v:c[1]}}),tem={};lst.forEach(function(c){tem[c[0]]=1});
-   var sem=u.cid.filter(function(c){return !tem[c[0]]}).map(function(c){return {uf:uf,cd:c[0],nome:c[1],te:c[2],vvc:c[4],v:0}});
+   var com=lst.map(function(c){var ci=cid[c[0]];return {uf:uf,cd:c[0],nome:ci[1],te:ci[2],vvc:ci[4],v:c[1],ck:uf+'-'+k[0]}}),tem={};lst.forEach(function(c){tem[c[0]]=1});
+   var sem=u.cid.filter(function(c){return !tem[c[0]]}).map(function(c){return {uf:uf,cd:c[0],nome:c[1],te:c[2],vvc:c[4],v:0,ck:uf+'-'+k[0]}});
    var top10=com.slice(0,10).map(function(o,i){return rowCV(o,i+1,k[4])}).join('');
    var geralH=sec('Onde teve mais votos','As 10 cidades com mais votos.',top10?'<ol class="cands">'+top10+'</ol>'+(com.length>10?'<button type="button" class="ir-aba" data-ir-aba="cid">Ver as '+fmt(com.length)+' cidades com voto</button>':''):'<p class="vazio-msg">Sem votos.</p>')+
     (sem.length?'<button type="button" class="ir-aba" data-ir-aba="sem">Ver as '+fmt(sem.length)+' '+plural(sem.length,'cidade','cidades')+' sem voto</button>':'');
@@ -680,7 +767,7 @@ function vCand(){var pr=S.c.split('-'),uf=pr[0],num=pr[1];
 
 /* ---------- desenhar */
 var token=0,ROT='';
-function rotulo(){if(!B)return '';var p=[];if(ehE())p.push('Deputado estadual');if(S.c)p.push(inCand.value?nomeProprio(inCand.value)+' (candidato)':'candidato');else{var G=grupo();if(G)p.push(G.g.sg);if(S.uf&&B.U[S.uf])p.push(B.U[S.uf].nome);if(S.cid&&inCid.value)p.push(inCid.value);if(S.cid&&ROT)p.push(ROT)}
+function rotulo(){if(!B)return '';var p=[];if(ehE())p.push('Deputado estadual');if(S.c){p.push(inCand.value?nomeProprio(inCand.value)+' (candidato)':'candidato');if(S.cid&&inCid.value)p.push(inCid.value);if(S.cid&&ROT)p.push(ROT)}else{var G=grupo();if(G)p.push(G.g.sg);if(S.uf&&B.U[S.uf])p.push(B.U[S.uf].nome);if(S.cid&&inCid.value)p.push(inCid.value);if(S.cid&&ROT)p.push(ROT)}
  return p.length&&!(p.length===1&&ehE())?'Mostrando: <b>'+esc(p.join(' · '))+'</b>':'Mostrando o <b>Brasil inteiro'+(ehE()?' · deputado estadual':'')+'</b>'}
 function montaGrupos(){if(!B||selG.dataset.cg===(S.cg||'f'))return;selG.dataset.cg=S.cg||'f';
  var feds=Object.keys(B.fed).sort(function(a,b){return B.fed[a].sg.toLowerCase().localeCompare(B.fed[b].sg.toLowerCase())}),
@@ -696,10 +783,10 @@ function sincroniza(){montaGrupos();cabecalho();selUF.value=S.uf;selG.value=S.f?
  if(!S.cid){inCid.value='';inCid.classList.remove('on')}if(!S.c){inCand.value='';inCand.classList.remove('on')}
  btLimpar.disabled=vazio();fRes.innerHTML=rotulo();d.title=(vazio()?'':fRes.textContent.replace(/^Mostrando:?\s*(o\s)?/,'')+' · ')+TT[ehE()?'e':'f'][2]}
 function rota(){lerHash();render()}
-function render(){var my=++token;LST={};COMP={};CIDC={};CV={};ROT='';
+function render(){var my=++token;LST={};COMP={};CIDC={};CV={};LS={};ROT='';
  if(vazio()&&!S.cg){geral.hidden=false;vista.hidden=true;vista.innerHTML='';br().then(function(){if(my===token)sincroniza()}).catch(function(){});return}
  geral.hidden=true;vista.hidden=false;vista.innerHTML='<p class="carrega">Carregando…</p>';
- br().then(function(){if(my!==token)return '';sincroniza();var ux=S.c?S.c.split('-')[0]:S.uf;if(ux&&!B.U[ux])return naoAchou();return S.c?vCand():S.cid&&S.uf?vCidade():S.uf?vEstado():(S.p||S.f)?vGrupoBR():vBrasilE()})
+ br().then(function(){if(my!==token)return '';sincroniza();var ux=S.c?S.c.split('-')[0]:S.uf;if(ux&&!B.U[ux])return naoAchou();return S.c?(S.cid?vCandCidade():vCand()):S.cid&&S.uf?vCidade():S.uf?vEstado():(S.p||S.f)?vGrupoBR():vBrasilE()})
  .then(function(html){if(my!==token)return;vista.innerHTML=html;sincroniza();
   var rr=vista.getBoundingClientRect();if(rr.top>innerHeight*.55||rr.top<-40)scrollTo(0,Math.max(0,fRes.getBoundingClientRect().top+scrollY-8))})
  .catch(function(err){if(my!==token)return;if(window.console)console.error(err);vista.innerHTML='<section><p class="vazio-msg">Não consegui carregar os dados. Confira a conexão e toque no filtro de novo.</p></section>'})}
@@ -738,27 +825,28 @@ autocompleta(inCid,sCid,function(q){
  var fonte=S.uf?get('uf/'+S.uf+'.json').then(function(u){if(!u._cid)u._cid=u.cid.map(function(c){return [S.uf,c[0],c[1],c[2]]});return u._cid}):get('cidades.json');
  return Promise.all([fonte,br()]).then(function(r){var l=r[0],ks=chaves(l,2),idx=[];for(var i=0;i<l.length;i++)idx.push(i);
   return casa(idx,q,function(i){return ks[i]},8,function(i){return l[i][3]}).map(function(i){var c=l[i];return {uf:c[0],cd:c[1],t:c[2],s:B.U[c[0]].nome+' · '+fmt(c[3])+' eleitores'}})})},
- function(x){ir({uf:x.uf,cid:x.cd,f:S.f,p:S.p})},
+ function(x){ir({uf:x.uf,cid:x.cd,f:S.f,p:S.p,c:S.c&&S.c.split('-')[0]===x.uf?S.c:''})},
  function(){return 'Nenhuma cidade com esse nome'+(S.uf&&B.U[S.uf]?' em '+B.U[S.uf].nome+'. Para buscar no Brasil todo, escolha "Brasil (todos)" em Estado.':'.')});
-inCid.addEventListener('search',function(){if(!inCid.value&&S.cid)ir({uf:S.uf,f:S.f,p:S.p})});
+inCid.addEventListener('search',function(){if(!inCid.value&&S.cid)ir(S.c?{c:S.c}:{uf:S.uf,f:S.f,p:S.p})});
 autocompleta(inCand,sCand,function(q){return Promise.all([get('cand.json'),br()]).then(function(r){var l=r[0],ks=chaves(l,2),idx=[],res,G=grupo();for(var i=0;i<l.length;i++)idx.push(i);
   if(/^\d+$/.test(q))res=idx.filter(function(i){return String(l[i][1]).indexOf(q)===0});else res=casa(idx,q,function(i){return ks[i]},1e9);
   /* primeiro os do estado e do partido escolhidos lá em cima; dentro de cada grupo, a ordem da busca */
   var pe=function(i){return (S.uf&&l[i][0]!==S.uf?2:0)+(G&&!doGrupo(G,l[i][3])?1:0)};
   res=res.map(function(i,o){return [pe(i),o,i]}).sort(function(a,b){return a[0]-b[0]||a[1]-b[1]}).map(function(x){return x[2]});
   var out=res.slice(0,8).map(function(i){var c=l[i];return {uf:c[0],n:c[1],t:nomeProprio(c[2]),s:sg(c[3])+' · '+c[0].toUpperCase()+' · nº '+c[1]+' · '+fmt(c[4])+' votos'}});out.total=res.length;return out})},
- function(x){ir({c:x.uf+'-'+x.n})},
+ function(x){var mesma=S.cid&&S.uf===x.uf;ir({c:x.uf+'-'+x.n,uf:mesma?S.uf:'',cid:mesma?S.cid:''})},
  function(){return 'Nenhum candidato com esse nome ou número. Confira a grafia ou digite o número de urna.'});
-inCand.addEventListener('search',function(){if(!inCand.value&&S.c)ir({})});
+inCand.addEventListener('search',function(){if(!inCand.value&&S.c)ir(S.cid?{uf:S.uf,cid:S.cid}:{})});
 
 /* ---------- relatório em PDF (o código só carrega quando alguém pede) */
 var relBtn=$('#relatorio');
 function carregaScript(src){return new Promise(function(ok,falha){var s=d.createElement('script');s.src=src;s.onload=ok;s.onerror=function(){falha(new Error(src))};d.head.appendChild(s)})}
 var relPronto=null;
 if(relBtn)relBtn.addEventListener('click',function(){relBtn.disabled=true;
- relPronto=relPronto||carregaScript('relatorio.js?v=2');
+ relPronto=relPronto||carregaScript('relatorio.js?v=3');
  relPronto.then(function(){var Sx=Object.assign({},S);window.RELATORIO.abrir({S:Sx,get:get,rotulo:rotulo,depois:form,
-  recorte:function(cg){return carregaRecorte(Sx,cg).then(function(R){return R.m?{rot:R.rot,t:R.m.t,c:R.m.c,p:R.m.p}:null})}})})
+  recorte:function(cg){return carregaRecorte(Sx,cg).then(function(R){return R.m?{rot:R.rot,t:R.m.t,c:R.m.c,p:R.m.p}:null})},
+  candCidade:function(cg){return carregaCandCidade(Sx,cg)}})})
  .catch(function(){relPronto=null;alerta('Não consegui abrir o relatório. Confira a conexão e tente de novo.')})
  .then(function(){relBtn.disabled=false})});
 function alerta(t){fRes.innerHTML='<b>'+esc(t)+'</b>'}

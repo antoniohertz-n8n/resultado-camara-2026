@@ -31,7 +31,7 @@ function cargoTitulo(cg){return cg==='e'?'Deputado estadual e distrital':'Deputa
 function casaNome(cg,uf){return cg==='e'?(uf==='df'?'Câmara Legislativa do DF':'Assembleia Legislativa'):'Câmara dos Deputados'}
 
 /* ---------- o que existe em cada recorte */
-function tipoDe(S){return S.c?'cand':S.cid&&S.uf?'cidade':S.uf&&(S.p||S.f)?'grupoUF':S.uf?'estado':(S.p||S.f)?'grupo':'brasil'}
+function tipoDe(S){return S.c?(S.cid?'candCidade':'cand'):S.cid&&S.uf?'cidade':S.uf&&(S.p||S.f)?'grupoUF':S.uf?'estado':(S.p||S.f)?'grupo':'brasil'}
 var SECOES={
  brasil:[['resumo','Resumo do país','totais, comparecimento, brancos e nulos'],['clausula','Cláusula de barreira','só deputado federal: quem passou e onde não alcançou'],
   ['bancadas','Bancadas por partido','eleitos, votos e candidatos de cada partido'],['federacoes','Federações','partidos de cada federação e eleitos'],
@@ -46,9 +46,11 @@ var SECOES={
   ['cidades','Votos em cada cidade','votos do grupo, parte dos válidos e eleitores']],
  cidade:[['resumo','Resumo da cidade','eleitores, comparecimento, válidos, brancos, nulos e quociente'],['partidos','Votos por partido','votos e parte dos válidos de cada partido'],
   ['candidatos','Candidatos votados na cidade','com o filtro e a quantidade escolhidos']],
+ candCidade:[['resumo','Resumo do candidato na cidade','votos, parte do total, posição e situação'],['zonas','Votos por zona','todas as zonas da cidade, com e sem voto'],
+  ['locais','Votos por local de votação','todos os locais do recorte, com e sem voto'],['secoes','Votos por seção','todas as seções do recorte, com e sem voto']],
  cand:[['resumo','Resumo do candidato','votos, posição, situação e onde mais votou'],['cidades','Votos em cada cidade','na quantidade escolhida em Cidades']]
 };
-function temOpcCand(t){return t!=='cand'}
+function temOpcCand(t){return t!=='cand'&&t!=='candCidade'}
 function temOpcCid(t){return t==='estado'||t==='grupoUF'||t==='cand'}
 
 /* ---------- carregamento de dados (o mesmo formato da tela) */
@@ -277,14 +279,37 @@ function secCand(P,cg,b,u,cc,cfg,S){var x=cfg.secs,pr=S.c.split('-'),uf=pr[0],nu
   P.secao('Votos em cada cidade',(tot===1?'A única cidade do estado.':(cfg.cid.max&&cfg.cid.max<tot?cfg.cid.max+' de '+tot:'As '+tot)+' cidades do estado, '+(cfg.cid.ordem==='gm'?'começando pelas sem nenhum voto (as de mais eleitores primeiro).':'da que mais votou para a que menos votou; as sem voto vêm no fim.'))+' Teve voto em '+zerosFalt(lst,zeros)+'.',['Nº','Cidade','Eleitores','Votos','% do total','% dos votos da cidade'],limita(lst,cfg.cid.max).map(function(c,i){var ci=cid[c[0]];return [String(i+1),ci[1],fmt(ci[2]),fmt(c[1]),pc(c[1],k[4],1)+'%',pc(c[1],ci[4])+'%']}),
    {cols:{0:{halign:'right',cellWidth:10},1:{fontStyle:'bold'},2:{halign:'right'},3:{halign:'right',fontStyle:'bold'},4:{halign:'right'},5:{halign:'right'}}})}}
 
+function secCandCidade(P,cg,b,D,cfg,S){var x=cfg.secs;if(!D||!D.k||!D.ci||!D.a){P.texto('Candidato ou cidade não encontrado.',9,COR.ink);return}
+ var k=D.k,ci=D.ci,U=b.U[D.uf],a=D.a,nome=nomeProprio(k[1]),NA={cidade:'na cidade',zona:'na zona',local:'no local','seção':'na seção'},DA={cidade:'da cidade',zona:'da zona',local:'do local','seção':'da seção'};
+ function ord(arr){return arr.slice().sort(function(p,q){return q.v-p.v||q.base-p.base})}
+ if(x.resumo){P.titulo('Resumo · '+nome+' em '+ci[1],sgDe(b,k[3])+' · nº '+k[0]+' · '+cargoNome(cg,D.uf)+(a.rot?' · '+a.rot:''));
+  var kp=[{r:'Votos '+NA[a.onde],v:fmt(a.v),d:a.v?pc(a.v,a.base)+'% dos votos '+DA[a.onde]:'nenhum voto'},{r:'Posição '+NA[a.onde],v:a.v?a.pos+'º':'-',d:'entre '+fmt(a.nc)+' candidatos com voto'},
+   {r:'Do total do candidato',v:pc(a.v,k[4],1)+'%',d:fmt(k[4])+' votos em '+U.nome},{r:'Situação no estado',v:stTxt(k[5],k[6]),d:'resultado em '+U.nome}];
+  if(!D.zi&&D.zonas.length>1)kp.push({r:'Zonas com voto',v:D.zonas.filter(function(z){return z.v>0}).length+' de '+D.zonas.length,d:''});
+  if(D.locaisR&&!D.s1&&!D.lc)kp.push({r:'Locais com voto',v:D.locaisR.filter(function(l){return l.v>0}).length+' de '+D.locaisR.length,d:''});
+  if(D.secoesR&&!D.s1)kp.push({r:'Seções com voto',v:D.secoesR.filter(function(s){return s.v>0}).length+' de '+D.secoesR.length,d:''});
+  if(a.rot)kp.push({r:'Na cidade inteira',v:fmt(D.cid.v),d:D.cid.v?D.cid.pos+'º mais votado':'nenhum voto'});
+  P.kpis(kp)}
+ if(x.zonas&&!D.zi&&D.zonas.length>1)P.secao('Votos por zona · '+ci[1],'Da zona que deu mais votos ao candidato para a que deu menos; as sem voto vêm no fim, com os votos da zona.',['Zona','Locais','Seções','Votos','% da zona','Posição na zona'],
+  ord(D.zonas).map(function(z){return ['Zona '+z.z,String(z.nloc),fmt(z.nsec),fmt(z.v),z.v?pc(z.v,z.base)+'%':'-',z.v?z.pos+'º de '+fmt(z.nc):'sem voto ('+fmt(z.base)+' votos na zona)']}),
+  {cols:{0:{fontStyle:'bold'},1:{halign:'right'},2:{halign:'right'},3:{halign:'right',fontStyle:'bold'},4:{halign:'right'}}});
+ if(x.locais&&!D.s1&&!D.lc){if(!D.locaisR)P.nota(ci[1]+' tem '+fmt(D.nsec)+' seções. Para listar os locais de votação e as seções, escolha uma zona na tela e gere o PDF de novo.');
+  else P.secao('Votos por local de votação'+(D.zi?' · Zona '+D.zi[0]:' · '+ci[1]),'Cada prédio de votação, do que deu mais votos ao candidato para o que deu menos; os sem voto vêm no fim.',['Local de votação','Zona','Seções','Votos','% do local','Posição'],
+   ord(D.locaisR).map(function(l){return [l.nome,String(l.z),String(l.nsec),fmt(l.v),l.v?pc(l.v,l.base)+'%':'-',l.v?l.pos+'º de '+fmt(l.nc):'sem voto']}),
+   {cols:{0:{fontStyle:'bold'},1:{halign:'right'},2:{halign:'right'},3:{halign:'right',fontStyle:'bold'},4:{halign:'right'}}})}
+ if(x.secoes&&D.secoesR&&!D.s1)P.secao('Votos por seção'+(D.lc?' · '+D.lc[1]:D.zi?' · Zona '+D.zi[0]:' · '+ci[1]),'Cada seção, da que deu mais votos ao candidato para a que deu menos; as sem voto vêm no fim.',['Seção','Local de votação','Zona','Votos','% da seção','Posição'],
+  ord(D.secoesR).map(function(s){return [String(s.sc),s.loc,String(s.z),fmt(s.v),s.v?pc(s.v,s.base)+'%':'-',s.v?s.pos+'º de '+fmt(s.nc):'sem voto']}),
+  {cols:{0:{halign:'right'},2:{halign:'right'},3:{halign:'right',fontStyle:'bold'},4:{halign:'right'}}})}
+
 /* ---------- montagem: capa + um bloco por cargo */
-function rotScope(b,S,t){var p=[];if(t==='cand')return 'candidato';var G=grupoDe(b,S);if(G)p.push(G.g.sg);if(S.uf&&b.U[S.uf])p.push(b.U[S.uf].nome);if(t==='cidade'&&S._cidNome)p.push(S._cidNome);if(t==='cidade'&&S._rot)p.push(S._rot);return p.length?p.join(' · '):'Brasil'}
+function rotScope(b,S,t){var p=[];if(t==='cand')return 'candidato';if(t==='candCidade')return (S._candNome||'Candidato')+' em '+(S._cidNome||'cidade')+(S._rot?' · '+S._rot:'');var G=grupoDe(b,S);if(G)p.push(G.g.sg);if(S.uf&&b.U[S.uf])p.push(b.U[S.uf].nome);if(t==='cidade'&&S._cidNome)p.push(S._cidNome);if(t==='cidade'&&S._rot)p.push(S._rot);return p.length?p.join(' · '):'Brasil'}
 R.montaPDF=function(cfg,get,jsPDF){var S=cfg.S,t=tipoDe(S),cargos=cfg.cargo==='ambos'?['f','e']:[cfg.cargo];
  return Promise.all(cargos.map(function(cg){return get('brasil.json',cg).then(prepBR)})).then(function(bs){
   var b0=bs[0],extra=Promise.resolve(),recs=cargos.map(function(){return null});
   if(t==='cidade'){extra=get('uf/'+S.uf+'.json',cargos[0]).then(function(u){u.cid.forEach(function(c){if(c[0]===S.cid)S._cidNome=c[1]})});
    /* zona, local e seção da tela: cfg.recorte(cargo) devolve {rot,t,c,p} ou null (cidade inteira) */
    if(S.z&&cfg.recorte)extra=extra.then(function(){return Promise.all(cargos.map(function(cg){return cfg.recorte(cg)})).then(function(r){recs=r;S._rot=(r[0]||r[1]||{}).rot||''})})}
+  var ccD=null;if(t==='candCidade'&&cfg.candCidade)extra=cfg.candCidade(cargos[0]).then(function(D){ccD=D;if(D.k)S._candNome=nomeProprio(D.k[1]);if(D.ci)S._cidNome=D.ci[1];S._rot=D.a?D.a.rot:''});
   if(t==='cand')extra=get('uf/'+S.c.split('-')[0]+'.json',cargos[0]).then(function(u){u.cand.forEach(function(c){if(String(c[0])===S.c.split('-')[1])S._candNome=nomeProprio(c[1])})});
   return extra.then(function(){
    var escopo=t==='cand'?(S._candNome||'Candidato'):rotScope(b0,S,t),quando=cfg.quando||agora();
@@ -292,7 +317,7 @@ R.montaPDF=function(cfg,get,jsPDF){var S=cfg.S,t=tipoDe(S),cargos=cfg.cargo==='a
    var rp=S._rot?S._rot.split(' · '):[],locN=rp.filter(function(p){return !/^(Zona|Seção) /.test(p)}).join(' · '),
     escC=S._rot?escopo.replace(S._rot,rp.filter(function(p){return /^(Zona|Seção) /.test(p)}).join(' · ')):escopo,
     cgC=cargos.length>1?'federal e estadual':cargos[0]==='e'?'deputado estadual':'deputado federal';
-   var meta={titulo:escC+' · '+tCargo,sub:(locN?'Local de votação: '+locN+' · ':'')+'Relatório de '+({brasil:'resultado nacional',grupo:'partido ou federação no país',estado:'estado',grupoUF:'partido ou federação no estado',cidade:'cidade',cand:'candidato'}[t]),
+   var meta={titulo:escC+' · '+tCargo,sub:(locN?'Local de votação: '+locN+' · ':'')+'Relatório de '+({brasil:'resultado nacional',grupo:'partido ou federação no país',estado:'estado',grupoUF:'partido ou federação no estado',cidade:'cidade',cand:'candidato',candCidade:'candidato na cidade'}[t]),
     quando:quando,dados:b0.at,curto:'Eleições 2026 · '+escC+' · '+cgC};
    var P=Papel(jsPDF,meta);P.capa();
    var marcadas=SECOES[t].filter(function(s){return cfg.secs[s[0]]}),fora=SECOES[t].filter(function(s){return !cfg.secs[s[0]]});
@@ -306,6 +331,7 @@ R.montaPDF=function(cfg,get,jsPDF){var S=cfg.S,t=tipoDe(S),cargos=cfg.cargo==='a
     if(t==='grupo')return get('cand.json',cg).then(function(cs){secGrupo(P,cg,b,cs,cfg,S)});
     if(t==='estado'||t==='grupoUF')return Promise.all([get('uf/'+S.uf+'.json',cg),(S.p||S.f)?get('pm/'+S.uf+'.json',cg):null]).then(function(r){secEstado(P,cg,b,r[0],r[1],cfg,S)});
     if(t==='cidade')return Promise.all([get('uf/'+S.uf+'.json',cg),get('m/'+S.uf+'/'+S.cid+'.json',cg)]).then(function(r){secCidade(P,cg,b,r[0],r[1],cfg,S,recs[i])});
+    if(t==='candCidade')return secCandCidade(P,cg,b,ccD,cfg,S);
     if(t==='cand'){var uf=S.c.split('-')[0];return get('uf/'+uf+'.json',cg).then(function(u){var k=null;u.cand.forEach(function(c){if(String(c[0])===S.c.split('-')[1])k=c});
      return (k?get('cc/'+uf+'/'+k[3]+'.json',cg).catch(function(){return {}}):Promise.resolve({})).then(function(cc){secCand(P,cg,b,u,cc,cfg,S)})})}})});
    var arq=S._rot?escopo.replace(S._rot,S._rot.split(' · ').filter(function(p){return /^(Zona|Seção) /.test(p)}).join(' ')):escopo;
@@ -328,7 +354,7 @@ R.abrir=function(ctx){CTX=ctx;var S=ctx.S,t=tipoDe(S);
  var h='<section class="rel" id="rel" aria-labelledby="rel-t"><div class="rel-h"><h2 id="rel-t">Relatório em PDF</h2><button type="button" class="limpa" data-rel="fechar">Fechar</button></div>'+
   '<p class="rel-rec">Recorte: '+ctx.rotulo().replace(/^Mostrando:?\s*(o\s)?/,'')+'. Para mudar o recorte, use os filtros acima e toque de novo em Relatório.</p>'+
   '<fieldset class="caixa"><legend>Cargo</legend><div class="seg" data-grupo="cargo">'+
-  [['f','Deputado federal'],['e','Deputado estadual'],['ambos','Os dois']].filter(function(o){return t!=='cand'||o[0]===cg0}).map(function(o){return '<button type="button" data-v="'+o[0]+'" class="'+(o[0]===cg0?'on':'')+'" aria-pressed="'+(o[0]===cg0)+'">'+o[1]+'</button>'}).join('')+'</div></fieldset>'+
+  [['f','Deputado federal'],['e','Deputado estadual'],['ambos','Os dois']].filter(function(o){return (t!=='cand'&&t!=='candCidade')||o[0]===cg0}).map(function(o){return '<button type="button" data-v="'+o[0]+'" class="'+(o[0]===cg0?'on':'')+'" aria-pressed="'+(o[0]===cg0)+'">'+o[1]+'</button>'}).join('')+'</div></fieldset>'+
   '<div class="rel-pe"><span class="rel-st" aria-live="polite"></span><button type="button" class="pdf-btn" data-rel="pdf">Baixar PDF</button></div>'+
   '<details class="rel-mais"><summary>Escolher o que entra no PDF</summary>'+
   '<fieldset class="caixa"><legend>O que entra no relatório</legend><div class="rel-secs">'+secs.map(function(s){return '<label class="chk"><input type="checkbox" data-sec="'+s[0]+'" checked><span><b>'+esc(s[1])+'</b><small>'+esc(s[2])+'</small></span></label>'}).join('')+'</div></fieldset>'+
@@ -344,7 +370,7 @@ R.abrir=function(ctx){CTX=ctx;var S=ctx.S,t=tipoDe(S);
   if(b.dataset.rel==='pdf')gerar(b)})};
 function lerCfg(){var S=CTX.S,secs={};[].forEach.call(box.querySelectorAll('[data-sec]'),function(c){secs[c.dataset.sec]=c.checked});
  var cg=box.querySelector('[data-grupo="cargo"] .on');
- return {S:Object.assign({},S),recorte:CTX.recorte,cargo:cg?cg.dataset.v:(S.cg==='e'?'e':'f'),secs:secs,
+ return {S:Object.assign({},S),recorte:CTX.recorte,candCidade:CTX.candCidade,cargo:cg?cg.dataset.v:(S.cg==='e'?'e':'f'),secs:secs,
   cand:{filtro:(box.querySelector('#rel-cf')||{}).value||'todos',max:+((box.querySelector('#rel-cm')||{}).value||50)},
   cid:{max:+((box.querySelector('#rel-xm')||{}).value||50),ordem:(box.querySelector('#rel-xo')||{}).value||'te'}}}
 function gerar(btn){var st=box.querySelector('.rel-st'),cfg=lerCfg();
