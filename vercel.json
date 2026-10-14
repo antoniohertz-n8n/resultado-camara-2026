@@ -1,6 +1,11 @@
 {
   "headers": [
     { "source": "/d/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=600, must-revalidate" }] },
+    { "source": "/e/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=600, must-revalidate" }] },
     { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] }
+  ],
+  "rewrites": [
+    { "source": "/carol", "destination": "/cenario-carol.html" },
+    { "source": "/cenario-carol", "destination": "/cenario-carol.html" }
   ]
 }
